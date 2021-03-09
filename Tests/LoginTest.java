@@ -5,12 +5,14 @@ import org.junit.runner.RunWith;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginTest {
     Login myLogin;
     User testUser;
+    private javax.swing.JButton jButton1;
 
     @BeforeEach
     public void setup() {
