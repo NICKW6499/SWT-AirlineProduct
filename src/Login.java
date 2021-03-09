@@ -131,14 +131,21 @@ public class Login extends javax.swing.JFrame {
         loginButton(username, password);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void loginButton(String username, String password) {
-        if(username == null || password == null){
+    //this method is called when jbutton1 is triggered, method body was moved from original method to enable testing
+    public String loginButton(String username, String password) {
+        //error string
+        String error = "beginning";
+
+        //null condition added for username and password
+        if (username == null || password == null) {
+            error = "UserName or Password Blank";
             throw new NullPointerException();
-        }
-        else if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "UserName or Password Blank");
-        }
-        else {
+
+
+        } else if (username.isEmpty() || password.isEmpty()) {
+            error = "UserName or Password Blank";
+            JOptionPane.showMessageDialog(this, error);
+        } else {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
@@ -154,13 +161,15 @@ public class Login extends javax.swing.JFrame {
                     Main m = new Main();
                     this.hide();
                     m.setVisible(true);
-
+                    error = "validated";
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "UserName or Password do not Match");
+                    String userPwWrong = "UserName or Password do not Match";
+                    JOptionPane.showMessageDialog(this, userPwWrong);
                     txtuser.setText("");
                     txtpass.setText("");
                     txtuser.requestFocus();
+                    return userPwWrong;
 
 
                 }
@@ -174,6 +183,7 @@ public class Login extends javax.swing.JFrame {
 
 
         }
+        return error;
     }
 
     /**
