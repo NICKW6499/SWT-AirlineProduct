@@ -8,7 +8,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
+/** Class LoginTest
+ User class was created to hold user information for the sake of comparing inputs for testing.
 
+ Equivalence partitioning is used to test instances of valid login inputs, null values, and empty inputs.
+
+ Block 1: Valid login attempt.
+ Block 2: Null login values.
+ Block 3: Empty login values.**/
 class LoginTest {
     Login myLogin;
     User testUser;
