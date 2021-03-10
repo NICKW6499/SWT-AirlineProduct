@@ -15,29 +15,52 @@ import static org.junit.jupiter.api.Assertions.*;
 
  Block 1: Valid login attempt.
  Block 2: Null login values.
- Block 3: Empty login values.**/
+ Block 3: Invalid login values.**/
 class LoginTest {
     Login myLogin;
     User testUser;
     private javax.swing.JButton jButton1;
 
-    //setup to initialize new login object
+    // setup to initialize new login object
     @BeforeEach
     public void setup() {
         myLogin = new Login();
     }
 
-    //this test method compares valid info in the database to user input and grants access if valid
+    /**
+     * Test Case ID: Test Criteria #1 - Positive Testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: Test method compares valid info in the database to user input and grants access if input is valid.
+     * Test setup: A new User object is created with username value "john" and password value "123".
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 1, valid login attempt.
+     * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
+     * Expected Output: Returns "validated" after assertion compares testUser with what is registered in
+     * the database.
+     * **/
     @Test
     @DisplayName("Positive testing with correct credentials and data type")
     public void testLoginButtonPositive() {
-        testUser = new User("hh", "hh");
+        testUser = new User("john", "123");
         myLogin.loginButton(testUser.getUsername(), testUser.getPassword());
         assertEquals("validated",  myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
     }
 
-    //this method tests for null characters in a method and compares the output
+    /**
+     * Test Case ID: Test Criteria #2 - Negative Testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: To test that the program handles a NullPointerException properly given null inputs during
+     * a login attempt.
+     * Test setup: A new User object is created with username and password value set as null.
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 2, null login values.
+     * Input: Null username and password values.
+     * Expected Output: The NullPointerException should be caught and output the NullPointerException
+     * message "null".
+     * **/
     @Test
     @DisplayName("Negative testing with null parameters")
     public void testLoginButtonNegative() {
@@ -49,7 +72,17 @@ class LoginTest {
 
     }
 
-    //This test method uses incorrect data to gain access to the system
+    /**
+     * Test Case ID: Testing Criteria #3 - Input validation testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: To test a login attempt with unregistered username and password values.
+     * Test setup: A new User object is created with username value "fake" and password value "notReal".
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 3, invalid login values.
+     * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
+     * Expected Output: Output string displayed on the GUI “UserName or Password do not Match”.
+     * **/
     @Test
     @DisplayName("Input validation with correct data type but wrong values")
     public void testLoginButtonInputVal() {

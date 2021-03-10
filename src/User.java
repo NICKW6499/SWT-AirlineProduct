@@ -1,10 +1,12 @@
 public class User {
+
     private String username;
     private String password;
     private String id;
     private String firstName;
     private String lastName;
 
+    // Generated default constructor.
     public User(String username, String password, String id, String firstName, String lastName) {
         this.username = username;
         this.password = password;
@@ -13,6 +15,7 @@ public class User {
         this.lastName = lastName;
     }
 
+    // Overloaded constructor to handle username and password values.
     public User(String username, String password) {
         this.username = username;
         this.password = password;

@@ -4,12 +4,8 @@
     <data-source source="LOCAL" name="AirlineDB" uuid="be71a952-e039-4fb3-ba16-3610ef022da5">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/AirLineDB</jdbc-url>
-      <jdbc-additional-properties>
-        <property name="APPROVED_DRIVER" value="mysql.8" />
-      </jdbc-additional-properties>
-      <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
 </project>
