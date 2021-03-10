@@ -2,4 +2,4 @@
 
 Software Testing project
 
-By: Sabrina Kienholz, Dory Mauretour, Nicholis Wright
+By: Sabrina Kienholz, Dory Mauretour,  Nicholis Wright
