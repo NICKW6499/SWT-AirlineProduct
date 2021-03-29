@@ -338,15 +338,15 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
+    public void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtlastnameActionPerformed
 
-    private void txtpassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassportActionPerformed
+    public void txtpassportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpassportActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
 
@@ -381,7 +381,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -435,13 +435,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
 
         String id = txtcustid.getText();
@@ -513,31 +513,31 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton r1;
-    private javax.swing.JRadioButton r2;
-    private javax.swing.JTextArea txtaddress;
-    private javax.swing.JTextField txtcontact;
-    private javax.swing.JTextField txtcustid;
-    private javax.swing.JTextField txtfirstname;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JTextField txtnic;
-    private javax.swing.JTextField txtpassport;
-    private javax.swing.JLabel txtphoto;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
+    public static javax.swing.JButton jButton3;
+    public static javax.swing.JButton jButton4;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel10;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel2;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JRadioButton r1;
+    public static javax.swing.JRadioButton r2;
+    public static javax.swing.JTextArea txtaddress;
+    public static javax.swing.JTextField txtcontact;
+    public static javax.swing.JTextField txtcustid;
+    public static javax.swing.JTextField txtfirstname;
+    public static javax.swing.JTextField txtlastname;
+    public static javax.swing.JTextField txtnic;
+    public static javax.swing.JTextField txtpassport;
+    public static javax.swing.JLabel txtphoto;
     // End of variables declaration//GEN-END:variables
 }

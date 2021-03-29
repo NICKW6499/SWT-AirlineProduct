@@ -1,12 +1,9 @@
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -170,42 +167,11 @@ public class userCreation extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-        String id = txtuserid.getText();
-        String firstname = txtfirstname.getText();
-        String lastname = txtlastname.getText();
-        String username = txtusername.getText();
-        String password = txtpassword.getText();
-
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con = getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
-            pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
-
-            pst.setString(1, id);
-            pst.setString(2, firstname);
-            pst.setString(3, lastname);
-            pst.setString(4, username);
-            pst.setString(5, password);
-
-
-            pst.executeUpdate();
-
-
-            JOptionPane.showMessageDialog(null, "User Created.........");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      createUserButton();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -238,21 +204,64 @@ public class userCreation extends javax.swing.JInternalFrame {
 
 
     }
+    public String createUserButton(){
+        String message = "A field is blank";
+        if (checkValues()) {
+            String id = txtuserid.getText();
+            String firstname = txtfirstname.getText();
+            String lastname = txtlastname.getText();
+            String username = txtusername.getText();
+            String password = txtpassword.getText();
 
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
+                pst = con.prepareStatement("insert into user(id,firstname,lastname,username,password)values(?,?,?,?,?)");
+
+                pst.setString(1, id);
+                pst.setString(2, firstname);
+                pst.setString(3, lastname);
+                pst.setString(4, username);
+                pst.setString(5, password);
+
+
+                pst.executeUpdate();
+
+
+                JOptionPane.showMessageDialog(null, "User Created.........");
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            message = "complete";
+        }
+        return message;
+    }
+
+    public boolean checkValues() {
+        if (txtuserid.getText() == null || txtfirstname.getText() == null || txtlastname.getText() == null
+                || txtusername.getText() == null || txtpassword.getText() == null || txtuserid.getText() == "" ||
+                txtfirstname.getText() == "" || txtlastname.getText() == ""
+                || txtusername.getText() == "" || txtpassword.getText() == "") {
+            return false;
+        }
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtfirstname;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JPasswordField txtpassword;
-    private javax.swing.JLabel txtuserid;
-    private javax.swing.JTextField txtusername;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JTextField txtfirstname;
+    public static javax.swing.JTextField txtlastname;
+    public static javax.swing.JPasswordField txtpassword;
+    public static javax.swing.JLabel txtuserid;
+    public static javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }

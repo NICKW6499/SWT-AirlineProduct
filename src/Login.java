@@ -170,8 +170,6 @@ public class Login extends javax.swing.JFrame {
                     txtpass.setText("");
                     txtuser.requestFocus();
                     return userPwWrong;
-
-
                 }
 
 
@@ -222,12 +220,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField txtpass;
-    private javax.swing.JTextField txtuser;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JPasswordField txtpass;
+    public static javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }

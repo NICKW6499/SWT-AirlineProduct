@@ -11,29 +11,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-
-public class addflight extends javax.swing.JInternalFrame {
+public class AddFlight extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form addflight
      */
-    public addflight() {
+    public AddFlight() {
         initComponents();
         autoID();
     }
     
      Connection con;
     PreparedStatement pst;
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -225,8 +220,6 @@ public class addflight extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
      public void autoID()
     {
         try {
@@ -245,81 +238,83 @@ public class addflight extends javax.swing.JInternalFrame {
                 long id = Long.parseLong(rs.getString("MAX(id)").substring(2,rs.getString("MAX(id)").length()));
                 id++;
                  txtflightid.setText("FO" + String.format("%03d", id));
-                
-                
             }
-            
-            
-            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
-    
-    
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-           String id = txtflightid.getText();
-         String flightname = txtflightname.getText();
-         
-         String source = txtsource.getSelectedItem().toString().trim();
-         String depart = txtdepart.getSelectedItem().toString().trim(); 
-         
-       DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        String date = da.format(txtdate.getDate());
 
-      
-         String departtime = txtdtime.getText();
-         String arrtime = txtarrtime.getText();
-         String flightcharge = txtflightcharge.getText();
-         
-         
-      
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-             con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB","root","");
-            pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
-            
-            pst.setString(1, id);
-            pst.setString(2, flightname);
-            pst.setString(3, source);
-            pst.setString(4, depart);
-            pst.setString(5, date);
-            pst.setString(6, departtime);
-            pst.setString(7, arrtime);
-            pst.setString(8, flightcharge);
-           
-            pst.executeUpdate();
-            
-            
-            JOptionPane.showMessageDialog(null,"Flight Createdd.........");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(addflight.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    public boolean checkBoxes(){
+        if((txtflightid.getText() == null) ||(txtflightname.getText() == null)
+                ||(txtsource.getSelectedItem() == null) ||(txtdepart.getSelectedItem() == null)
+                ||(txtdate.getDate() == null) ||(txtdtime.getText() == null)
+                ||(txtarrtime.getText() == null)||(txtflightcharge.getText() == null) ||(txtflightid.getText() == "") ||(txtflightname.getText() == "")
+                ||(txtsource.getSelectedItem() == "") ||(txtdepart.getSelectedItem() == "")
+                ||(txtdtime.getText() == "")
+                ||(txtarrtime.getText() == "")||(txtflightcharge.getText() == "") ){
+            return false;
         }
-           
-            
-            
-        
-        
-        
+        else return true;
+    }
+
+    public String addFlightButton(){
+        String message;
+        if(checkBoxes()) {
+            int price = Integer.parseInt(txtflightcharge.getText());
+            if (price > 0) {
+                String id = txtflightid.getText();
+                String flightname = txtflightname.getText();
+
+                String source = txtsource.getSelectedItem().toString().trim();
+                String depart = txtdepart.getSelectedItem().toString().trim();
+
+                DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+                String date = da.format(txtdate.getDate());
+
+                String departtime = txtdtime.getText();
+                String arrtime = txtarrtime.getText();
+                String flightcharge = txtflightcharge.getText();
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
+                    pst = con.prepareStatement("insert into flight(id,flightname,source,depart,date,deptime,arrtime,flightcharge)values(?,?,?,?,?,?,?,?)");
+
+                    pst.setString(1, id);
+                    pst.setString(2, flightname);
+                    pst.setString(3, source);
+                    pst.setString(4, depart);
+                    pst.setString(5, date);
+                    pst.setString(6, departtime);
+                    pst.setString(7, arrtime);
+                    pst.setString(8, flightcharge);
+
+                    pst.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Flight Created");
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                message = "complete";
+                return message;
+            }
+            message = "Price must be greater than zero";
+            return message;
+        }
+        else{
+            message = "failed";
+            return message;
+        }
+    }
+
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        addFlightButton();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -328,26 +323,25 @@ public class addflight extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtarrtime;
-    private com.toedter.calendar.JDateChooser txtdate;
-    private javax.swing.JComboBox<String> txtdepart;
-    private javax.swing.JTextField txtdtime;
-    private javax.swing.JTextField txtflightcharge;
-    private javax.swing.JLabel txtflightid;
-    private javax.swing.JTextField txtflightname;
-    private javax.swing.JComboBox<String> txtsource;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel7;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JTextField txtarrtime;
+    public static com.toedter.calendar.JDateChooser txtdate;
+    public static javax.swing.JComboBox<String> txtdepart;
+    public static javax.swing.JTextField txtdtime;
+    public static javax.swing.JTextField txtflightcharge;
+    public static javax.swing.JLabel txtflightid;
+    public static javax.swing.JTextField txtflightname;
+    public static javax.swing.JComboBox<String> txtsource;
     // End of variables declaration//GEN-END:variables
 }

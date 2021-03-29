@@ -3,6 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class LoginTest {
     Login myLogin;
     User testUser;
-    private javax.swing.JButton jButton1;
 
     // setup to initialize new login object
     @BeforeEach
@@ -42,7 +42,8 @@ class LoginTest {
     @Test
     @DisplayName("Positive testing with correct credentials and data type")
     public void testLoginButtonPositive() {
-        testUser = new User("john", "123");
+        testUser = new User("hh", "hh");
+        Login.jButton1.doClick();
         myLogin.loginButton(testUser.getUsername(), testUser.getPassword());
         assertEquals("validated",  myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));

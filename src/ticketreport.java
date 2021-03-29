@@ -87,7 +87,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -138,8 +138,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

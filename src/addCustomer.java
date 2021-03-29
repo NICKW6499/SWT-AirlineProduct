@@ -36,6 +36,11 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class addCustomer extends javax.swing.JInternalFrame {
 
+    Connection con;
+    PreparedStatement pst;
+
+    String path=null;
+    byte[] userimage=null;
     /**
      * Creates new form addCustomer
      */
@@ -43,12 +48,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         initComponents();
         autoID();
     }
-    
-   Connection con;
-    PreparedStatement pst;
-    
-    String path=null;
-    byte[] userimage=null;
+
     
 
     /**
@@ -368,14 +368,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     private void txtlastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtlastnameActionPerformed
         // TODO add your handling code here:
@@ -385,25 +378,25 @@ public class addCustomer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtpassportActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public  void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-    
-      
+
+
+
         try {
         JFileChooser picchooser = new JFileChooser();
        picchooser.showOpenDialog(null);
-       File pic = picchooser.getSelectedFile();       
+       File pic = picchooser.getSelectedFile();
        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images","png","jpg");
-       picchooser.addChoosableFileFilter(filter);     
+       picchooser.addChoosableFileFilter(filter);
        path= pic.getAbsolutePath();
-       BufferedImage img;                    
+       BufferedImage img;
        img = ImageIO.read(picchooser.getSelectedFile());
        ImageIcon imageIcon = new ImageIcon(new
        ImageIcon(img).getImage().getScaledInstance(250, 250, Image.SCALE_DEFAULT));
-              txtphoto.setIcon(imageIcon); 
-              
-              
+              txtphoto.setIcon(imageIcon);
+
+
              File image = new File(path);
             FileInputStream fis = new FileInputStream(image);
             ByteArrayOutputStream baos= new ByteArrayOutputStream();
@@ -413,28 +406,17 @@ public class addCustomer extends javax.swing.JInternalFrame {
                 baos.write(buff,0,readNum);
             }
             userimage=baos.toByteArray();
-              
-              
-              
+
+
+
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
-       
-       
-       
-       
-       
-       
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
         String id = txtid.getText();
@@ -443,7 +425,8 @@ public class addCustomer extends javax.swing.JInternalFrame {
          String nic = txtnic.getText(); 
         String passport = txtpassport.getText();
          String address = txtaddress.getText();
-        
+        String contact = txtcontact.getText();
+
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
@@ -458,7 +441,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
             Gender = "FeMale";
         }
         
-         String contact = txtcontact.getText();
+
          
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -486,19 +469,19 @@ public class addCustomer extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-         
-         
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
         this.hide();
@@ -506,30 +489,30 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JRadioButton r1;
-    private javax.swing.JRadioButton r2;
-    private javax.swing.JTextArea txtaddress;
-    private javax.swing.JTextField txtcontact;
-    private javax.swing.JTextField txtfirstname;
-    private javax.swing.JLabel txtid;
-    private javax.swing.JTextField txtlastname;
-    private javax.swing.JTextField txtnic;
-    private javax.swing.JTextField txtpassport;
-    private javax.swing.JLabel txtphoto;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JButton jButton2;
+    public static javax.swing.JButton jButton3;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel10;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JLabel jLabel5;
+    public static javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel8;
+    public static javax.swing.JLabel jLabel9;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel2;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JRadioButton r1;
+    public static javax.swing.JRadioButton r2;
+    public static javax.swing.JTextArea txtaddress;
+    public static javax.swing.JTextField txtcontact;
+    public static javax.swing.JTextField txtfirstname;
+    public static javax.swing.JLabel txtid;
+    public static javax.swing.JTextField txtlastname;
+    public static javax.swing.JTextField txtnic;
+    public static javax.swing.JTextField txtpassport;
+    public static javax.swing.JLabel txtphoto;
     // End of variables declaration//GEN-END:variables
 }
