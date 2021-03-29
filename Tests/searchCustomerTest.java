@@ -7,6 +7,15 @@ class searchCustomerTest {
 
     @BeforeEach
     void setUp() {
+        addCustomer.txtid.setText("");
+        addCustomer.txtfirstname.setText("");
+        addCustomer.txtlastname.setText("");
+        addCustomer.txtnic.setText("");
+        addCustomer.txtpassport.setText("");
+        addCustomer.txtaddress.setText("");
+        addCustomer.txtcontact.setText("");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
     }
 
     @Test

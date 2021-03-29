@@ -53,6 +53,42 @@ addCustomer customer= new addCustomer();
         addCustomer.jButton1.doClick();
         addCustomer.jButton2.doClick();
     }
+    @Test
+    @DisplayName("Empty String Testing")
+    void CreateCustomerT12() {
+        addCustomer.txtid.setText("");
+        addCustomer.txtfirstname.setText("");
+        addCustomer.txtlastname.setText("");
+        addCustomer.txtnic.setText("");
+        addCustomer.txtpassport.setText("");
+        addCustomer.txtaddress.setText("");
+        addCustomer.txtcontact.setText("");
+        addCustomer.r1.setSelected(true);
+        addCustomer.r2.setSelected(false);
+        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+        JCalendar txtdob = new JCalendar();
+        String date = da.format(txtdob.getDate());
+        addCustomer.jButton1.doClick();
+        addCustomer.jButton2.doClick();
+    }
+    @Test
+    @DisplayName("Null Testing")
+    void CreateCustomerT13() {
+        addCustomer.txtid.setText(null);
+        addCustomer.txtfirstname.setText(null);
+        addCustomer.txtlastname.setText(null);
+        addCustomer.txtnic.setText(null);
+        addCustomer.txtpassport.setText(null);
+        addCustomer.txtaddress.setText(null);
+        addCustomer.txtcontact.setText(null);
+        addCustomer.r1.setSelected(true);
+        addCustomer.r2.setSelected(false);
+        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+        JCalendar txtdob = new JCalendar();
+        String date = da.format(txtdob.getDate());
+        addCustomer.jButton1.doClick();
+        addCustomer.jButton2.doClick();
+    }
 
     @Test
     void jButton3ActionPerformed() {
