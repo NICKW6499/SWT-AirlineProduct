@@ -1,6 +1,7 @@
 
 
 
+import com.mysql.cj.jdbc.exceptions.PacketTooBigException;
 import com.toedter.calendar.JCalendar;
 
 import java.awt.Image;
@@ -347,8 +348,150 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtpassportActionPerformed
 
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    updatePhoto();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+
+    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        updateUser();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public String updateUser(){
+        // TODO add your handling code here:
+        String message = "A field is empty";
+        if(checkValues()) {
+            message = "complete";
+            String id = txtcustid.getText();
+            String firstname = txtfirstname.getText();
+            String lastname = txtlastname.getText();
+            String nic = txtnic.getText();
+            String passport = txtpassport.getText();
+            String address = txtaddress.getText();
+
+            DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
+            JCalendar txtdob = new JCalendar();
+            String date = da.format(txtdob.getDate());
+            String Gender;
+
+            if (r1.isSelected()) {
+                Gender = "Male";
+            } else {
+                Gender = "FeMale";
+            }
+
+            String contact = txtcontact.getText();
+
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
+                pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
+
+
+                pst.setString(1, firstname);
+                pst.setString(2, lastname);
+                pst.setString(3, nic);
+                pst.setString(4, passport);
+                pst.setString(5, address);
+                pst.setString(6, date);
+                pst.setString(7, Gender);
+                pst.setString(8, contact);
+                pst.setBytes(9, userimage);
+                pst.setString(10, id);
+                pst.executeUpdate();
+
+
+                JOptionPane.showMessageDialog(null, "Registration Updated.");
+
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return message;
+    }
+
+    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.hide();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        searchCustomer();
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public String searchCustomer(){
+        // TODO add your handling code here:
+        String message = "A field is empty";
+        if(txtcustid.getText() != "" && txtcustid.getText() != null) {
+            message = "complete";
+            String id = txtcustid.getText();
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
+                pst = con.prepareStatement("select * from customer where id = ?");
+                pst.setString(1, id);
+                ResultSet rs = pst.executeQuery();
+
+                if (rs.next() == false) {
+                    message = "record not found";
+                    JOptionPane.showMessageDialog(this, "Record not Found");
+                } else {
+                    String fname = rs.getString("firstname");
+                    String lname = rs.getString("lastname");
+                    String nic = rs.getString("nic");
+                    String passport = rs.getString("passport");
+
+                    String address = rs.getString("address");
+                    String dob = rs.getString("dob");
+                    Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(dob);
+                    String gender = rs.getString("gender");
+
+                    Blob blob = rs.getBlob("photo");
+                    byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
+                    ImageIcon image = new ImageIcon(_imagebytes);
+                    Image im = image.getImage();
+
+                    Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon newImage = new ImageIcon(myImg);
+
+
+                    if (gender.equals("Female")) {
+                        r1.setSelected(false);
+                        r2.setSelected(true);
+
+                    } else {
+                        r1.setSelected(true);
+                        r2.setSelected(false);
+                    }
+                    String contact = rs.getString("contact");
+
+
+                    txtfirstname.setText(fname.trim());
+                    txtlastname.setText(lname.trim());
+                    txtnic.setText(nic.trim());
+                    txtpassport.setText(passport.trim());
+                    txtaddress.setText(address.trim());
+                    txtcontact.setText(contact.trim());
+                    JCalendar txtdob = new JCalendar();
+                    txtdob.setDate(date1);
+                    txtphoto.setIcon(newImage);
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ParseException ex) {
+                Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return message;
+    }
+
+    public String updatePhoto(){
 
         try {
             JFileChooser picchooser = new JFileChooser();
@@ -376,141 +519,26 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+            return "An error occurred";
         }
-
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-
-        String id = txtcustid.getText();
-        String firstname = txtfirstname.getText();
-        String lastname = txtlastname.getText();
-        String nic = txtnic.getText();
-        String passport = txtpassport.getText();
-        String address = txtaddress.getText();
-
-        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-        JCalendar txtdob = new JCalendar();
-        String date = da.format(txtdob.getDate());
-        String Gender;
-
-        if (r1.isSelected()) {
-            Gender = "Male";
-        } else {
-            Gender = "FeMale";
+        catch(NullPointerException ex){
+            return "An error occurred";
         }
+        return "complete";
 
-        String contact = txtcontact.getText();
+    }
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
-            pst = con.prepareStatement("update customer set firstname = ?,lastname = ?,nic = ?,passport = ?,address= ?,dob = ?,gender = ?,contact = ?,photo = ? where id = ?");
-
-
-            pst.setString(1, firstname);
-            pst.setString(2, lastname);
-            pst.setString(3, nic);
-            pst.setString(4, passport);
-            pst.setString(5, address);
-            pst.setString(6, date);
-            pst.setString(7, Gender);
-            pst.setString(8, contact);
-            pst.setBytes(9, userimage);
-            pst.setString(10, id);
-            pst.executeUpdate();
-
-
-            JOptionPane.showMessageDialog(null, "Registration Updated.");
-
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
+    public boolean checkValues(){
+        if(  txtaddress.getText().equals("")|| txtcontact.getText().equals("")|| txtfirstname.getText().equals("")
+                || txtcustid.getText().equals("")|| txtlastname.getText().equals("")|| txtnic.getText().equals("")
+                || txtpassport.getText().equals("")|| txtphoto.getText().equals("")|| txtaddress.getText() == null
+                || txtcontact.getText() == null || txtfirstname.getText() == null
+                || txtcustid.getText() == null || txtlastname.getText() == null || txtnic.getText() == null
+                || txtpassport.getText() == null || txtphoto.getText() == null){
+            return false;
         }
-
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-
-        this.hide();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-
-        String id = txtcustid.getText();
-
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
-            pst = con.prepareStatement("select * from customer where id = ?");
-            pst.setString(1, id);
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next() == false) {
-                JOptionPane.showMessageDialog(this, "Record not Found");
-            } else {
-                String fname = rs.getString("firstname");
-                String lname = rs.getString("lastname");
-                String nic = rs.getString("nic");
-                String passport = rs.getString("passport");
-
-                String address = rs.getString("address");
-                String dob = rs.getString("dob");
-                Date date1 = new SimpleDateFormat("yyyy-MM-dd").parse(dob);
-                String gender = rs.getString("gender");
-
-                Blob blob = rs.getBlob("photo");
-                byte[] _imagebytes = blob.getBytes(1, (int) blob.length());
-                ImageIcon image = new ImageIcon(_imagebytes);
-                Image im = image.getImage();
-                Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
-                ImageIcon newImage = new ImageIcon(myImg);
-
-
-                if (gender.equals("Female")) {
-                    r1.setSelected(false);
-                    r2.setSelected(true);
-
-                } else {
-                    r1.setSelected(true);
-                    r2.setSelected(false);
-                }
-                String contact = rs.getString("contact");
-
-
-                txtfirstname.setText(fname.trim());
-                txtlastname.setText(lname.trim());
-                txtnic.setText(nic.trim());
-                txtpassport.setText(passport.trim());
-                txtaddress.setText(address.trim());
-                txtcontact.setText(contact.trim());
-                JCalendar txtdob = new JCalendar();
-                txtdob.setDate(date1);
-                txtphoto.setIcon(newImage);
-
-
-            }
-
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(searchCustomer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton jButton1;

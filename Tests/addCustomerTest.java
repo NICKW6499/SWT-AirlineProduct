@@ -86,7 +86,7 @@ addCustomer customer= new addCustomer();
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
-        addCustomer.jButton1.doClick();
+        //addCustomer.jButton1.doClick();
         addCustomer.jButton2.doClick();
     }
 
