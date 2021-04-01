@@ -9,14 +9,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
-/** Class LoginTest
- User class was created to hold user information for the sake of comparing inputs for testing.
 
- Equivalence partitioning is used to test instances of valid login inputs, null values, and empty inputs.
-
- Block 1: Valid login attempt.
- Block 2: Null login values.
- Block 3: Invalid login values.**/
+/**
+ * Class LoginTest
+ * User class was created to hold user information for the sake of comparing inputs for testing.
+ * <p>
+ * Equivalence partitioning is used to test instances of valid login inputs, null values, and empty inputs.
+ * <p>
+ * Block 1: Valid login attempt.
+ * Block 2: Null login values.
+ * Block 3: Invalid login values.
+ **/
 class LoginTest {
     Login myLogin;
     User testUser;
@@ -38,14 +41,14 @@ class LoginTest {
      * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
      * Expected Output: Returns "validated" after assertion compares testUser with what is registered in
      * the database.
-     * **/
+     **/
     @Test
     @DisplayName("Positive testing with correct credentials and data type")
     public void testLoginButtonPositive() {
         testUser = new User("hh", "hh");
         Login.jButton1.doClick();
         myLogin.loginButton(testUser.getUsername(), testUser.getPassword());
-        assertEquals("validated",  myLogin.loginButton(testUser.getUsername(),
+        assertEquals("validated", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
     }
 
@@ -61,7 +64,7 @@ class LoginTest {
      * Input: Null username and password values.
      * Expected Output: The NullPointerException should be caught and output the NullPointerException
      * message "null".
-     * **/
+     **/
     @Test
     @DisplayName("Negative testing with null parameters")
     public void testLoginButtonNegative() {
@@ -83,16 +86,13 @@ class LoginTest {
      * -- This test covers the input space of Block 3, invalid login values.
      * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
      * Expected Output: Output string displayed on the GUI “UserName or Password do not Match”.
-     * **/
+     **/
     @Test
     @DisplayName("Input validation with correct data type but wrong values")
     public void testLoginButtonInputVal() {
         testUser = new User("fake", "notReal");
 
-        assertEquals("UserName or Password do not Match",  myLogin.loginButton(testUser.getUsername(),
+        assertEquals("UserName or Password do not Match", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
-        System.out.println("donzo");
-
-
     }
 }

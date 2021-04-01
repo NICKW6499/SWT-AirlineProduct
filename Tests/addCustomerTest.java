@@ -9,9 +9,10 @@ import java.text.SimpleDateFormat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class addCustomerTest {
-addCustomer customer= new addCustomer();
-    String path=null;
-    byte[] userimage=null;
+    addCustomer customer = new addCustomer();
+    String path = null;
+    byte[] userimage = null;
+
     @BeforeEach
     void setUp() {
         addCustomer.txtid.setText("");
@@ -31,28 +32,37 @@ addCustomer customer= new addCustomer();
     }
 
     @Test
-    void jButton1ActionPerformed() {
-       customer.jButton1.doClick();
+    @DisplayName("")
+    void addImageTest() {
+        assertEquals("complete", customer.addImage());
+    }
+
+    @Test
+    @DisplayName("No image uploaded")
+    void addImageTest2() {
+        assertEquals("image is empty", customer.addImage());
     }
 
     @Test
     @DisplayName("Correct Parameters Positive Testing")
     void CreateCustomerT1() {
-        addCustomer.txtid.setText("123");
+        addCustomer.txtaddress.setText("yeehaw");
+        addCustomer.txtcontact.setText("76876876");
         addCustomer.txtfirstname.setText("Nick");
+        addCustomer.txtid.setText("123");
         addCustomer.txtlastname.setText("Wright");
         addCustomer.txtnic.setText("231");
         addCustomer.txtpassport.setText("2323");
-        addCustomer.txtaddress.setText("yeehaw");
-        addCustomer.txtcontact.setText("76876876");
+
         addCustomer.r1.setSelected(true);
         addCustomer.r2.setSelected(false);
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
         addCustomer.jButton1.doClick();
-        addCustomer.jButton2.doClick();
+        assertEquals("complete", customer.addUser());
     }
+
     @Test
     @DisplayName("Empty String Testing")
     void CreateCustomerT12() {
@@ -69,8 +79,10 @@ addCustomer customer= new addCustomer();
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
         addCustomer.jButton1.doClick();
-        addCustomer.jButton2.doClick();
+        assertEquals("A field is empty", customer.addUser());
+
     }
+
     @Test
     @DisplayName("Null Testing")
     void CreateCustomerT13() {
@@ -86,8 +98,8 @@ addCustomer customer= new addCustomer();
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
-        //addCustomer.jButton1.doClick();
-        addCustomer.jButton2.doClick();
+        addCustomer.jButton1.doClick();
+        assertEquals("A field is empty", customer.addUser());
     }
 
     @Test

@@ -455,8 +455,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                     ImageIcon image = new ImageIcon(_imagebytes);
                     Image im = image.getImage();
 
-                    Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
-                    ImageIcon newImage = new ImageIcon(myImg);
+                    //Image myImg = im.getScaledInstance(txtphoto.getWidth(), txtphoto.getHeight(), Image.SCALE_SMOOTH);
+                    ImageIcon newImage = new ImageIcon(im);
 
 
                     if (gender.equals("Female")) {

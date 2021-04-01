@@ -50,13 +50,14 @@ class searchCustomerTest {
         searchCustomer.txtcontact.setText(null);
         searchCustomer.r1.setSelected(true);
         searchCustomer.r2.setSelected(false);
-        searchCustomer.jButton2.doClick();
+        assertEquals("A field is empty",customer.updateUser());
+
     }
     @Test
     @DisplayName("empty")
     void jButton2ActionPerformed2() {
+        assertEquals("A field is empty",customer.updateUser());
 
-        searchCustomer.jButton2.doClick();
 
     }
     @Test
@@ -110,7 +111,8 @@ class searchCustomerTest {
     void jButton4ActionPerformed() {
         searchCustomer.txtcustid.setText("");
         searchCustomer.jButton1.doClick();
-        searchCustomer.jButton4.doClick();
+        assertEquals("A field is empty",customer.searchCustomer());
+
 
     }
 
@@ -119,7 +121,7 @@ class searchCustomerTest {
     void jButton4ActionPerformed2() {
         searchCustomer.txtcustid.setText(null);
         searchCustomer.jButton1.doClick();
-        searchCustomer.jButton4.doClick();
+        assertEquals("A field is empty",customer.searchCustomer());
 
 
     }
@@ -128,7 +130,7 @@ class searchCustomerTest {
     void jButton4ActionPerformed3() {
         searchCustomer.txtcustid.setText("CS001");
         searchCustomer.jButton1.doClick();
-        searchCustomer.jButton4.doClick();
+        assertEquals("complete",customer.searchCustomer());
 
 
     }
@@ -137,7 +139,7 @@ class searchCustomerTest {
     void jButton4ActionPerformed4() {
         searchCustomer.txtcustid.setText("CS005");
         searchCustomer.jButton1.doClick();
-        searchCustomer.jButton4.doClick();
+        assertEquals("record not found",customer.searchCustomer());
     }
 
 
