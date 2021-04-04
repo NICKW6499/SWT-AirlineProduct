@@ -17,6 +17,6 @@ ticketreport report;
 
     @Test
     void loadData() {
-        report.LoadData();
+        assertEquals("complete",report.LoadData());
     }
 }

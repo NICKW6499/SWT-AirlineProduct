@@ -261,7 +261,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
     }
 
     public String addFlightButton(){
-        String message;
+        String message = "A field is empty";
         if(checkBoxes()) {
             int price = Integer.parseInt(txtflightcharge.getText());
             if (price > 0) {

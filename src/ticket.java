@@ -443,8 +443,13 @@ public class ticket extends javax.swing.JInternalFrame {
 
     }
 
-    public String jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        addTicket();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public String addTicket() {
         String message = "Please fill in all fields";
         if (checkValues()) {
 
@@ -486,7 +491,7 @@ public class ticket extends javax.swing.JInternalFrame {
             }
         }
         return message;
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
     public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -497,65 +502,80 @@ public class ticket extends javax.swing.JInternalFrame {
 
     public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        String message = "A field is empty";
-        if (txtsource.getSelectedItem().toString() != null && txtsource.getSelectedItem().toString() != "" &&
-                txtdepart.getSelectedItem().toString() != null && txtdepart.getSelectedItem().toString() != "") {
+        loadFlights();
 
-            message = "complete";
-            String source = txtsource.getSelectedItem().toString().trim();
-            String depart = txtdepart.getSelectedItem().toString().trim();
-
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
-                pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
-
-
-                pst.setString(1, source);
-                pst.setString(2, depart);
-                ResultSet rs = pst.executeQuery();
-
-                ResultSetMetaData rsm = rs.getMetaData();
-                int c;
-                c = rsm.getColumnCount();
-
-                DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();
-                Df.setRowCount(0);
-
-                while (rs.next()) {
-                    Vector v2 = new Vector();
-
-                    for (int i = 1; i <= c; i++) {
-                        v2.add(rs.getString("id"));
-                        v2.add(rs.getString("flightname"));
-                        v2.add(rs.getString("source"));
-                        v2.add(rs.getString("depart"));
-                        v2.add(rs.getString("date"));
-                        v2.add(rs.getString("deptime"));
-                        v2.add(rs.getString("arrtime"));
-                        v2.add(rs.getString("flightcharge"));
-                    }
-
-                    Df.addRow(v2);
-
-
-                }
-
-
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-
-    public String jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+    public String loadFlights() {
         String message = "A field is empty";
-        if (txtcustid.getText().equals("") || txtcustid.getText() == null) {
+        try {
+            if (!(txtsource.getSelectedItem().toString() == null)  &&
+                    !(txtdepart.getSelectedItem().toString() == null)) {
+
+                message = "complete";
+                String source = txtsource.getSelectedItem().toString().trim();
+                String depart = txtdepart.getSelectedItem().toString().trim();
+
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
+                    pst = con.prepareStatement("SELECT * from flight WHERE source = ? and depart = ?");
+
+
+                    pst.setString(1, source);
+                    pst.setString(2, depart);
+                    ResultSet rs = pst.executeQuery();
+
+                    ResultSetMetaData rsm = rs.getMetaData();
+                    int c;
+                    c = rsm.getColumnCount();
+
+                    DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();
+                    Df.setRowCount(0);
+
+                    while (rs.next()) {
+                        Vector v2 = new Vector();
+
+                        for (int i = 1; i <= c; i++) {
+                            v2.add(rs.getString("id"));
+                            v2.add(rs.getString("flightname"));
+                            v2.add(rs.getString("source"));
+                            v2.add(rs.getString("depart"));
+                            v2.add(rs.getString("date"));
+                            v2.add(rs.getString("deptime"));
+                            v2.add(rs.getString("arrtime"));
+                            v2.add(rs.getString("flightcharge"));
+                        }
+
+                        Df.addRow(v2);
+
+
+                    }
+
+
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        } catch (Exception ex) {
+            message = "a field is empty";
+        }
+        return message;
+    }
+
+
+    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        showInfo();
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    public String showInfo() {
+        String message = "A field is empty";
+        if (!(txtcustid.getText().equals("") || txtcustid.getText() == null)) {
 
             message = "complete";
             String id = txtcustid.getText();
@@ -592,7 +612,7 @@ public class ticket extends javax.swing.JInternalFrame {
             }
         }
         return message;
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
     public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -611,16 +631,23 @@ public class ticket extends javax.swing.JInternalFrame {
 
     public void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
         // TODO add your handling code here:
-        if(!txtprice.getText().equals("") && txtprice != null && txtseats.getValue() != null && !txtseats.getValue().equals("")) {
+        changeSeats();
+
+    }//GEN-LAST:event_txtseatsStateChanged
+
+    public String changeSeats() {
+        String message = "empty";
+        if (!txtprice.getText().equals("") && txtprice != null && txtseats.getValue() != null && !txtseats.getValue().equals("")) {
+            message = "complete";
             int price = Integer.parseInt(txtprice.getText());
             int qty = Integer.parseInt(txtseats.getValue().toString());
 
             int tot = price * qty;
 
             txttotal.setText(String.valueOf(tot));
-
         }
-    }//GEN-LAST:event_txtseatsStateChanged
+        return message;
+    }
 
 
     public boolean checkValues() {

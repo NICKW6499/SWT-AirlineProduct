@@ -93,7 +93,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
-    public void LoadData() {
+    public String LoadData() {
+        String message = "failed";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
@@ -123,9 +124,8 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
                 Df.addRow(v2);
 
-
             }
-
+            message = "complete";
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
@@ -133,6 +133,7 @@ public class ticketreport extends javax.swing.JInternalFrame {
             Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        return message;
 
     }
 

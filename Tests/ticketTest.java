@@ -30,6 +30,8 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText(null);
         ticket.jButton1.doClick();
+        assertEquals("Please fill in all fields", myTicket.addTicket());
+
     }
     @Test
     @DisplayName("EmptyB1")
@@ -42,6 +44,8 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText("");
         ticket.jButton1.doClick();
+        assertEquals("Please fill in all fields", myTicket.addTicket());
+
 
     }
     @Test
@@ -56,45 +60,14 @@ class ticketTest {
         ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
         ticket.jButton1.doClick();
+        assertEquals("complete", myTicket.addTicket());
+
 
     }
 
     @Test
-    @DisplayName("NullB2")
-    void jButton2ActionPerformed() {
-        ticket.txtcustid.setText(null);
-        ticket.flightno.setText(null);
-        ticket.txtticketno.setText(null);
-        ticket.txtclass.setSelectedItem(null);
-        ticket.txtprice.setText(null);
-        ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText(null);
-        ticket.jButton2.doClick();
-    }
-    @Test
-    @DisplayName("EmptyB2")
-    void jButton2ActionPerformed2() {
-        ticket.txtcustid.setText("");
-        ticket.flightno.setText("");
-        ticket.txtticketno.setText("");
-        ticket.txtclass.setSelectedItem("");
-        ticket.txtprice.setText("");
-        ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("");
-        ticket.jButton2.doClick();
-
-    }
-    @Test
-    @DisplayName("PositiveB2")
+    @DisplayName("Button Test")
     void jButton2ActionPerformed3() {
-        ticket.txtcustid.setText("CS001");
-        ticket.flightno.setText("124");
-        ticket.txtticketno.setText("12");
-        ticket.txtclass.setSelectedItem("first");
-        ticket.txtprice.setText("20");
-        ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("234");
-        ticket.jButton4.doClick();
         ticket.jButton2.doClick();
 
     }
@@ -102,29 +75,14 @@ class ticketTest {
     @Test
     @DisplayName("NullB3")
     void jButton3ActionPerformed() {
-        ticket.txtcustid.setText(null);
-        ticket.flightno.setText(null);
-        ticket.txtticketno.setText(null);
-        ticket.txtclass.setSelectedItem(null);
-        ticket.txtprice.setText(null);
-        ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText(null);
+        ticket.txtsource.setSelectedItem(null);
+        ticket.txtdepart.setSelectedItem(null);
         ticket.jButton3.doClick();
+        assertEquals("a field is empty", myTicket.loadFlights());
+
 
     }
-    @Test
-    @DisplayName("EmptyB3")
-    void jButton3ActionPerformed2() {
-        ticket.txtcustid.setText("");
-        ticket.flightno.setText("");
-        ticket.txtticketno.setText("");
-        ticket.txtclass.setSelectedItem("");
-        ticket.txtprice.setText("");
-        ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("");
-        ticket.jButton3.doClick();
 
-    }
     @Test
     @DisplayName("PositiveB3")
     void jButton3ActionPerformed3() {
@@ -137,6 +95,8 @@ class ticketTest {
         ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
         ticket.jButton3.doClick();
+        assertEquals("complete", myTicket.loadFlights());
+
 
     }
 
@@ -151,6 +111,8 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText(null);
         ticket.jButton4.doClick();
+        assertEquals("A field is empty", myTicket.showInfo());
+
 
     }
     @Test
@@ -164,6 +126,8 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText("");
         ticket.jButton4.doClick();
+        assertEquals("A field is empty", myTicket.showInfo());
+
 
     }
     @Test
@@ -177,18 +141,8 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
+        assertEquals("complete", myTicket.showInfo());
 
-    }
-    
-    
-    @Test
-    void autoID() {
-
-    }
-
-    @Test
-    //INTEGRATION TEST
-    void jTable1MouseClicked() {
 
     }
 
@@ -197,6 +151,7 @@ class ticketTest {
     void txtseatsStateChanged() {
         ticket.txtseats.setValue(0);
         ticket.txtticketno.setText(null);
+        assertEquals("empty",myTicket.changeSeats());
 
     }
     @Test
@@ -205,6 +160,8 @@ class ticketTest {
     void txtseatsStateChanged1() {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText("");
+        assertEquals("empty",myTicket.changeSeats());
+
 
     }
     @Test
@@ -212,7 +169,9 @@ class ticketTest {
 
     void txtseatsStateChanged2() {
         ticket.txtseats.setValue(10);
-        ticket.txtticketno.setText("20");
+        ticket.txtprice.setText("20");
+        assertEquals("complete",myTicket.changeSeats());
+
 
     }
 
