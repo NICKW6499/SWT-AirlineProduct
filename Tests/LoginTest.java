@@ -69,10 +69,7 @@ class LoginTest {
     @DisplayName("Negative testing with null parameters")
     public void testLoginButtonNegative() {
         testUser = new User(null, null);
-
-        Exception ex = assertThrows(NullPointerException.class, () -> myLogin.loginButton(testUser.getUsername(),
-                testUser.getPassword()));
-        assertEquals(null, ex.getMessage());
+        assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
 
     }
 

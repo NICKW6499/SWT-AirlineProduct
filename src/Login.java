@@ -139,10 +139,8 @@ public class Login extends javax.swing.JFrame {
         //null condition added for username and password
         if (username == null || password == null) {
             error = "UserName or Password Blank";
-            throw new NullPointerException();
-
-
-        } else if (username.isEmpty() || password.isEmpty()) {
+        }
+        else if (username.isEmpty() || password.isEmpty()) {
             error = "UserName or Password Blank";
             JOptionPane.showMessageDialog(this, error);
         } else {
@@ -177,9 +175,9 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NullPointerException ex) {
+                return error;
             }
-
-
         }
         return error;
     }

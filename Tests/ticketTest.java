@@ -145,6 +145,21 @@ class ticketTest {
 
 
     }
+    @Test
+    @DisplayName("Incorrect customerID")
+    void jButton4ActionPerformed4() {
+        ticket.txtcustid.setText("CS009");
+        ticket.flightno.setText("124");
+        ticket.txtticketno.setText("12");
+        ticket.txtclass.setSelectedItem("first");
+        ticket.txtprice.setText("20");
+        ticket.txtseats.setValue(1);
+        ticket.txtticketno.setText("234");
+        ticket.jButton4.doClick();
+        assertEquals("record not found", myTicket.showInfo());
+
+
+    }
 
     @Test
     @DisplayName("NullSeats")

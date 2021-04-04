@@ -588,6 +588,7 @@ public class ticket extends javax.swing.JInternalFrame {
                 ResultSet rs = pst.executeQuery();
 
                 if (rs.next() == false) {
+                    message = "record not found";
                     JOptionPane.showMessageDialog(this, "Record not Found");
                 } else {
                     String fname = rs.getString("firstname");

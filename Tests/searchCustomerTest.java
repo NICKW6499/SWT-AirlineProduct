@@ -111,7 +111,7 @@ class searchCustomerTest {
     void jButton4ActionPerformed() {
         searchCustomer.txtcustid.setText("");
         searchCustomer.jButton1.doClick();
-        assertEquals("A field is empty",customer.searchCustomer());
+        assertEquals("record not found",customer.searchCustomer());
 
 
     }
@@ -121,7 +121,7 @@ class searchCustomerTest {
     void jButton4ActionPerformed2() {
         searchCustomer.txtcustid.setText(null);
         searchCustomer.jButton1.doClick();
-        assertEquals("A field is empty",customer.searchCustomer());
+        assertEquals("record not found",customer.searchCustomer());
 
 
     }
