@@ -1,13 +1,21 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class searchCustomerTest {
     searchCustomer customer;
+    @InjectMocks
+    searchCustomer mockCustomer;
+    @Mock
+    searchCustomer mock;
     @BeforeEach
     void setUp() {
         customer = new searchCustomer();
@@ -140,6 +148,15 @@ class searchCustomerTest {
         searchCustomer.txtcustid.setText("CS005");
         searchCustomer.jButton1.doClick();
         assertEquals("record not found",customer.searchCustomer());
+    }
+
+    @Test
+    void mockSearchCustomer(){
+        searchCustomer.txtcustid.setText("CS009");
+        mockCustomer = mock(searchCustomer.class);
+        when(mockCustomer.searchCustomer()).thenReturn("record not found");
+        assertEquals(mockCustomer.searchCustomer(),"record not found");
+
     }
 
 

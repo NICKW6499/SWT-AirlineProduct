@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.junit.runner.RunWith;
 
 import javax.swing.*;
@@ -9,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Class LoginTest
@@ -20,9 +25,14 @@ import static org.junit.jupiter.api.Assertions.*;
  * Block 2: Null login values.
  * Block 3: Invalid login values.
  **/
+@RunWith(MockitoJUnitRunner.class)
 class LoginTest {
     Login myLogin;
     User testUser;
+    @InjectMocks
+    Login loginMock;
+    @Mock
+    User userTest;
 
     // setup to initialize new login object
     @BeforeEach
@@ -91,5 +101,18 @@ class LoginTest {
 
         assertEquals("UserName or Password do not Match", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
+    }
+
+    @Test
+    @DisplayName("Mock")
+    public void mockTest(){
+        //User to be tested
+        myLogin = new Login();
+        userTest = new User("hh","hh");
+        loginMock = mock(Login.class);
+        when(loginMock.loginButton("hh","hh")).thenReturn("validated");
+        assertEquals("validated", myLogin.loginButton(userTest.getUsername(),
+                userTest.getPassword()));
+
     }
 }

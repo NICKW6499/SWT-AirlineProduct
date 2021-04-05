@@ -45,5 +45,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter:5.4.2" level="project" />
+    <orderEntry type="library" name="mockito-all-2.0.2-beta" level="project" />
   </component>
 </module>
