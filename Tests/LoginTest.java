@@ -29,10 +29,6 @@ import static org.mockito.Mockito.*;
 class LoginTest {
     Login myLogin;
     User testUser;
-    @Mock
-    Login loginMock;
-    @Mock
-    User userTest;
 
     // setup to initialize new login object
     @BeforeEach
@@ -102,19 +98,5 @@ class LoginTest {
         assertEquals("UserName or Password do not Match", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
     }
-
-    @Test
-    @DisplayName("Mock")
-    public void mockTest(){
-        //User to be tested
-        myLogin = new Login();
-        userTest = new User("hh","hh");
-        loginMock = mock(Login.class);
-        when(loginMock.loginButton("hh","hh")).thenReturn("validated");
-        assertEquals("validated", loginMock.loginButton(userTest.getUsername(),
-                userTest.getPassword()));
-
-    }
-
 
 }
