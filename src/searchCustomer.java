@@ -426,7 +426,8 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     public String searchCustomer(){
         // TODO add your handling code here:
         String message = "A field is empty";
-        if(txtcustid.getText() != "" && txtcustid.getText() != null) {
+        String customer = txtcustid.getText();
+        if(!customer.equals("") && customer != null) {
             message = "complete";
             String id = txtcustid.getText();
             try {

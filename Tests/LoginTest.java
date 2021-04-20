@@ -29,7 +29,7 @@ import static org.mockito.Mockito.*;
 class LoginTest {
     Login myLogin;
     User testUser;
-    @InjectMocks
+    @Mock
     Login loginMock;
     @Mock
     User userTest;
@@ -111,8 +111,10 @@ class LoginTest {
         userTest = new User("hh","hh");
         loginMock = mock(Login.class);
         when(loginMock.loginButton("hh","hh")).thenReturn("validated");
-        assertEquals("validated", myLogin.loginButton(userTest.getUsername(),
+        assertEquals("validated", loginMock.loginButton(userTest.getUsername(),
                 userTest.getPassword()));
 
     }
+
+
 }
