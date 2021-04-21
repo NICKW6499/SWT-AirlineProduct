@@ -46,5 +46,99 @@
     </orderEntry>
     <orderEntry type="library" name="org.junit.jupiter:junit-jupiter:5.4.2" level="project" />
     <orderEntry type="library" name="mockito-all-2.0.2-beta" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-ant-sample/src" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core-benchmarks/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core-ct/src/test/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core-it/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core-it/src/test/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-core/src/test/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-generator-annprocess/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-generator-asm/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-generator-bytecode/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-generator-reflection/src/main/java" />
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master/jmh-samples/src/main/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/jmeter-idea-plugin-1.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/jmh-master (1).zip!/jmh-master" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="selenium-java-3.141" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/client-combined-3.141.59.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/libs/byte-buddy-1.8.15.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/libs/commons-exec-1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/libs/guava-25.0-jre.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/libs/okhttp-3.11.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/selenium-java-3.141.59/libs/okio-1.14.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
