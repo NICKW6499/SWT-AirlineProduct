@@ -1,0 +1,911 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ticket</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">&lt;empty package name&gt;</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ticket (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ticket</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.9%
+  </span>
+  <span class="absValue">
+    (13/ 14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.7%
+  </span>
+  <span class="absValue">
+    (408/ 431)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ticket$$EnhancerByMockitoWithCGLIB$$6fb38190</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$4</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$5</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ticket$6</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/ 2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    92.3%
+  </span>
+  <span class="absValue">
+    (24/ 26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.6%
+  </span>
+  <span class="absValue">
+    (419/ 443)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;
+<i>2</i>&nbsp;import com.toedter.calendar.JCalendar;
+<i>3</i>&nbsp;
+<i>4</i>&nbsp;import java.sql.Connection;
+<i>5</i>&nbsp;import java.sql.DriverManager;
+<i>6</i>&nbsp;import java.sql.PreparedStatement;
+<i>7</i>&nbsp;import java.sql.ResultSet;
+<i>8</i>&nbsp;import java.sql.ResultSetMetaData;
+<i>9</i>&nbsp;import java.sql.SQLException;
+<i>10</i>&nbsp;import java.sql.Statement;
+<i>11</i>&nbsp;import java.text.DateFormat;
+<i>12</i>&nbsp;import java.text.SimpleDateFormat;
+<i>13</i>&nbsp;import java.util.Vector;
+<i>14</i>&nbsp;import java.util.logging.Level;
+<i>15</i>&nbsp;import java.util.logging.Logger;
+<i>16</i>&nbsp;import javax.swing.JOptionPane;
+<i>17</i>&nbsp;import javax.swing.table.DefaultTableModel;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;/*
+<i>20</i>&nbsp; * To change this license header, choose License Headers in Project Properties.
+<i>21</i>&nbsp; * To change this template file, choose Tools | Templates
+<i>22</i>&nbsp; * and open the template in the editor.
+<i>23</i>&nbsp; */
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;public class ticket extends javax.swing.JInternalFrame {
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    /**
+<i>29</i>&nbsp;     * Creates new form ticket
+<i>30</i>&nbsp;     */
+<b class="fc"><i>31</i>&nbsp;    public ticket() {</b>
+<b class="fc"><i>32</i>&nbsp;        initComponents();</b>
+<b class="fc"><i>33</i>&nbsp;        autoID();</b>
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    Connection con;
+<i>37</i>&nbsp;    PreparedStatement pst;
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * This method is called from within the constructor to initialize the form.
+<i>41</i>&nbsp;     * WARNING: Do NOT modify this code. The content of this method is always
+<i>42</i>&nbsp;     * regenerated by the Form Editor.
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    @SuppressWarnings(&quot;unchecked&quot;)
+<i>45</i>&nbsp;    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+<i>46</i>&nbsp;    private void initComponents() {
+<i>47</i>&nbsp;
+<b class="fc"><i>48</i>&nbsp;        jPanel1 = new javax.swing.JPanel();</b>
+<b class="fc"><i>49</i>&nbsp;        txtsource = new javax.swing.JComboBox&lt;&gt;();</b>
+<b class="fc"><i>50</i>&nbsp;        txtdepart = new javax.swing.JComboBox&lt;&gt;();</b>
+<b class="fc"><i>51</i>&nbsp;        jLabel1 = new javax.swing.JLabel();</b>
+<b class="fc"><i>52</i>&nbsp;        jLabel2 = new javax.swing.JLabel();</b>
+<b class="fc"><i>53</i>&nbsp;        jButton3 = new javax.swing.JButton();</b>
+<b class="fc"><i>54</i>&nbsp;        jScrollPane1 = new javax.swing.JScrollPane();</b>
+<b class="fc"><i>55</i>&nbsp;        jTable1 = new javax.swing.JTable();</b>
+<b class="fc"><i>56</i>&nbsp;        jLabel3 = new javax.swing.JLabel();</b>
+<b class="fc"><i>57</i>&nbsp;        txtticketno = new javax.swing.JLabel();</b>
+<b class="fc"><i>58</i>&nbsp;        jPanel3 = new javax.swing.JPanel();</b>
+<b class="fc"><i>59</i>&nbsp;        jLabel5 = new javax.swing.JLabel();</b>
+<b class="fc"><i>60</i>&nbsp;        jLabel6 = new javax.swing.JLabel();</b>
+<b class="fc"><i>61</i>&nbsp;        jLabel7 = new javax.swing.JLabel();</b>
+<b class="fc"><i>62</i>&nbsp;        txtcustid = new javax.swing.JTextField();</b>
+<b class="fc"><i>63</i>&nbsp;        jLabel8 = new javax.swing.JLabel();</b>
+<b class="fc"><i>64</i>&nbsp;        txtfirstname = new javax.swing.JLabel();</b>
+<b class="fc"><i>65</i>&nbsp;        txtlastname = new javax.swing.JLabel();</b>
+<b class="fc"><i>66</i>&nbsp;        txtpassport = new javax.swing.JLabel();</b>
+<b class="fc"><i>67</i>&nbsp;        jButton4 = new javax.swing.JButton();</b>
+<b class="fc"><i>68</i>&nbsp;        jPanel2 = new javax.swing.JPanel();</b>
+<b class="fc"><i>69</i>&nbsp;        jLabel12 = new javax.swing.JLabel();</b>
+<b class="fc"><i>70</i>&nbsp;        jLabel13 = new javax.swing.JLabel();</b>
+<b class="fc"><i>71</i>&nbsp;        jLabel14 = new javax.swing.JLabel();</b>
+<b class="fc"><i>72</i>&nbsp;        jLabel15 = new javax.swing.JLabel();</b>
+<b class="fc"><i>73</i>&nbsp;        jLabel16 = new javax.swing.JLabel();</b>
+<b class="fc"><i>74</i>&nbsp;        jLabel17 = new javax.swing.JLabel();</b>
+<b class="fc"><i>75</i>&nbsp;        flightno = new javax.swing.JLabel();</b>
+<b class="fc"><i>76</i>&nbsp;        flightname = new javax.swing.JLabel();</b>
+<b class="fc"><i>77</i>&nbsp;        txtdept = new javax.swing.JLabel();</b>
+<b class="fc"><i>78</i>&nbsp;        txtclass = new javax.swing.JComboBox&lt;&gt;();</b>
+<b class="fc"><i>79</i>&nbsp;        txtprice = new javax.swing.JTextField();</b>
+<b class="fc"><i>80</i>&nbsp;        txtseats = new javax.swing.JSpinner();</b>
+<b class="fc"><i>81</i>&nbsp;        jButton1 = new javax.swing.JButton();</b>
+<b class="fc"><i>82</i>&nbsp;        jButton2 = new javax.swing.JButton();</b>
+<b class="fc"><i>83</i>&nbsp;        txttotal = new javax.swing.JLabel();</b>
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, &quot;Select Country&quot;, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font(&quot;Tahoma&quot;, 1, 12))); // NOI18N</b>
+<i>86</i>&nbsp;
+<b class="fc"><i>87</i>&nbsp;        txtsource.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[]{&quot;India&quot;, &quot;Srilanka&quot;, &quot;Uk&quot;, &quot;Usa&quot;, &quot;Canada&quot;, &quot;Chinna&quot;}));</b>
+<i>88</i>&nbsp;
+<b class="fc"><i>89</i>&nbsp;        txtdepart.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[]{&quot;India\t&quot;, &quot;Srilanka&quot;, &quot;Uk&quot;, &quot;Usa&quot;, &quot;Canada&quot;, &quot;Chinna&quot;}));</b>
+<i>90</i>&nbsp;
+<b class="fc"><i>91</i>&nbsp;        jLabel1.setText(&quot;Source&quot;);</b>
+<i>92</i>&nbsp;
+<b class="fc"><i>93</i>&nbsp;        jLabel2.setText(&quot;Departure&quot;);</b>
+<i>94</i>&nbsp;
+<b class="fc"><i>95</i>&nbsp;        jButton3.setText(&quot;Search&quot;);</b>
+<b class="fc"><i>96</i>&nbsp;        jButton3.addActionListener(new java.awt.event.ActionListener() {</b>
+<i>97</i>&nbsp;            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<b class="fc"><i>98</i>&nbsp;                jButton3ActionPerformed(evt);</b>
+<i>99</i>&nbsp;            }
+<i>100</i>&nbsp;        });
+<i>101</i>&nbsp;
+<b class="fc"><i>102</i>&nbsp;        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);</b>
+<b class="fc"><i>103</i>&nbsp;        jPanel1.setLayout(jPanel1Layout);</b>
+<b class="fc"><i>104</i>&nbsp;        jPanel1Layout.setHorizontalGroup(</b>
+<b class="fc"><i>105</i>&nbsp;                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>106</i>&nbsp;                        .addGroup(jPanel1Layout.createSequentialGroup()</b>
+<b class="fc"><i>107</i>&nbsp;                                .addContainerGap()</b>
+<b class="fc"><i>108</i>&nbsp;                                .addComponent(txtsource, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>109</i>&nbsp;                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)</b>
+<b class="fc"><i>110</i>&nbsp;                                .addComponent(txtdepart, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>111</i>&nbsp;                                .addGap(35, 35, 35))</b>
+<b class="fc"><i>112</i>&nbsp;                        .addGroup(jPanel1Layout.createSequentialGroup()</b>
+<b class="fc"><i>113</i>&nbsp;                                .addGap(54, 54, 54)</b>
+<b class="fc"><i>114</i>&nbsp;                                .addComponent(jLabel1)</b>
+<b class="fc"><i>115</i>&nbsp;                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</b>
+<b class="fc"><i>116</i>&nbsp;                                .addComponent(jLabel2)</b>
+<b class="fc"><i>117</i>&nbsp;                                .addGap(87, 87, 87))</b>
+<b class="fc"><i>118</i>&nbsp;                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()</b>
+<b class="fc"><i>119</i>&nbsp;                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</b>
+<b class="fc"><i>120</i>&nbsp;                                .addComponent(jButton3)</b>
+<b class="fc"><i>121</i>&nbsp;                                .addGap(49, 49, 49))</b>
+<i>122</i>&nbsp;        );
+<b class="fc"><i>123</i>&nbsp;        jPanel1Layout.setVerticalGroup(</b>
+<b class="fc"><i>124</i>&nbsp;                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>125</i>&nbsp;                        .addGroup(jPanel1Layout.createSequentialGroup()</b>
+<b class="fc"><i>126</i>&nbsp;                                .addGap(32, 32, 32)</b>
+<b class="fc"><i>127</i>&nbsp;                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>128</i>&nbsp;                                        .addComponent(jLabel1)</b>
+<b class="fc"><i>129</i>&nbsp;                                        .addComponent(jLabel2))</b>
+<b class="fc"><i>130</i>&nbsp;                                .addGap(18, 18, 18)</b>
+<b class="fc"><i>131</i>&nbsp;                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>132</i>&nbsp;                                        .addComponent(txtsource, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>133</i>&nbsp;                                        .addComponent(txtdepart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>134</i>&nbsp;                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)</b>
+<b class="fc"><i>135</i>&nbsp;                                .addComponent(jButton3)</b>
+<b class="fc"><i>136</i>&nbsp;                                .addContainerGap())</b>
+<i>137</i>&nbsp;        );
+<i>138</i>&nbsp;
+<b class="fc"><i>139</i>&nbsp;        jTable1.setModel(new javax.swing.table.DefaultTableModel(</b>
+<i>140</i>&nbsp;                new Object[][]{
+<i>141</i>&nbsp;
+<i>142</i>&nbsp;                },
+<i>143</i>&nbsp;                new String[]{
+<i>144</i>&nbsp;                        &quot;Flight No&quot;, &quot;Flight Name&quot;, &quot;Source&quot;, &quot;Departure&quot;, &quot;Date&quot;, &quot;DepTime&quot;, &quot;ArrTime&quot;, &quot;Charge&quot;
+<i>145</i>&nbsp;                }
+<i>146</i>&nbsp;        ));
+<b class="fc"><i>147</i>&nbsp;        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {</b>
+<i>148</i>&nbsp;            public void mouseClicked(java.awt.event.MouseEvent evt) {
+<b class="nc"><i>149</i>&nbsp;                jTable1MouseClicked(evt);</b>
+<i>150</i>&nbsp;            }
+<i>151</i>&nbsp;        });
+<b class="fc"><i>152</i>&nbsp;        jScrollPane1.setViewportView(jTable1);</b>
+<i>153</i>&nbsp;
+<b class="fc"><i>154</i>&nbsp;        jLabel3.setText(&quot;Ticket No&quot;);</b>
+<i>155</i>&nbsp;
+<b class="fc"><i>156</i>&nbsp;        txtticketno.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 24)); // NOI18N</b>
+<b class="fc"><i>157</i>&nbsp;        txtticketno.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>158</i>&nbsp;        txtticketno.setText(&quot;Ticket NO&quot;);</b>
+<i>159</i>&nbsp;
+<b class="fc"><i>160</i>&nbsp;        jLabel5.setText(&quot;Customer ID&quot;);</b>
+<i>161</i>&nbsp;
+<b class="fc"><i>162</i>&nbsp;        jLabel6.setText(&quot;FirstName&quot;);</b>
+<i>163</i>&nbsp;
+<b class="fc"><i>164</i>&nbsp;        jLabel7.setText(&quot;LastName&quot;);</b>
+<i>165</i>&nbsp;
+<b class="fc"><i>166</i>&nbsp;        jLabel8.setText(&quot;Passportno&quot;);</b>
+<i>167</i>&nbsp;
+<b class="fc"><i>168</i>&nbsp;        txtfirstname.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14)); // NOI18N</b>
+<b class="fc"><i>169</i>&nbsp;        txtfirstname.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>170</i>&nbsp;        txtfirstname.setText(&quot;jLabel9&quot;);</b>
+<i>171</i>&nbsp;
+<b class="fc"><i>172</i>&nbsp;        txtlastname.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14)); // NOI18N</b>
+<b class="fc"><i>173</i>&nbsp;        txtlastname.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>174</i>&nbsp;        txtlastname.setText(&quot;jLabel10&quot;);</b>
+<i>175</i>&nbsp;
+<b class="fc"><i>176</i>&nbsp;        txtpassport.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 14)); // NOI18N</b>
+<b class="fc"><i>177</i>&nbsp;        txtpassport.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>178</i>&nbsp;        txtpassport.setText(&quot;jLabel11&quot;);</b>
+<i>179</i>&nbsp;
+<b class="fc"><i>180</i>&nbsp;        jButton4.setText(&quot;Search&quot;);</b>
+<b class="fc"><i>181</i>&nbsp;        jButton4.addActionListener(new java.awt.event.ActionListener() {</b>
+<i>182</i>&nbsp;            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<b class="fc"><i>183</i>&nbsp;                jButton4ActionPerformed(evt);</b>
+<i>184</i>&nbsp;            }
+<i>185</i>&nbsp;        });
+<i>186</i>&nbsp;
+<b class="fc"><i>187</i>&nbsp;        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);</b>
+<b class="fc"><i>188</i>&nbsp;        jPanel3.setLayout(jPanel3Layout);</b>
+<b class="fc"><i>189</i>&nbsp;        jPanel3Layout.setHorizontalGroup(</b>
+<b class="fc"><i>190</i>&nbsp;                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>191</i>&nbsp;                        .addGroup(jPanel3Layout.createSequentialGroup()</b>
+<b class="fc"><i>192</i>&nbsp;                                .addGap(57, 57, 57)</b>
+<b class="fc"><i>193</i>&nbsp;                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>194</i>&nbsp;                                        .addGroup(jPanel3Layout.createSequentialGroup()</b>
+<b class="fc"><i>195</i>&nbsp;                                                .addComponent(jLabel5)</b>
+<b class="fc"><i>196</i>&nbsp;                                                .addGap(34, 34, 34)</b>
+<b class="fc"><i>197</i>&nbsp;                                                .addComponent(txtcustid, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>198</i>&nbsp;                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)</b>
+<b class="fc"><i>199</i>&nbsp;                                                .addComponent(jButton4))</b>
+<b class="fc"><i>200</i>&nbsp;                                        .addGroup(jPanel3Layout.createSequentialGroup()</b>
+<b class="fc"><i>201</i>&nbsp;                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>202</i>&nbsp;                                                        .addComponent(jLabel6)</b>
+<b class="fc"><i>203</i>&nbsp;                                                        .addComponent(jLabel7)</b>
+<b class="fc"><i>204</i>&nbsp;                                                        .addComponent(jLabel8))</b>
+<b class="fc"><i>205</i>&nbsp;                                                .addGap(56, 56, 56)</b>
+<b class="fc"><i>206</i>&nbsp;                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>207</i>&nbsp;                                                        .addComponent(txtpassport)</b>
+<b class="fc"><i>208</i>&nbsp;                                                        .addComponent(txtlastname)</b>
+<b class="fc"><i>209</i>&nbsp;                                                        .addComponent(txtfirstname))))</b>
+<b class="fc"><i>210</i>&nbsp;                                .addContainerGap())</b>
+<i>211</i>&nbsp;        );
+<b class="fc"><i>212</i>&nbsp;        jPanel3Layout.setVerticalGroup(</b>
+<b class="fc"><i>213</i>&nbsp;                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>214</i>&nbsp;                        .addGroup(jPanel3Layout.createSequentialGroup()</b>
+<b class="fc"><i>215</i>&nbsp;                                .addGap(20, 20, 20)</b>
+<b class="fc"><i>216</i>&nbsp;                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>217</i>&nbsp;                                        .addComponent(jLabel5)</b>
+<b class="fc"><i>218</i>&nbsp;                                        .addComponent(txtcustid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>219</i>&nbsp;                                        .addComponent(jButton4))</b>
+<b class="fc"><i>220</i>&nbsp;                                .addGap(26, 26, 26)</b>
+<b class="fc"><i>221</i>&nbsp;                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>222</i>&nbsp;                                        .addComponent(jLabel6)</b>
+<b class="fc"><i>223</i>&nbsp;                                        .addComponent(txtfirstname))</b>
+<b class="fc"><i>224</i>&nbsp;                                .addGap(31, 31, 31)</b>
+<b class="fc"><i>225</i>&nbsp;                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>226</i>&nbsp;                                        .addComponent(jLabel7)</b>
+<b class="fc"><i>227</i>&nbsp;                                        .addComponent(txtlastname))</b>
+<b class="fc"><i>228</i>&nbsp;                                .addGap(36, 36, 36)</b>
+<b class="fc"><i>229</i>&nbsp;                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>230</i>&nbsp;                                        .addComponent(jLabel8)</b>
+<b class="fc"><i>231</i>&nbsp;                                        .addComponent(txtpassport))</b>
+<b class="fc"><i>232</i>&nbsp;                                .addContainerGap(37, Short.MAX_VALUE))</b>
+<i>233</i>&nbsp;        );
+<i>234</i>&nbsp;
+<b class="fc"><i>235</i>&nbsp;        jLabel12.setText(&quot;Flight no&quot;);</b>
+<i>236</i>&nbsp;
+<b class="fc"><i>237</i>&nbsp;        jLabel13.setText(&quot;Filght Name&quot;);</b>
+<i>238</i>&nbsp;
+<b class="fc"><i>239</i>&nbsp;        jLabel14.setText(&quot;Depart Time&quot;);</b>
+<i>240</i>&nbsp;
+<b class="fc"><i>241</i>&nbsp;        jLabel15.setText(&quot;Class&quot;);</b>
+<i>242</i>&nbsp;
+<b class="fc"><i>243</i>&nbsp;        jLabel16.setText(&quot;Price&quot;);</b>
+<i>244</i>&nbsp;
+<b class="fc"><i>245</i>&nbsp;        jLabel17.setText(&quot;Seats&quot;);</b>
+<i>246</i>&nbsp;
+<b class="fc"><i>247</i>&nbsp;        flightno.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 12)); // NOI18N</b>
+<b class="fc"><i>248</i>&nbsp;        flightno.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>249</i>&nbsp;        flightno.setText(&quot;jLabel18&quot;);</b>
+<i>250</i>&nbsp;
+<b class="fc"><i>251</i>&nbsp;        flightname.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 12)); // NOI18N</b>
+<b class="fc"><i>252</i>&nbsp;        flightname.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>253</i>&nbsp;        flightname.setText(&quot;jLabel19&quot;);</b>
+<i>254</i>&nbsp;
+<b class="fc"><i>255</i>&nbsp;        txtdept.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 12)); // NOI18N</b>
+<b class="fc"><i>256</i>&nbsp;        txtdept.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>257</i>&nbsp;        txtdept.setText(&quot;jLabel20&quot;);</b>
+<i>258</i>&nbsp;
+<b class="fc"><i>259</i>&nbsp;        txtclass.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[]{&quot;Economy&quot;, &quot;Business&quot;}));</b>
+<i>260</i>&nbsp;
+<b class="fc"><i>261</i>&nbsp;        txtseats.addChangeListener(new javax.swing.event.ChangeListener() {</b>
+<i>262</i>&nbsp;            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+<b class="fc"><i>263</i>&nbsp;                txtseatsStateChanged(evt);</b>
+<i>264</i>&nbsp;            }
+<i>265</i>&nbsp;        });
+<i>266</i>&nbsp;
+<b class="fc"><i>267</i>&nbsp;        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);</b>
+<b class="fc"><i>268</i>&nbsp;        jPanel2.setLayout(jPanel2Layout);</b>
+<b class="fc"><i>269</i>&nbsp;        jPanel2Layout.setHorizontalGroup(</b>
+<b class="fc"><i>270</i>&nbsp;                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>271</i>&nbsp;                        .addGroup(jPanel2Layout.createSequentialGroup()</b>
+<b class="fc"><i>272</i>&nbsp;                                .addGap(19, 19, 19)</b>
+<b class="fc"><i>273</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</b>
+<b class="fc"><i>274</i>&nbsp;                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</b>
+<b class="fc"><i>275</i>&nbsp;                                                .addComponent(jLabel14)</b>
+<b class="fc"><i>276</i>&nbsp;                                                .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>277</i>&nbsp;                                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>278</i>&nbsp;                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>279</i>&nbsp;                                                        .addComponent(jLabel12)</b>
+<b class="fc"><i>280</i>&nbsp;                                                        .addComponent(jLabel13)))</b>
+<b class="fc"><i>281</i>&nbsp;                                        .addGroup(jPanel2Layout.createSequentialGroup()</b>
+<b class="fc"><i>282</i>&nbsp;                                                .addComponent(jLabel17)</b>
+<b class="fc"><i>283</i>&nbsp;                                                .addGap(35, 35, 35)))</b>
+<b class="fc"><i>284</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>285</i>&nbsp;                                        .addGroup(jPanel2Layout.createSequentialGroup()</b>
+<b class="fc"><i>286</i>&nbsp;                                                .addGap(60, 60, 60)</b>
+<b class="fc"><i>287</i>&nbsp;                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>288</i>&nbsp;                                                        .addComponent(flightname)</b>
+<b class="fc"><i>289</i>&nbsp;                                                        .addComponent(txtdept)</b>
+<b class="fc"><i>290</i>&nbsp;                                                        .addComponent(flightno)))</b>
+<b class="fc"><i>291</i>&nbsp;                                        .addGroup(jPanel2Layout.createSequentialGroup()</b>
+<b class="fc"><i>292</i>&nbsp;                                                .addGap(50, 50, 50)</b>
+<b class="fc"><i>293</i>&nbsp;                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</b>
+<b class="fc"><i>294</i>&nbsp;                                                        .addComponent(txtclass, 0, 116, Short.MAX_VALUE)</b>
+<b class="fc"><i>295</i>&nbsp;                                                        .addComponent(txtprice)</b>
+<b class="fc"><i>296</i>&nbsp;                                                        .addComponent(txtseats, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))</b>
+<b class="fc"><i>297</i>&nbsp;                                .addContainerGap(151, Short.MAX_VALUE))</b>
+<i>298</i>&nbsp;        );
+<b class="fc"><i>299</i>&nbsp;        jPanel2Layout.setVerticalGroup(</b>
+<b class="fc"><i>300</i>&nbsp;                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>301</i>&nbsp;                        .addGroup(jPanel2Layout.createSequentialGroup()</b>
+<b class="fc"><i>302</i>&nbsp;                                .addGap(22, 22, 22)</b>
+<b class="fc"><i>303</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>304</i>&nbsp;                                        .addComponent(jLabel12)</b>
+<b class="fc"><i>305</i>&nbsp;                                        .addComponent(flightno))</b>
+<b class="fc"><i>306</i>&nbsp;                                .addGap(28, 28, 28)</b>
+<b class="fc"><i>307</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>308</i>&nbsp;                                        .addComponent(jLabel13)</b>
+<b class="fc"><i>309</i>&nbsp;                                        .addComponent(flightname))</b>
+<b class="fc"><i>310</i>&nbsp;                                .addGap(31, 31, 31)</b>
+<b class="fc"><i>311</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>312</i>&nbsp;                                        .addComponent(jLabel14)</b>
+<b class="fc"><i>313</i>&nbsp;                                        .addComponent(txtdept))</b>
+<b class="fc"><i>314</i>&nbsp;                                .addGap(23, 23, 23)</b>
+<b class="fc"><i>315</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>316</i>&nbsp;                                        .addComponent(jLabel15)</b>
+<b class="fc"><i>317</i>&nbsp;                                        .addComponent(txtclass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>318</i>&nbsp;                                .addGap(18, 18, 18)</b>
+<b class="fc"><i>319</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>320</i>&nbsp;                                        .addComponent(jLabel16)</b>
+<b class="fc"><i>321</i>&nbsp;                                        .addComponent(txtprice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>322</i>&nbsp;                                .addGap(18, 18, 18)</b>
+<b class="fc"><i>323</i>&nbsp;                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</b>
+<b class="fc"><i>324</i>&nbsp;                                        .addComponent(jLabel17)</b>
+<b class="fc"><i>325</i>&nbsp;                                        .addComponent(txtseats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>326</i>&nbsp;                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</b>
+<i>327</i>&nbsp;        );
+<i>328</i>&nbsp;
+<b class="fc"><i>329</i>&nbsp;        jButton1.setText(&quot;Book&quot;);</b>
+<b class="fc"><i>330</i>&nbsp;        jButton1.addActionListener(new java.awt.event.ActionListener() {</b>
+<i>331</i>&nbsp;            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<b class="fc"><i>332</i>&nbsp;                jButton1ActionPerformed(evt);</b>
+<i>333</i>&nbsp;            }
+<i>334</i>&nbsp;        });
+<i>335</i>&nbsp;
+<b class="fc"><i>336</i>&nbsp;        jButton2.setText(&quot;Cancel&quot;);</b>
+<b class="fc"><i>337</i>&nbsp;        jButton2.addActionListener(new java.awt.event.ActionListener() {</b>
+<i>338</i>&nbsp;            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<b class="fc"><i>339</i>&nbsp;                jButton2ActionPerformed(evt);</b>
+<i>340</i>&nbsp;            }
+<i>341</i>&nbsp;        });
+<i>342</i>&nbsp;
+<b class="fc"><i>343</i>&nbsp;        txttotal.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 24)); // NOI18N</b>
+<b class="fc"><i>344</i>&nbsp;        txttotal.setForeground(new java.awt.Color(255, 0, 0));</b>
+<b class="fc"><i>345</i>&nbsp;        txttotal.setText(&quot;jLabel4&quot;);</b>
+<i>346</i>&nbsp;
+<b class="fc"><i>347</i>&nbsp;        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</b>
+<b class="fc"><i>348</i>&nbsp;        getContentPane().setLayout(layout);</b>
+<b class="fc"><i>349</i>&nbsp;        layout.setHorizontalGroup(</b>
+<b class="fc"><i>350</i>&nbsp;                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>351</i>&nbsp;                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>352</i>&nbsp;                                .addGap(32, 32, 32)</b>
+<b class="fc"><i>353</i>&nbsp;                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>354</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>355</i>&nbsp;                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>356</i>&nbsp;                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>357</i>&nbsp;                                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>358</i>&nbsp;                                                                .addGap(44, 44, 44)</b>
+<b class="fc"><i>359</i>&nbsp;                                                                .addComponent(jLabel3))</b>
+<b class="fc"><i>360</i>&nbsp;                                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>361</i>&nbsp;                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</b>
+<b class="fc"><i>362</i>&nbsp;                                                                .addComponent(txtticketno)))</b>
+<b class="fc"><i>363</i>&nbsp;                                                .addGap(41, 41, 41)</b>
+<b class="fc"><i>364</i>&nbsp;                                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</b>
+<b class="fc"><i>365</i>&nbsp;                                                .addGap(31, 31, 31))</b>
+<b class="fc"><i>366</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>367</i>&nbsp;                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>368</i>&nbsp;                                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>369</i>&nbsp;                                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>370</i>&nbsp;                                                                .addGap(207, 207, 207)</b>
+<b class="fc"><i>371</i>&nbsp;                                                                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))</b>
+<b class="fc"><i>372</i>&nbsp;                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>373</i>&nbsp;                                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>374</i>&nbsp;                                                                .addGap(51, 51, 51)</b>
+<b class="fc"><i>375</i>&nbsp;                                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>376</i>&nbsp;                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</b>
+<b class="fc"><i>377</i>&nbsp;                                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>378</i>&nbsp;                                                                .addGap(0, 0, Short.MAX_VALUE))</b>
+<b class="fc"><i>379</i>&nbsp;                                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>380</i>&nbsp;                                                                .addGap(33, 33, 33)</b>
+<b class="fc"><i>381</i>&nbsp;                                                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</b>
+<b class="fc"><i>382</i>&nbsp;                                                                .addContainerGap())))))</b>
+<i>383</i>&nbsp;        );
+<b class="fc"><i>384</i>&nbsp;        layout.setVerticalGroup(</b>
+<b class="fc"><i>385</i>&nbsp;                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>386</i>&nbsp;                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>387</i>&nbsp;                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>388</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>389</i>&nbsp;                                                .addGap(42, 42, 42)</b>
+<b class="fc"><i>390</i>&nbsp;                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>391</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>392</i>&nbsp;                                                .addGap(53, 53, 53)</b>
+<b class="fc"><i>393</i>&nbsp;                                                .addComponent(jLabel3)</b>
+<b class="fc"><i>394</i>&nbsp;                                                .addGap(18, 18, 18)</b>
+<b class="fc"><i>395</i>&nbsp;                                                .addComponent(txtticketno))</b>
+<b class="fc"><i>396</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>397</i>&nbsp;                                                .addGap(31, 31, 31)</b>
+<b class="fc"><i>398</i>&nbsp;                                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))</b>
+<b class="fc"><i>399</i>&nbsp;                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</b>
+<b class="fc"><i>400</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>401</i>&nbsp;                                                .addGap(20, 20, 20)</b>
+<b class="fc"><i>402</i>&nbsp;                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>403</i>&nbsp;                                                .addGap(32, 32, 32)</b>
+<b class="fc"><i>404</i>&nbsp;                                                .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))</b>
+<b class="fc"><i>405</i>&nbsp;                                        .addGroup(layout.createSequentialGroup()</b>
+<b class="fc"><i>406</i>&nbsp;                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</b>
+<b class="fc"><i>407</i>&nbsp;                                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>408</i>&nbsp;                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</b>
+<b class="fc"><i>409</i>&nbsp;                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</b>
+<b class="fc"><i>410</i>&nbsp;                                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)</b>
+<b class="fc"><i>411</i>&nbsp;                                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))</b>
+<b class="fc"><i>412</i>&nbsp;                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</b>
+<i>413</i>&nbsp;        );
+<i>414</i>&nbsp;
+<b class="fc"><i>415</i>&nbsp;        pack();</b>
+<i>416</i>&nbsp;    }// &lt;/editor-fold&gt;//GEN-END:initComponents
+<i>417</i>&nbsp;
+<i>418</i>&nbsp;    public void autoID() {
+<i>419</i>&nbsp;        try {
+<b class="fc"><i>420</i>&nbsp;            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</b>
+<b class="fc"><i>421</i>&nbsp;            con = DriverManager.getConnection(&quot;jdbc:mysql://localhost/AirlineDB&quot;, &quot;root&quot;, &quot;&quot;);</b>
+<b class="fc"><i>422</i>&nbsp;            Statement s = con.createStatement();</b>
+<b class="fc"><i>423</i>&nbsp;            ResultSet rs = s.executeQuery(&quot;select MAX(id) from ticket&quot;);</b>
+<b class="fc"><i>424</i>&nbsp;            rs.next();</b>
+<b class="fc"><i>425</i>&nbsp;            rs.getString(&quot;MAX(id)&quot;);</b>
+<b class="pc"><i>426</i>&nbsp;            if (rs.getString(&quot;MAX(id)&quot;) == null) {</b>
+<b class="nc"><i>427</i>&nbsp;                txtticketno.setText(&quot;TO001&quot;);</b>
+<i>428</i>&nbsp;            } else {
+<b class="fc"><i>429</i>&nbsp;                long id = Long.parseLong(rs.getString(&quot;MAX(id)&quot;).substring(2, rs.getString(&quot;MAX(id)&quot;).length()));</b>
+<b class="fc"><i>430</i>&nbsp;                id++;</b>
+<b class="fc"><i>431</i>&nbsp;                txtticketno.setText(&quot;TO&quot; + String.format(&quot;%03d&quot;, id));</b>
+<i>432</i>&nbsp;
+<i>433</i>&nbsp;
+<i>434</i>&nbsp;            }
+<i>435</i>&nbsp;
+<i>436</i>&nbsp;
+<b class="nc"><i>437</i>&nbsp;        } catch (ClassNotFoundException ex) {</b>
+<b class="nc"><i>438</i>&nbsp;            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="nc"><i>439</i>&nbsp;        } catch (SQLException ex) {</b>
+<b class="nc"><i>440</i>&nbsp;            Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="fc"><i>441</i>&nbsp;        }</b>
+<i>442</i>&nbsp;
+<i>443</i>&nbsp;
+<i>444</i>&nbsp;    }
+<i>445</i>&nbsp;
+<i>446</i>&nbsp;    public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<i>447</i>&nbsp;        // TODO add your handling code here:
+<b class="fc"><i>448</i>&nbsp;        addTicket();</b>
+<i>449</i>&nbsp;
+<i>450</i>&nbsp;    }//GEN-LAST:event_jButton1ActionPerformed
+<i>451</i>&nbsp;
+<i>452</i>&nbsp;    public String addTicket() {
+<b class="fc"><i>453</i>&nbsp;        String message = &quot;Please fill in all fields&quot;;</b>
+<b class="fc"><i>454</i>&nbsp;        if (checkValues()) {</b>
+<i>455</i>&nbsp;
+<b class="fc"><i>456</i>&nbsp;            message = &quot;complete&quot;;</b>
+<i>457</i>&nbsp;
+<b class="fc"><i>458</i>&nbsp;            String ticketid = txtticketno.getText();</b>
+<b class="fc"><i>459</i>&nbsp;            String flightid = flightno.getText();</b>
+<b class="fc"><i>460</i>&nbsp;            String custid = txtcustid.getText();</b>
+<b class="fc"><i>461</i>&nbsp;            String flightclass = txtclass.getSelectedItem().toString().trim();</b>
+<b class="fc"><i>462</i>&nbsp;            String price = txtprice.getText();</b>
+<b class="fc"><i>463</i>&nbsp;            String seats = txtseats.getValue().toString();</b>
+<b class="fc"><i>464</i>&nbsp;            DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</b>
+<b class="fc"><i>465</i>&nbsp;            JCalendar txtdate = new JCalendar();</b>
+<b class="fc"><i>466</i>&nbsp;            String date = da.format(txtdate.getDate());</b>
+<i>467</i>&nbsp;
+<i>468</i>&nbsp;
+<i>469</i>&nbsp;            try {
+<b class="fc"><i>470</i>&nbsp;                Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</b>
+<b class="fc"><i>471</i>&nbsp;                con = DriverManager.getConnection(&quot;jdbc:mysql://localhost/AirlineDB&quot;, &quot;root&quot;, &quot;&quot;);</b>
+<b class="fc"><i>472</i>&nbsp;                pst = con.prepareStatement(&quot;insert into ticket(id,flightid,custid,class,price,seats,date)values(?,?,?,?,?,?,?)&quot;);</b>
+<i>473</i>&nbsp;
+<b class="fc"><i>474</i>&nbsp;                pst.setString(1, ticketid);</b>
+<b class="fc"><i>475</i>&nbsp;                pst.setString(2, flightid);</b>
+<b class="fc"><i>476</i>&nbsp;                pst.setString(3, custid);</b>
+<b class="fc"><i>477</i>&nbsp;                pst.setString(4, flightclass);</b>
+<b class="fc"><i>478</i>&nbsp;                pst.setString(5, price);</b>
+<b class="fc"><i>479</i>&nbsp;                pst.setString(6, seats);</b>
+<b class="fc"><i>480</i>&nbsp;                pst.setString(7, date);</b>
+<i>481</i>&nbsp;
+<i>482</i>&nbsp;
+<b class="fc"><i>483</i>&nbsp;                pst.executeUpdate();</b>
+<i>484</i>&nbsp;
+<i>485</i>&nbsp;
+<b class="fc"><i>486</i>&nbsp;                JOptionPane.showMessageDialog(null, &quot;Ticket Bookeed.........&quot;);</b>
+<b class="nc"><i>487</i>&nbsp;            } catch (ClassNotFoundException ex) {</b>
+<b class="nc"><i>488</i>&nbsp;                Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="nc"><i>489</i>&nbsp;            } catch (SQLException ex) {</b>
+<b class="nc"><i>490</i>&nbsp;                Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="fc"><i>491</i>&nbsp;            }</b>
+<i>492</i>&nbsp;        }
+<b class="fc"><i>493</i>&nbsp;        return message;</b>
+<i>494</i>&nbsp;    }
+<i>495</i>&nbsp;
+<i>496</i>&nbsp;    public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+<i>497</i>&nbsp;        // TODO add your handling code here:
+<i>498</i>&nbsp;
+<b class="fc"><i>499</i>&nbsp;        this.hide();</b>
+<i>500</i>&nbsp;
+<i>501</i>&nbsp;    }//GEN-LAST:event_jButton2ActionPerformed
+<i>502</i>&nbsp;
+<i>503</i>&nbsp;    public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+<i>504</i>&nbsp;        // TODO add your handling code here:
+<b class="fc"><i>505</i>&nbsp;        loadFlights();</b>
+<i>506</i>&nbsp;
+<i>507</i>&nbsp;    }//GEN-LAST:event_jButton3ActionPerformed
+<i>508</i>&nbsp;
+<i>509</i>&nbsp;    public String loadFlights() {
+<b class="fc"><i>510</i>&nbsp;        String message = &quot;A field is empty&quot;;</b>
+<i>511</i>&nbsp;        try {
+<b class="pc"><i>512</i>&nbsp;            if (!(txtsource.getSelectedItem().toString() == null)  &amp;&amp;</b>
+<b class="pc"><i>513</i>&nbsp;                    !(txtdepart.getSelectedItem().toString() == null)) {</b>
+<i>514</i>&nbsp;
+<b class="fc"><i>515</i>&nbsp;                message = &quot;complete&quot;;</b>
+<b class="fc"><i>516</i>&nbsp;                String source = txtsource.getSelectedItem().toString().trim();</b>
+<b class="fc"><i>517</i>&nbsp;                String depart = txtdepart.getSelectedItem().toString().trim();</b>
+<i>518</i>&nbsp;
+<i>519</i>&nbsp;                try {
+<b class="fc"><i>520</i>&nbsp;                    Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</b>
+<b class="fc"><i>521</i>&nbsp;                    con = DriverManager.getConnection(&quot;jdbc:mysql://localhost/AirlineDB&quot;, &quot;root&quot;, &quot;&quot;);</b>
+<b class="fc"><i>522</i>&nbsp;                    pst = con.prepareStatement(&quot;SELECT * from flight WHERE source = ? and depart = ?&quot;);</b>
+<i>523</i>&nbsp;
+<i>524</i>&nbsp;
+<b class="fc"><i>525</i>&nbsp;                    pst.setString(1, source);</b>
+<b class="fc"><i>526</i>&nbsp;                    pst.setString(2, depart);</b>
+<b class="fc"><i>527</i>&nbsp;                    ResultSet rs = pst.executeQuery();</b>
+<i>528</i>&nbsp;
+<b class="fc"><i>529</i>&nbsp;                    ResultSetMetaData rsm = rs.getMetaData();</b>
+<i>530</i>&nbsp;                    int c;
+<b class="fc"><i>531</i>&nbsp;                    c = rsm.getColumnCount();</b>
+<i>532</i>&nbsp;
+<b class="fc"><i>533</i>&nbsp;                    DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();</b>
+<b class="fc"><i>534</i>&nbsp;                    Df.setRowCount(0);</b>
+<i>535</i>&nbsp;
+<b class="pc"><i>536</i>&nbsp;                    while (rs.next()) {</b>
+<b class="fc"><i>537</i>&nbsp;                        Vector v2 = new Vector();</b>
+<i>538</i>&nbsp;
+<b class="fc"><i>539</i>&nbsp;                        for (int i = 1; i &lt;= c; i++) {</b>
+<b class="fc"><i>540</i>&nbsp;                            v2.add(rs.getString(&quot;id&quot;));</b>
+<b class="fc"><i>541</i>&nbsp;                            v2.add(rs.getString(&quot;flightname&quot;));</b>
+<b class="fc"><i>542</i>&nbsp;                            v2.add(rs.getString(&quot;source&quot;));</b>
+<b class="fc"><i>543</i>&nbsp;                            v2.add(rs.getString(&quot;depart&quot;));</b>
+<b class="fc"><i>544</i>&nbsp;                            v2.add(rs.getString(&quot;date&quot;));</b>
+<b class="fc"><i>545</i>&nbsp;                            v2.add(rs.getString(&quot;deptime&quot;));</b>
+<b class="fc"><i>546</i>&nbsp;                            v2.add(rs.getString(&quot;arrtime&quot;));</b>
+<b class="fc"><i>547</i>&nbsp;                            v2.add(rs.getString(&quot;flightcharge&quot;));</b>
+<i>548</i>&nbsp;                        }
+<i>549</i>&nbsp;
+<b class="fc"><i>550</i>&nbsp;                        Df.addRow(v2);</b>
+<i>551</i>&nbsp;
+<i>552</i>&nbsp;
+<b class="fc"><i>553</i>&nbsp;                    }</b>
+<i>554</i>&nbsp;
+<i>555</i>&nbsp;
+<b class="nc"><i>556</i>&nbsp;                } catch (ClassNotFoundException ex) {</b>
+<b class="nc"><i>557</i>&nbsp;                    Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="nc"><i>558</i>&nbsp;                } catch (SQLException ex) {</b>
+<b class="nc"><i>559</i>&nbsp;                    Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="fc"><i>560</i>&nbsp;                }</b>
+<i>561</i>&nbsp;            }
+<i>562</i>&nbsp;
+<b class="fc"><i>563</i>&nbsp;        } catch (Exception ex) {</b>
+<b class="fc"><i>564</i>&nbsp;            message = &quot;a field is empty&quot;;</b>
+<b class="fc"><i>565</i>&nbsp;        }</b>
+<b class="fc"><i>566</i>&nbsp;        return message;</b>
+<i>567</i>&nbsp;    }
+<i>568</i>&nbsp;
+<i>569</i>&nbsp;
+<i>570</i>&nbsp;    public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+<i>571</i>&nbsp;        // TODO add your handling code here:
+<b class="fc"><i>572</i>&nbsp;        showInfo();</b>
+<i>573</i>&nbsp;
+<i>574</i>&nbsp;    }//GEN-LAST:event_jButton4ActionPerformed
+<i>575</i>&nbsp;
+<i>576</i>&nbsp;    public String showInfo() {
+<b class="fc"><i>577</i>&nbsp;        String message = &quot;A field is empty&quot;;</b>
+<b class="pc"><i>578</i>&nbsp;        if (!(txtcustid.getText().equals(&quot;&quot;) || txtcustid.getText() == null)) {</b>
+<i>579</i>&nbsp;
+<b class="fc"><i>580</i>&nbsp;            message = &quot;complete&quot;;</b>
+<b class="fc"><i>581</i>&nbsp;            String id = txtcustid.getText();</b>
+<i>582</i>&nbsp;
+<i>583</i>&nbsp;            try {
+<b class="fc"><i>584</i>&nbsp;                Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</b>
+<b class="fc"><i>585</i>&nbsp;                con = DriverManager.getConnection(&quot;jdbc:mysql://localhost/AirlineDB&quot;, &quot;root&quot;, &quot;&quot;);</b>
+<b class="fc"><i>586</i>&nbsp;                pst = con.prepareStatement(&quot;select * from customer where id = ?&quot;);</b>
+<b class="fc"><i>587</i>&nbsp;                pst.setString(1, id);</b>
+<b class="fc"><i>588</i>&nbsp;                ResultSet rs = pst.executeQuery();</b>
+<i>589</i>&nbsp;
+<b class="fc"><i>590</i>&nbsp;                if (rs.next() == false) {</b>
+<b class="fc"><i>591</i>&nbsp;                    message = &quot;record not found&quot;;</b>
+<b class="fc"><i>592</i>&nbsp;                    JOptionPane.showMessageDialog(this, &quot;Record not Found&quot;);</b>
+<i>593</i>&nbsp;                } else {
+<b class="fc"><i>594</i>&nbsp;                    String fname = rs.getString(&quot;firstname&quot;);</b>
+<b class="fc"><i>595</i>&nbsp;                    String lname = rs.getString(&quot;lastname&quot;);</b>
+<i>596</i>&nbsp;
+<b class="fc"><i>597</i>&nbsp;                    String passport = rs.getString(&quot;passport&quot;);</b>
+<i>598</i>&nbsp;
+<i>599</i>&nbsp;
+<b class="fc"><i>600</i>&nbsp;                    txtfirstname.setText(fname.trim());</b>
+<b class="fc"><i>601</i>&nbsp;                    txtlastname.setText(lname.trim());</b>
+<i>602</i>&nbsp;
+<b class="fc"><i>603</i>&nbsp;                    txtpassport.setText(passport.trim());</b>
+<i>604</i>&nbsp;
+<i>605</i>&nbsp;
+<i>606</i>&nbsp;                }
+<i>607</i>&nbsp;
+<i>608</i>&nbsp;
+<b class="nc"><i>609</i>&nbsp;            } catch (ClassNotFoundException ex) {</b>
+<b class="nc"><i>610</i>&nbsp;                Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="nc"><i>611</i>&nbsp;            } catch (SQLException ex) {</b>
+<b class="nc"><i>612</i>&nbsp;                Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</b>
+<b class="fc"><i>613</i>&nbsp;            }</b>
+<i>614</i>&nbsp;        }
+<b class="fc"><i>615</i>&nbsp;        return message;</b>
+<i>616</i>&nbsp;    }
+<i>617</i>&nbsp;
+<i>618</i>&nbsp;    public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+<i>619</i>&nbsp;        // TODO add your handling code here:
+<i>620</i>&nbsp;
+<b class="nc"><i>621</i>&nbsp;        DefaultTableModel Df = (DefaultTableModel) jTable1.getModel();</b>
+<i>622</i>&nbsp;
+<b class="nc"><i>623</i>&nbsp;        int selectIndex = jTable1.getSelectedRow();</b>
+<i>624</i>&nbsp;
+<i>625</i>&nbsp;
+<b class="nc"><i>626</i>&nbsp;        flightno.setText(Df.getValueAt(selectIndex, 0).toString());</b>
+<b class="nc"><i>627</i>&nbsp;        flightname.setText(Df.getValueAt(selectIndex, 1).toString());</b>
+<b class="nc"><i>628</i>&nbsp;        txtdept.setText(Df.getValueAt(selectIndex, 5).toString());</b>
+<b class="nc"><i>629</i>&nbsp;        txtprice.setText(Df.getValueAt(selectIndex, 7).toString());</b>
+<i>630</i>&nbsp;
+<i>631</i>&nbsp;    }//GEN-LAST:event_jTable1MouseClicked
+<i>632</i>&nbsp;
+<i>633</i>&nbsp;    public void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
+<i>634</i>&nbsp;        // TODO add your handling code here:
+<b class="fc"><i>635</i>&nbsp;        changeSeats();</b>
+<i>636</i>&nbsp;
+<i>637</i>&nbsp;    }//GEN-LAST:event_txtseatsStateChanged
+<i>638</i>&nbsp;
+<i>639</i>&nbsp;    public String changeSeats() {
+<b class="fc"><i>640</i>&nbsp;        String message = &quot;empty&quot;;</b>
+<b class="pc"><i>641</i>&nbsp;        if (!txtprice.getText().equals(&quot;&quot;) &amp;&amp; txtprice != null &amp;&amp; txtseats.getValue() != null &amp;&amp; !txtseats.getValue().equals(&quot;&quot;)) {</b>
+<b class="fc"><i>642</i>&nbsp;            message = &quot;complete&quot;;</b>
+<b class="fc"><i>643</i>&nbsp;            int price = Integer.parseInt(txtprice.getText());</b>
+<b class="fc"><i>644</i>&nbsp;            int qty = Integer.parseInt(txtseats.getValue().toString());</b>
+<i>645</i>&nbsp;
+<b class="fc"><i>646</i>&nbsp;            int tot = price * qty;</b>
+<i>647</i>&nbsp;
+<b class="fc"><i>648</i>&nbsp;            txttotal.setText(String.valueOf(tot));</b>
+<i>649</i>&nbsp;        }
+<b class="fc"><i>650</i>&nbsp;        return message;</b>
+<i>651</i>&nbsp;    }
+<i>652</i>&nbsp;
+<i>653</i>&nbsp;
+<i>654</i>&nbsp;    public boolean checkValues() {
+<b class="pc"><i>655</i>&nbsp;        if (txtticketno.getText() == null || flightno.getText() == null || txtcustid.getText() == null</b>
+<b class="pc"><i>656</i>&nbsp;                || txtclass.getSelectedItem().toString() == null || txtprice.getText() == null</b>
+<b class="pc"><i>657</i>&nbsp;                || txtseats.getValue().toString() == null || txtticketno.getText() == &quot;&quot;</b>
+<b class="pc"><i>658</i>&nbsp;                || flightno.getText() == &quot;&quot;</b>
+<b class="pc"><i>659</i>&nbsp;                || txtcustid.getText() == &quot;&quot; || txtclass.getSelectedItem().toString() == &quot;&quot;</b>
+<b class="pc"><i>660</i>&nbsp;                || txtprice.getText() == &quot;&quot; || txtseats.getValue().toString() == &quot;&quot;) {</b>
+<b class="fc"><i>661</i>&nbsp;            return false;</b>
+<i>662</i>&nbsp;        }
+<b class="fc"><i>663</i>&nbsp;        return true;</b>
+<i>664</i>&nbsp;    }
+<i>665</i>&nbsp;
+<i>666</i>&nbsp;    // Variables declaration - do not modify//GEN-BEGIN:variables
+<i>667</i>&nbsp;    public static javax.swing.JLabel flightname;
+<i>668</i>&nbsp;    public static javax.swing.JLabel flightno;
+<i>669</i>&nbsp;    public static javax.swing.JButton jButton1;
+<i>670</i>&nbsp;    public static javax.swing.JButton jButton2;
+<i>671</i>&nbsp;    public static javax.swing.JButton jButton3;
+<i>672</i>&nbsp;    public static javax.swing.JButton jButton4;
+<i>673</i>&nbsp;    public static javax.swing.JLabel jLabel1;
+<i>674</i>&nbsp;    public static javax.swing.JLabel jLabel12;
+<i>675</i>&nbsp;    public static javax.swing.JLabel jLabel13;
+<i>676</i>&nbsp;    public static javax.swing.JLabel jLabel14;
+<i>677</i>&nbsp;    public static javax.swing.JLabel jLabel15;
+<i>678</i>&nbsp;    public static javax.swing.JLabel jLabel16;
+<i>679</i>&nbsp;    public static javax.swing.JLabel jLabel17;
+<i>680</i>&nbsp;    public static javax.swing.JLabel jLabel2;
+<i>681</i>&nbsp;    public static javax.swing.JLabel jLabel3;
+<i>682</i>&nbsp;    public static javax.swing.JLabel jLabel5;
+<i>683</i>&nbsp;    public static javax.swing.JLabel jLabel6;
+<i>684</i>&nbsp;    public static javax.swing.JLabel jLabel7;
+<i>685</i>&nbsp;    public static javax.swing.JLabel jLabel8;
+<i>686</i>&nbsp;    public static javax.swing.JPanel jPanel1;
+<i>687</i>&nbsp;    public static javax.swing.JPanel jPanel2;
+<i>688</i>&nbsp;    public static javax.swing.JPanel jPanel3;
+<i>689</i>&nbsp;    public static javax.swing.JScrollPane jScrollPane1;
+<i>690</i>&nbsp;    public static javax.swing.JTable jTable1;
+<i>691</i>&nbsp;    public static javax.swing.JComboBox&lt;String&gt; txtclass;
+<i>692</i>&nbsp;    public static javax.swing.JTextField txtcustid;
+<i>693</i>&nbsp;    public static javax.swing.JComboBox&lt;String&gt; txtdepart;
+<i>694</i>&nbsp;    public static javax.swing.JLabel txtdept;
+<i>695</i>&nbsp;    public static javax.swing.JLabel txtfirstname;
+<i>696</i>&nbsp;    public static javax.swing.JLabel txtlastname;
+<i>697</i>&nbsp;    public static javax.swing.JLabel txtpassport;
+<i>698</i>&nbsp;    public static javax.swing.JTextField txtprice;
+<i>699</i>&nbsp;    public static javax.swing.JSpinner txtseats;
+<i>700</i>&nbsp;    public static javax.swing.JComboBox&lt;String&gt; txtsource;
+<i>701</i>&nbsp;    public static javax.swing.JLabel txtticketno;
+<i>702</i>&nbsp;    public static javax.swing.JLabel txttotal;
+<i>703</i>&nbsp;    // End of variables declaration//GEN-END:variables
+<i>704</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-04-20 21:13</div>
+</div>
+</body>
+</html>

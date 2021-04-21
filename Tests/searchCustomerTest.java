@@ -1,10 +1,8 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-
-import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -41,7 +39,7 @@ class searchCustomerTest {
     }
     @Test
     @DisplayName("not jpg or jpeg or other image formats")
-    void jButton1ActionPerformed2() {
+    public void jButton1ActionPerformed2() {
         assertEquals("An error occurred",customer.updatePhoto());
     }
 
@@ -158,6 +156,247 @@ class searchCustomerTest {
         assertEquals(mockCustomer.searchCustomer(),"record not found");
 
     }
+    
+    @Test
+    void logic(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic2(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic3(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic4(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic5(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic6(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic7(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic8(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText(null);
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic9(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText(null);
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic10(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText(null);
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic11(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText(null);
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic12(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText(null);
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic13(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText(null);
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+    }
+    @Test
+    void logic14(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText(null);
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic15(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+    @Test
+    void logic16(){
+        customer = new searchCustomer();
+        searchCustomer.txtcustid.setText("CS001");
+        searchCustomer.txtfirstname.setText("a");
+        searchCustomer.txtlastname.setText("a");
+        searchCustomer.txtnic.setText("a");
+        searchCustomer.txtpassport.setText("a");
+        searchCustomer.txtaddress.setText("a");
+        searchCustomer.txtcontact.setText("a");
+        searchCustomer.r1.setSelected(true);
+        searchCustomer.r2.setSelected(false);
+        assertEquals(false, customer.checkValues());
+
+    }
+
 
 
 }

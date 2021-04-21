@@ -652,12 +652,9 @@ public class ticket extends javax.swing.JInternalFrame {
 
 
     public boolean checkValues() {
-        if (txtticketno.getText() == null || flightno.getText() == null || txtcustid.getText() == null
-                || txtclass.getSelectedItem().toString() == null || txtprice.getText() == null
-                || txtseats.getValue().toString() == null || txtticketno.getText() == ""
-                || flightno.getText() == ""
-                || txtcustid.getText() == "" || txtclass.getSelectedItem().toString() == ""
-                || txtprice.getText() == "" || txtseats.getValue().toString() == "") {
+        if ( txtcustid.getText().isEmpty()
+                || txtprice.getText().isEmpty() 
+                || ((int)txtseats.getValue() < 1)) {
             return false;
         }
         return true;

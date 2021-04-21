@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -470,21 +471,13 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
 
     public boolean checkValues(){
-        if(  txtaddress.getText().equals("")
-                || txtcontact.getText().equals("")
-                || txtfirstname.getText().equals("")
-                || txtid.getText().equals("")
-                || txtlastname.getText().equals("")
-                || txtnic.getText().equals("")
-                || txtpassport.getText().equals("")
-                || txtaddress.getText() == null
-                || txtcontact.getText() == null
-                || txtfirstname.getText().equals(null)
-                || txtid.getText() == null
-                || txtlastname.getText() == null
-                || txtnic.getText() == null
-                || txtpassport.getText() == null
-                ){
+        if(  txtaddress.getText().isEmpty()
+                || txtcontact.getText().isEmpty()
+                || txtfirstname.getText().isEmpty()
+                || txtlastname.getText().isEmpty()
+                || txtnic.getText().isEmpty()
+                || txtpassport.getText().isEmpty()
+        ){
             return false;
         }
         return true;

@@ -2,7 +2,6 @@ import com.toedter.calendar.JCalendar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -45,7 +44,7 @@ class addCustomerTest {
 
     @Test
     @DisplayName("Correct Parameters Positive Testing")
-    void CreateCustomerT1() {
+    public void CreateCustomerT1() {
         addCustomer.txtaddress.setText("yeehaw");
         addCustomer.txtcontact.setText("76876876");
         addCustomer.txtfirstname.setText("Nick");
@@ -105,5 +104,187 @@ class addCustomerTest {
     @Test
     void jButton3ActionPerformed() {
         addCustomer.jButton3.doClick();
+    }
+
+    @Test
+    void logic2(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic3(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic4(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic5(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic6(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic7(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic8(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtfirstname.setText(null);
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic9(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText(null);
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic10(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText(null);
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic11(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText(null);
+        addCustomer.txtpassport.setText("a");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic12(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText(null);
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic13(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("");
+        addCustomer.txtaddress.setText(null);
+        addCustomer.txtcontact.setText("a");
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
+    }
+    @Test
+    void logic14(){
+        addCustomer customer = new addCustomer();
+        addCustomer.txtid.setText("a");
+        addCustomer.txtfirstname.setText("a");
+        addCustomer.txtlastname.setText("a");
+        addCustomer.txtnic.setText("a");
+        addCustomer.txtpassport.setText("");
+        addCustomer.txtaddress.setText("a");
+        addCustomer.txtcontact.setText(null);
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(false);
+        assertEquals(false,customer.checkValues());
     }
 }

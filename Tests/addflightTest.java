@@ -53,7 +53,7 @@ public void setup(){
     }
     @Test
     @DisplayName("Test for flight correct flight charge")
-    public void jButton1TestNeg3(){
+    public void jButton1TestNeg0(){
         AddFlight.txtflightid.setText("abc");
         AddFlight.txtflightname.setText("abc");
 
@@ -88,24 +88,101 @@ public void setup(){
         assertEquals("failed",myFlight.addFlightButton());
 
     }
-    @Test
-    @DisplayName("Null Testing")
-    public void jButton1TestNeg2(){
-        AddFlight.txtflightid.setText(null);
-        AddFlight.txtflightname.setText(null);
-
-        DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
-
-        AddFlight.txtdate.setDate(null);
-        AddFlight.txtdtime.setText(null);
-        AddFlight.txtarrtime.setText(null);
-        AddFlight.txtflightcharge.setText(null);
-        assertEquals("failed",myFlight.addFlightButton());
-
-    }
 
     @Test
     public void jbutton2Test(){
         AddFlight.jButton2.doClick();
+    }
+
+    @Test
+    @DisplayName("Null Testing")
+    public void jButton1TestNeg3(){
+        AddFlight.txtflightid.setText("");
+        AddFlight.txtflightname.setText("abc");
+
+        AddFlight.txtsource.setSelectedItem("US");
+        AddFlight.txtdepart.setSelectedItem("US");
+
+        Date date = new Date();
+
+        AddFlight.txtdate.setDate(date);
+        AddFlight.txtdtime.setText("now");
+        AddFlight.txtarrtime.setText("now");
+        AddFlight.txtflightcharge.setText("300");
+        assertEquals("failed",myFlight.addFlightButton());
+
+    }
+    @Test
+    @DisplayName("Null Testing")
+    public void jButton1TestNeg4(){
+        AddFlight.txtflightid.setText("abc");
+        AddFlight.txtflightname.setText("");
+
+        AddFlight.txtsource.setSelectedItem("US");
+        AddFlight.txtdepart.setSelectedItem("US");
+
+        Date date = new Date();
+
+        AddFlight.txtdate.setDate(date);
+        AddFlight.txtdtime.setText("now");
+        AddFlight.txtarrtime.setText("now");
+        AddFlight.txtflightcharge.setText("300");
+        assertEquals("failed",myFlight.addFlightButton());
+
+    }
+    
+    @Test
+    @DisplayName("Null Testing")
+    public void jButton1TestNeg7(){
+        AddFlight.txtflightid.setText("abc");
+        AddFlight.txtflightname.setText("abc");
+
+        AddFlight.txtsource.setSelectedItem("US");
+        AddFlight.txtdepart.setSelectedItem("US");
+
+        Date date = new Date();
+
+        AddFlight.txtdate.setDate(date);
+        AddFlight.txtdtime.setText("");
+        AddFlight.txtarrtime.setText("now");
+        AddFlight.txtflightcharge.setText("300");
+        assertEquals("failed",myFlight.addFlightButton());
+
+    }
+    @Test
+    @DisplayName("Null Testing")
+    public void jButton1TestNeg8(){
+        AddFlight.txtflightid.setText("abc");
+        AddFlight.txtflightname.setText("abc");
+
+        AddFlight.txtsource.setSelectedItem("US");
+        AddFlight.txtdepart.setSelectedItem("US");
+
+        Date date = new Date();
+
+        AddFlight.txtdate.setDate(date);
+        AddFlight.txtdtime.setText("now");
+        AddFlight.txtarrtime.setText("");
+        AddFlight.txtflightcharge.setText("300");
+        assertEquals("failed",myFlight.addFlightButton());
+
+    }
+    @Test
+    @DisplayName("Null Testing")
+    public void jButton1TestNeg9(){
+        AddFlight.txtflightid.setText("abc");
+        AddFlight.txtflightname.setText("abc");
+
+        AddFlight.txtsource.setSelectedItem("US");
+        AddFlight.txtdepart.setSelectedItem("US");
+
+        Date date = new Date();
+
+        AddFlight.txtdate.setDate(date);
+        AddFlight.txtdtime.setText("now");
+        AddFlight.txtarrtime.setText("");
+        AddFlight.txtflightcharge.setText("");
+        assertEquals("failed",myFlight.addFlightButton());
+
     }
 }

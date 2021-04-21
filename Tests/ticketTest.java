@@ -11,24 +11,18 @@ class ticketTest {
     void setup(){
         myTicket = new ticket();
         ticket.txtcustid.setText("");
-        ticket.flightno.setText("");
-        ticket.txtticketno.setText("");
         ticket.txtclass.setSelectedItem("");
         ticket.txtprice.setText("");
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("");
     }
 
     @Test
     @DisplayName("NullB1")
     void jButton1ActionPerformed() {
-        ticket.txtcustid.setText(null);
-        ticket.flightno.setText(null);
-        ticket.txtticketno.setText(null);
+        ticket.txtcustid.setText("");
         ticket.txtclass.setSelectedItem(null);
         ticket.txtprice.setText(null);
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText(null);
         ticket.jButton1.doClick();
         assertEquals("Please fill in all fields", myTicket.addTicket());
 
@@ -37,12 +31,9 @@ class ticketTest {
     @DisplayName("EmptyB1")
     void jButton1ActionPerformed2() {
         ticket.txtcustid.setText("");
-        ticket.flightno.setText("");
-        ticket.txtticketno.setText("");
         ticket.txtclass.setSelectedItem("");
         ticket.txtprice.setText("");
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("");
         ticket.jButton1.doClick();
         assertEquals("Please fill in all fields", myTicket.addTicket());
 
@@ -52,12 +43,9 @@ class ticketTest {
     @DisplayName("PositiveB1")
     void jButton1ActionPerformed3() {
         ticket.txtcustid.setText("CS001");
-        ticket.flightno.setText("124");
-        ticket.txtticketno.setText("12");
         ticket.txtclass.setSelectedItem("first");
         ticket.txtprice.setText("20");
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
         ticket.jButton1.doClick();
         assertEquals("complete", myTicket.addTicket());
@@ -87,12 +75,9 @@ class ticketTest {
     @DisplayName("PositiveB3")
     void jButton3ActionPerformed3() {
         ticket.txtcustid.setText("CS001");
-        ticket.flightno.setText("124");
-        ticket.txtticketno.setText("12");
         ticket.txtclass.setSelectedItem("first");
         ticket.txtprice.setText("20");
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
         ticket.jButton3.doClick();
         assertEquals("complete", myTicket.loadFlights());
@@ -104,12 +89,9 @@ class ticketTest {
     @DisplayName("NullB4")
     void jButton4ActionPerformed() {
         ticket.txtcustid.setText(null);
-        ticket.flightno.setText(null);
-        ticket.txtticketno.setText(null);
         ticket.txtclass.setSelectedItem(null);
         ticket.txtprice.setText(null);
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText(null);
         ticket.jButton4.doClick();
         assertEquals("A field is empty", myTicket.showInfo());
 
@@ -149,12 +131,9 @@ class ticketTest {
     @DisplayName("Incorrect customerID")
     void jButton4ActionPerformed4() {
         ticket.txtcustid.setText("CS009");
-        ticket.flightno.setText("124");
-        ticket.txtticketno.setText("12");
         ticket.txtclass.setSelectedItem("first");
         ticket.txtprice.setText("20");
         ticket.txtseats.setValue(1);
-        ticket.txtticketno.setText("234");
         ticket.jButton4.doClick();
         assertEquals("record not found", myTicket.showInfo());
 
@@ -165,7 +144,6 @@ class ticketTest {
     @DisplayName("NullSeats")
     void txtseatsStateChanged() {
         ticket.txtseats.setValue(0);
-        ticket.txtticketno.setText(null);
         assertEquals("empty",myTicket.changeSeats());
 
     }
@@ -187,8 +165,24 @@ class ticketTest {
         ticket.txtprice.setText("20");
         assertEquals("complete",myTicket.changeSeats());
 
-
     }
 
-    
+    @Test
+    void logic(){
+        ticket.txtcustid.setText("");
+        ticket.txtclass.setSelectedItem("a");
+        ticket.txtprice.setText("a");
+        ticket.txtseats.setValue(1);
+        assertFalse(myTicket.checkValues());
+    }
+
+    @Test
+    void logic3(){
+        ticket.txtcustid.setText("a");
+        ticket.txtclass.setSelectedItem("a");
+        ticket.txtprice.setText("");
+        ticket.txtseats.setValue(1);
+        assertFalse(myTicket.checkValues());
+    }
+
 }

@@ -530,12 +530,14 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }
 
     public boolean checkValues(){
-        if(  txtaddress.getText().equals("")|| txtcontact.getText().equals("")|| txtfirstname.getText().equals("")
-                || txtcustid.getText().equals("")|| txtlastname.getText().equals("")|| txtnic.getText().equals("")
-                || txtpassport.getText().equals("")|| txtphoto.getText().equals("")|| txtaddress.getText() == null
-                || txtcontact.getText() == null || txtfirstname.getText() == null
-                || txtcustid.getText() == null || txtlastname.getText() == null || txtnic.getText() == null
-                || txtpassport.getText() == null || txtphoto.getText() == null){
+        if(  txtaddress.getText().isEmpty()
+                || txtcontact.getText().isEmpty()
+                || txtfirstname.getText().isEmpty()
+                || txtcustid.getText().isEmpty()
+                || txtlastname.getText().isEmpty()
+                || txtnic.getText().isEmpty()
+                || txtpassport.getText().isEmpty()
+                || txtphoto.getText().isEmpty()){
             return false;
         }
         return true;

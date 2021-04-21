@@ -1,6 +1,6 @@
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -16,7 +16,6 @@ import static org.mockito.Mockito.when;
  * Class MockTests
  *
  **/
-@RunWith(MockitoJUnitRunner.class)
 
 public class MockTests {
     @Mock

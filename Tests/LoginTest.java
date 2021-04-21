@@ -1,19 +1,9 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.junit.runner.RunWith;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Class LoginTest
@@ -25,7 +15,6 @@ import static org.mockito.Mockito.*;
  * Block 2: Null login values.
  * Block 3: Invalid login values.
  **/
-@RunWith(MockitoJUnitRunner.class)
 class LoginTest {
     Login myLogin;
     User testUser;
@@ -75,6 +64,35 @@ class LoginTest {
     @DisplayName("Negative testing with null parameters")
     public void testLoginButtonNegative() {
         testUser = new User(null, null);
+        assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
+
+    }
+    @Test
+    @DisplayName("Negative testing with null parameters")
+    public void testLoginButtonNegative2() {
+        testUser = new User(null, "nick");
+        assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
+
+    }
+
+    @Test
+    @DisplayName("Negative testing with null parameters")
+    public void testLoginButtonNegative3() {
+        testUser = new User("nick", null);
+        assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
+
+    }
+    @Test
+    @DisplayName("Negative testing with null parameters")
+    public void testLoginButtonNegative4() {
+        testUser = new User("nick", "");
+        assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
+
+    }
+    @Test
+    @DisplayName("Negative testing with null parameters")
+    public void testLoginButtonNegative5() {
+        testUser = new User("", "nick");
         assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
 
     }

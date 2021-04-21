@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -248,13 +249,12 @@ public class AddFlight extends javax.swing.JInternalFrame {
     }
 
     public boolean checkBoxes(){
-        if((txtflightid.getText() == null) ||(txtflightname.getText() == null)
-                ||(txtsource.getSelectedItem() == null) ||(txtdepart.getSelectedItem() == null)
-                ||(txtdate.getDate() == null) ||(txtdtime.getText() == null)
-                ||(txtarrtime.getText() == null)||(txtflightcharge.getText() == null) ||(txtflightid.getText() == "") ||(txtflightname.getText() == "")
-                ||(txtsource.getSelectedItem() == "") ||(txtdepart.getSelectedItem() == "")
-                ||(txtdtime.getText() == "")
-                ||(txtarrtime.getText() == "")||(txtflightcharge.getText() == "") ){
+        if((txtflightid.getText().isEmpty())
+                ||(txtflightname.getText().isEmpty())
+                ||(txtdate.getDate().toString().isEmpty())
+                ||(txtdtime.getText().isEmpty())
+                ||(txtarrtime.getText().isEmpty())
+                ||(txtflightcharge.getText().isEmpty())){
             return false;
         }
         else return true;
@@ -268,8 +268,8 @@ public class AddFlight extends javax.swing.JInternalFrame {
                 String id = txtflightid.getText();
                 String flightname = txtflightname.getText();
 
-                String source = txtsource.getSelectedItem().toString().trim();
-                String depart = txtdepart.getSelectedItem().toString().trim();
+                String source = Objects.requireNonNull(txtsource.getSelectedItem()).toString().trim();
+                String depart = Objects.requireNonNull(txtdepart.getSelectedItem()).toString().trim();
 
                 DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
                 String date = da.format(txtdate.getDate());

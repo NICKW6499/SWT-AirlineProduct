@@ -27,12 +27,60 @@ userCreation creator;
     }
     @Test
     @DisplayName("Null String Test")
+    void jButton1ActionPerformedNull1() {
+        userCreation.txtuserid.setText("aa");
+        userCreation.txtfirstname.setText("");
+        userCreation.txtlastname.setText("aa");
+        userCreation.txtusername.setText("aa");
+        userCreation.txtpassword.setText("aa");
+        userCreation.jButton1.doClick();
+        assertEquals("A field is blank", creator.createUserButton());
+
+    }
+    @Test
+    @DisplayName("Null String Test")
+    void jButton1ActionPerformedNull2() {
+        userCreation.txtuserid.setText("aa");
+        userCreation.txtfirstname.setText("aa");
+        userCreation.txtlastname.setText("");
+        userCreation.txtusername.setText("aa");
+        userCreation.txtpassword.setText("aa");
+        userCreation.jButton1.doClick();
+        assertEquals("A field is blank", creator.createUserButton());
+
+    }
+    @Test
+    @DisplayName("Null String Test")
+    void jButton1ActionPerformedNull3() {
+        userCreation.txtuserid.setText("aa");
+        userCreation.txtfirstname.setText("aa");
+        userCreation.txtlastname.setText("aa");
+        userCreation.txtusername.setText("");
+        userCreation.txtpassword.setText("aa");
+        userCreation.jButton1.doClick();
+        assertEquals("A field is blank", creator.createUserButton());
+
+    }
+    @Test
+    @DisplayName("Null String Test")
+    void jButton1ActionPerformedNull4() {
+        userCreation.txtuserid.setText("aa");
+        userCreation.txtfirstname.setText("aa");
+        userCreation.txtlastname.setText("aa");
+        userCreation.txtusername.setText("aa");
+        userCreation.txtpassword.setText("");
+        userCreation.jButton1.doClick();
+        assertEquals("A field is blank", creator.createUserButton());
+
+    }
+    @Test
+    @DisplayName("Null String Test")
     void jButton1ActionPerformedNull() {
-        userCreation.txtuserid.setText(null);
-        userCreation.txtfirstname.setText(null);
-        userCreation.txtlastname.setText(null);
-        userCreation.txtusername.setText(null);
-        userCreation.txtpassword.setText(null);
+        userCreation.txtuserid.setText("");
+        userCreation.txtfirstname.setText("aa");
+        userCreation.txtlastname.setText("aa");
+        userCreation.txtusername.setText("aa");
+        userCreation.txtpassword.setText("aa");
         userCreation.jButton1.doClick();
         assertEquals("A field is blank", creator.createUserButton());
 

@@ -240,10 +240,8 @@ public class userCreation extends javax.swing.JInternalFrame {
     }
 
     public boolean checkValues() {
-        if (txtuserid.getText() == null || txtfirstname.getText() == null || txtlastname.getText() == null
-                || txtusername.getText() == null || txtpassword.getText() == null || txtuserid.getText() == "" ||
-                txtfirstname.getText() == "" || txtlastname.getText() == ""
-                || txtusername.getText() == "" || txtpassword.getText() == "") {
+        if (txtuserid.getText().isEmpty() || txtfirstname.getText().isEmpty() || txtlastname.getText().isEmpty()
+                || txtusername.getText().isEmpty() || txtpassword.getText().isEmpty() ) {
             return false;
         }
         return true;
