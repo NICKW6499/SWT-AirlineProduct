@@ -144,6 +144,25 @@ class ticketTest {
 
     }
 
+  /**
+   * Test Case ID: Testing Criteria #8 - Positive and negative testing
+   * Requirement ID/Decription: The flight booking program shall book the requested number of seats
+   * for a flight.
+   * Purpose: To ensure that the number of seats are accepted properly for a valid input, and rejected
+   * in the case of an invalid input. The user should be able to input a postive integer for the number of
+   * seats they need for their flight reservation.
+   * Test setup: A default value is set for the number of seats, which is set to 1. This value gets
+   * updated to reflect each of the following unit tests.
+   * Test strategy: Positive, negative, and exception handling input testing.
+   * -- This test covers three instances of input validation for seat calculation.
+   * Input: DisplayName("NullSeats"): 0
+   *        DisplayName("EmptySeats"): 1, ticket number set to 0 (non-existant ticket)
+   *        DisplayName("PositiveSeats"): 10, price set to 20 (in dollars)
+   * Expected Output:
+   * DisplayName("NullSeats"): "empty"
+   * DisplayName("EmptySeats"): "empty"
+   * DisplayName("PositiveSeats"): "complete"
+   **/
     @Test
     @DisplayName("NullSeats")
     void txtseatsStateChanged() {
@@ -153,23 +172,21 @@ class ticketTest {
     }
     @Test
     @DisplayName("EmptySeats")
-
     void txtseatsStateChanged1() {
         ticket.txtseats.setValue(1);
         ticket.txtticketno.setText("");
         Assertions.assertEquals("empty",myTicket.changeSeats());
 
-
     }
     @Test
     @DisplayName("PositiveSeats")
-
     void txtseatsStateChanged2() {
         ticket.txtseats.setValue(10);
         ticket.txtprice.setText("20");
         Assertions.assertEquals("complete",myTicket.changeSeats());
 
     }
+    /***************************************************************************/
 
     @Test
     void logic(){
