@@ -114,7 +114,7 @@ public class PerformanceTests {
         else{ timeAcceptable = false;}
         Assertions.assertEquals(true, timeAcceptable);
     }
-    
+
     @Test
     @DisplayName("Input validation with correct data type but wrong values")
     public void testLoginButtonInputVal() {
