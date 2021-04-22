@@ -63,6 +63,17 @@ public class MockTests {
 
     }
 
+    /**
+     * Test Case ID: Integration Testing #6
+     * Requirement ID/Decription: F6 -The flight booking program shall allow for the user to update
+     * existing customer info by replacing filled out fields with new information after searching with customer id.
+     * Purpose: To test that the update function of the program works correctly.
+     * Test setup: Injected mock for a searchCustomer object.
+     * Test strategy: Input validation testing with mock
+     * Input: Calls the CS001 mock and updated the first name field of the associated customer ID
+     * Expected Output: Output matches the search customer result with the mocked search customer call and updates the
+     * selected field.
+     **/
     @Test
     public void addFlightMock(){
         when(mockFlight.addFlightButton()).thenThrow(ClassNotFoundException.class);
@@ -101,7 +112,7 @@ public class MockTests {
      * Requirement ID/Decription: F6 -The flight booking program shall allow for the user to update
      * existing customer info by replacing filled out fields with new information after searching with customer id.
      * Purpose: To test that the update function of the program works correctly.
-     * Test setup: Set up a mock with existing customer ID and an updated field.
+     * Test setup: Injected mock for a searchCustomer object.
      * Test strategy: Input validation testing with mock
      * Input: Calls the CS001 mock and updated the first name field of the associated customer ID
      * Expected Output: Output matches the search customer result with the mocked search customer call and updates the
@@ -118,6 +129,17 @@ public class MockTests {
 
     }
 
+    /**
+     * Test Case ID: Integration Testing #5
+     * Requirement ID/Decription: F11 - The flight booking program shall create each ticket with a unique identifier.
+     * Purpose: To test that each ticket is uniquely identified when entered to the database via
+     * user submission in the ticket.java class (the flight booking page).
+     * Test setup: Injected mock for a ticket object.
+     * Test strategy: Positive validation testing with mock
+     * Input: Creates a new instance of a ticket.
+     * Expected Output: Output loads all flights and matches the mocked flight with a new flight
+     * and matches their ticket IDs.
+     **/
     @Test
     public void ticketMock(){
         ticket ticket = new ticket();
@@ -125,6 +147,7 @@ public class MockTests {
         assertEquals(ticket.loadFlights(),mockticket.loadFlights());
 
     }
+
     @Test
     public void customerSearchEmptyMock(){
         searchCustomer customer  = new searchCustomer();

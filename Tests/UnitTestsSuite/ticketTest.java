@@ -20,6 +20,21 @@ class ticketTest {
         ticket.txtseats.setValue(1);
     }
 
+
+  /**
+   * Test Case ID: Testing Criteria #10 - Positive and negative testing
+   * Requirement ID/Decription: F12 The flight booking program shall display economy or business flights.
+   * Purpose: Allows the customer to select between different classes of flights.
+   * Test setup: An empty String for txtclass text field.
+   * Test strategy: Positive, negative, and exception handling input testing.
+   * Input: DisplayName("NullB1"): "null"
+   *        DisplayName("EmptyB1"): ""
+   *        DisplayName("PositiveB1"): "first"
+   * Expected Output:
+   * DisplayName("NullB1"): "Please fill in all fields"
+   * DisplayName("EmptyB1"): "Please fill in all fields"
+   * DisplayName("PositiveB1"): "complete"
+   **/
     @Test
     @DisplayName("NullB1")
     void jButton1ActionPerformed() {
@@ -116,6 +131,24 @@ class ticketTest {
 
 
     }
+
+  /**
+   * Test Case ID: Testing Criteria #9 - Positive and negative testing
+   * Requirement ID/Decription: F9 The flight booking program shall display customer info when booking a flight.
+   * Purpose: When booking a flight, a customer needs to be able to enter their first name, last name,
+   * and passport number. This is to identify them on their ticket. To do this, the program searches
+   * for the customer by their customer ID.
+   * Test setup: A default value is set for the customer ID, which is set to an empty String. This
+   * value gets updated to reflect each of the following unit tests.
+   * Test strategy: Positive, negative, and exception handling input testing.
+   * -- This test covers three instances of input validation for seat calculation.
+   * Input: DisplayName("Positive"): "CS001"
+   *        DisplayName("Incorrect customerID"): "CS009"
+   * Expected Output:
+   * DisplayName("Positive"): "complete"
+   * DisplayName("Incorrect customerID"): "record not found"
+   **/
+
     @Test
     @DisplayName("Positive")
     void jButton4ActionPerformed3() {
@@ -143,6 +176,9 @@ class ticketTest {
 
 
     }
+  /***************************************************************************/
+
+
 
   /**
    * Test Case ID: Testing Criteria #8 - Positive and negative testing
