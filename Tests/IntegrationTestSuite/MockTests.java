@@ -65,14 +65,15 @@ public class MockTests {
 
     /**
      * Test Case ID: Integration Testing #6
-     * Requirement ID/Decription: F6 -The flight booking program shall allow for the user to update
-     * existing customer info by replacing filled out fields with new information after searching with customer id.
-     * Purpose: To test that the update function of the program works correctly.
-     * Test setup: Injected mock for a searchCustomer object.
+     * Requirement ID/Decription: F15 -The flight booking program shall create flights with required
+     * information including flight id, name, source, departure location, date, departure and arrival time,
+     * and flight cost.
+     * Purpose: To test that flights are added successfully.
+     * Test setup: Injected mock for an addFlight object.
      * Test strategy: Input validation testing with mock
-     * Input: Calls the CS001 mock and updated the first name field of the associated customer ID
-     * Expected Output: Output matches the search customer result with the mocked search customer call and updates the
-     * selected field.
+     * Input: Checks if exception handling is handled correctly when button click isn't working properly/
+     * Checks if error of empty flight being added fails gracefully.
+     * Expected Output: Proper exception caught message, and "failed" String in the case of an empty flight.
      **/
     @Test
     public void addFlightMock(){
@@ -87,6 +88,7 @@ public class MockTests {
         when(mockFlight.addFlightButton()).thenReturn("failed");
         assertEquals(flight.addFlightButton(),mockFlight.addFlightButton());
     }
+    /***************************************************************************/
 
     /**
      * Test Case ID: Integration Testing #3
@@ -148,6 +150,15 @@ public class MockTests {
 
     }
 
+    /**
+     * Test Case ID: Integration Testing #7
+     * Requirement ID/Decription: F4 - The flight booking program shall search customer profiles using customer id.
+     * Purpose: Checking if an empty search customer call is handled correctly.
+     * Test setup: Injected mock for a searchCustomer object.
+     * Test strategy: Input validation testing
+     * Input: Makes a new searchCustomer object and calls the search function without fields being filled out
+     * Expected Output: "A field is empty."
+     **/
     @Test
     public void customerSearchEmptyMock(){
         searchCustomer customer  = new searchCustomer();
@@ -157,6 +168,17 @@ public class MockTests {
         assertEquals(customer.searchCustomer(), mockSearch.searchCustomer());
 
     }
+
+    /**
+     * Test Case ID: Integration Testing #8
+     * Requirement ID/Decription: F14 - The flight booking program shall display all currently
+     * booked tickets with their corresponding flight number, customer id, class, price, seats, and date.
+     * Purpose: Checking if the ticket report page loads properly.
+     * Test setup: Injected mock for a ticketreport object.
+     * Test strategy: Positive testing
+     * Input: New instance of the ticketreport object, and loads the data for the mock.
+     * Expected Output: "complete"
+     **/
     @Test
     public void ticketReportMock(){
         ticketreport report = new ticketreport();

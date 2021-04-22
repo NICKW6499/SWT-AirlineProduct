@@ -51,6 +51,7 @@ class LoginTest {
         Assertions.assertEquals("validated", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
     }
+    /**********************************************************************************/
 
     /**
      * Test Case ID: Test Criteria #2 - Negative Testing
@@ -101,6 +102,7 @@ class LoginTest {
         Assertions.assertEquals("UserName or Password Blank", myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));
 
     }
+    /*****************************************************************************/
 
     /**
      * Test Case ID: Testing Criteria #3 - Input validation testing
@@ -121,5 +123,6 @@ class LoginTest {
         Assertions.assertEquals("UserName or Password do not Match", myLogin.loginButton(testUser.getUsername(),
                 testUser.getPassword()));
     }
+    /*********************************************************************/
 
 }
