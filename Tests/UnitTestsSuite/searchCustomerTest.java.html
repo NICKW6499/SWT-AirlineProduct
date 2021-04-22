@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>searchCustomerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">UnitTestsSuite</a> &gt; <span class="el_source">searchCustomerTest.java</span></div><h1>searchCustomerTest.java</h1><pre class="source lang-java linenums">package UnitTestsSuite;
+
+import airline.searchCustomer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+<span class="nc" id="L14">class searchCustomerTest {</span>
+    searchCustomer customer;
+    @InjectMocks
+    searchCustomer mockCustomer;
+    @Mock
+    searchCustomer mock;
+    @BeforeEach
+    void setUp() {
+<span class="nc" id="L22">        customer = new searchCustomer();</span>
+<span class="nc" id="L23">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L24">        searchCustomer.txtfirstname.setText(&quot;&quot;);</span>
+<span class="nc" id="L25">        searchCustomer.txtlastname.setText(&quot;&quot;);</span>
+<span class="nc" id="L26">        searchCustomer.txtnic.setText(&quot;&quot;);</span>
+<span class="nc" id="L27">        searchCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L28">        searchCustomer.txtaddress.setText(&quot;&quot;);</span>
+<span class="nc" id="L29">        searchCustomer.txtcontact.setText(&quot;&quot;);</span>
+<span class="nc" id="L30">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L31">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L32">    }</span>
+
+
+
+    @Test
+    @DisplayName(&quot;photo&quot;)
+    void jButton1ActionPerformed() {
+<span class="nc" id="L39">        searchCustomer.jButton1.doClick();</span>
+<span class="nc" id="L40">    Assertions.assertEquals(&quot;complete&quot;,customer.updatePhoto());</span>
+
+<span class="nc" id="L42">    }</span>
+    @Test
+    @DisplayName(&quot;not jpg or jpeg or other image formats&quot;)
+    public void jButton1ActionPerformed2() {
+<span class="nc" id="L46">        Assertions.assertEquals(&quot;An error occurred&quot;,customer.updatePhoto());</span>
+<span class="nc" id="L47">    }</span>
+
+    @Test
+    @DisplayName(&quot;updateNull&quot;)
+    void jButton2ActionPerformed() {
+<span class="nc" id="L52">        customer = new searchCustomer();</span>
+<span class="nc" id="L53">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L54">        searchCustomer.txtfirstname.setText(null);</span>
+<span class="nc" id="L55">        searchCustomer.txtlastname.setText(null);</span>
+<span class="nc" id="L56">        searchCustomer.txtnic.setText(null);</span>
+<span class="nc" id="L57">        searchCustomer.txtpassport.setText(null);</span>
+<span class="nc" id="L58">        searchCustomer.txtaddress.setText(null);</span>
+<span class="nc" id="L59">        searchCustomer.txtcontact.setText(null);</span>
+<span class="nc" id="L60">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L61">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L62">        Assertions.assertEquals(&quot;A field is empty&quot;,customer.updateUser());</span>
+
+<span class="nc" id="L64">    }</span>
+    @Test
+    @DisplayName(&quot;empty&quot;)
+    void jButton2ActionPerformed2() {
+<span class="nc" id="L68">        Assertions.assertEquals(&quot;A field is empty&quot;,customer.updateUser());</span>
+
+
+<span class="nc" id="L71">    }</span>
+    @Test
+    @DisplayName(&quot;positive&quot;)
+    void jButton2ActionPerformed3() {
+<span class="nc" id="L75">        customer = new searchCustomer();</span>
+<span class="nc" id="L76">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L77">        searchCustomer.txtfirstname.setText(&quot;nick&quot;);</span>
+<span class="nc" id="L78">        searchCustomer.txtlastname.setText(&quot;wright&quot;);</span>
+<span class="nc" id="L79">        searchCustomer.txtnic.setText(&quot;123&quot;);</span>
+<span class="nc" id="L80">        searchCustomer.txtpassport.setText(&quot;123&quot;);</span>
+<span class="nc" id="L81">        searchCustomer.txtaddress.setText(&quot;123 bgd&quot;);</span>
+<span class="nc" id="L82">        searchCustomer.txtcontact.setText(&quot;123532&quot;);</span>
+<span class="nc" id="L83">        searchCustomer.txtphoto.setText(&quot;airline/testImage.png&quot;);</span>
+<span class="nc" id="L84">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L85">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L86">        customer.updatePhoto();</span>
+<span class="nc" id="L87">        Assertions.assertEquals(&quot;complete&quot;,customer.updateUser());</span>
+
+<span class="nc" id="L89">    }</span>
+
+    @Test
+    @DisplayName(&quot;positiveR2&quot;)
+    void jButton2ActionPerformed4() {
+<span class="nc" id="L94">        customer = new searchCustomer();</span>
+<span class="nc" id="L95">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L96">        searchCustomer.txtfirstname.setText(&quot;nick&quot;);</span>
+<span class="nc" id="L97">        searchCustomer.txtlastname.setText(&quot;wright&quot;);</span>
+<span class="nc" id="L98">        searchCustomer.txtnic.setText(&quot;123&quot;);</span>
+<span class="nc" id="L99">        searchCustomer.txtpassport.setText(&quot;123&quot;);</span>
+<span class="nc" id="L100">        searchCustomer.txtaddress.setText(&quot;123 bgd&quot;);</span>
+<span class="nc" id="L101">        searchCustomer.txtcontact.setText(&quot;123532&quot;);</span>
+<span class="nc" id="L102">        searchCustomer.txtphoto.setText(&quot;airline/testImage.png&quot;);</span>
+<span class="nc" id="L103">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L104">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L105">        customer.updatePhoto();</span>
+<span class="nc" id="L106">        searchCustomer.jButton2.doClick();</span>
+<span class="nc" id="L107">        Assertions.assertEquals(&quot;complete&quot;,customer.updateUser());</span>
+
+
+<span class="nc" id="L110">    }</span>
+
+    @Test
+    @DisplayName(&quot;&quot;)
+    void jButton3ActionPerformed() {
+<span class="nc" id="L115">        searchCustomer.jButton3.doClick();</span>
+<span class="nc" id="L116">    }</span>
+
+    @Test
+    @DisplayName(&quot;Empty String for id&quot;)
+    void jButton4ActionPerformed() {
+<span class="nc" id="L121">        searchCustomer.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L122">        searchCustomer.jButton1.doClick();</span>
+<span class="nc" id="L123">        Assertions.assertEquals(&quot;A field is empty&quot;,customer.searchCustomer());</span>
+
+
+<span class="nc" id="L126">    }</span>
+
+    @Test
+    @DisplayName(&quot;null String for id&quot;)
+    void jButton4ActionPerformed2() {
+<span class="nc" id="L131">        searchCustomer.txtcustid.setText(null);</span>
+<span class="nc" id="L132">        searchCustomer.jButton1.doClick();</span>
+<span class="nc" id="L133">        Assertions.assertEquals(&quot;A field is empty&quot;,customer.searchCustomer());</span>
+
+
+<span class="nc" id="L136">    }</span>
+    @Test
+    @DisplayName(&quot;Positive match for id&quot;)
+    void jButton4ActionPerformed3() {
+<span class="nc" id="L140">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L141">        searchCustomer.jButton1.doClick();</span>
+<span class="nc" id="L142">        Assertions.assertEquals(&quot;complete&quot;,customer.searchCustomer());</span>
+
+
+<span class="nc" id="L145">    }</span>
+    @Test
+    @DisplayName(&quot;negative match for id&quot;)
+    void jButton4ActionPerformed4() {
+<span class="nc" id="L149">        searchCustomer.txtcustid.setText(&quot;CS005&quot;);</span>
+<span class="nc" id="L150">        searchCustomer.jButton1.doClick();</span>
+<span class="nc" id="L151">        Assertions.assertEquals(&quot;record not found&quot;,customer.searchCustomer());</span>
+<span class="nc" id="L152">    }</span>
+
+    @Test
+    void mockSearchCustomer(){
+<span class="nc" id="L156">        searchCustomer.txtcustid.setText(&quot;CS009&quot;);</span>
+<span class="nc" id="L157">        mockCustomer = mock(searchCustomer.class);</span>
+<span class="nc" id="L158">        when(mockCustomer.searchCustomer()).thenReturn(&quot;record not found&quot;);</span>
+<span class="nc" id="L159">        Assertions.assertEquals(mockCustomer.searchCustomer(),&quot;record not found&quot;);</span>
+
+<span class="nc" id="L161">    }</span>
+    
+    @Test
+    void logic(){
+<span class="nc" id="L165">        customer = new searchCustomer();</span>
+<span class="nc" id="L166">        searchCustomer.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L167">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L168">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L169">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L170">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L171">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L172">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L173">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L174">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L175">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L177">    }</span>
+    @Test
+    void logic2(){
+<span class="nc" id="L180">        customer = new searchCustomer();</span>
+<span class="nc" id="L181">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L182">        searchCustomer.txtfirstname.setText(&quot;&quot;);</span>
+<span class="nc" id="L183">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L184">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L185">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L186">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L187">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L188">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L189">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L190">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L192">    }</span>
+    @Test
+    void logic3(){
+<span class="nc" id="L195">        customer = new searchCustomer();</span>
+<span class="nc" id="L196">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L197">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L198">        searchCustomer.txtlastname.setText(&quot;&quot;);</span>
+<span class="nc" id="L199">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L200">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L201">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L202">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L203">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L204">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L205">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L207">    }</span>
+    @Test
+    void logic4(){
+<span class="nc" id="L210">        customer = new searchCustomer();</span>
+<span class="nc" id="L211">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L212">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L213">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L214">        searchCustomer.txtnic.setText(&quot;&quot;);</span>
+<span class="nc" id="L215">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L216">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L217">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L218">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L219">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L220">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L222">    }</span>
+    @Test
+    void logic5(){
+<span class="nc" id="L225">        customer = new searchCustomer();</span>
+<span class="nc" id="L226">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L227">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L228">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L229">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L230">        searchCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L231">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L232">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L233">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L234">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L235">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L237">    }</span>
+    @Test
+    void logic6(){
+<span class="nc" id="L240">        customer = new searchCustomer();</span>
+<span class="nc" id="L241">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L242">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L243">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L244">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L245">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L246">        searchCustomer.txtaddress.setText(&quot;&quot;);</span>
+<span class="nc" id="L247">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L248">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L249">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L250">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L252">    }</span>
+    @Test
+    void logic7(){
+<span class="nc" id="L255">        customer = new searchCustomer();</span>
+<span class="nc" id="L256">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L257">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L258">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L259">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L260">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L261">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L262">        searchCustomer.txtcontact.setText(&quot;&quot;);</span>
+<span class="nc" id="L263">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L264">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L265">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L267">    }</span>
+    @Test
+    void logic8(){
+<span class="nc" id="L270">        customer = new searchCustomer();</span>
+<span class="nc" id="L271">        searchCustomer.txtcustid.setText(null);</span>
+<span class="nc" id="L272">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L273">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L274">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L275">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L276">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L277">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L278">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L279">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L280">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L282">    }</span>
+    @Test
+    void logic9(){
+<span class="nc" id="L285">        customer = new searchCustomer();</span>
+<span class="nc" id="L286">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L287">        searchCustomer.txtfirstname.setText(null);</span>
+<span class="nc" id="L288">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L289">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L290">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L291">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L292">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L293">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L294">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L295">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L297">    }</span>
+    @Test
+    void logic10(){
+<span class="nc" id="L300">        customer = new searchCustomer();</span>
+<span class="nc" id="L301">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L302">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L303">        searchCustomer.txtlastname.setText(null);</span>
+<span class="nc" id="L304">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L305">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L306">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L307">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L308">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L309">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L310">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L312">    }</span>
+    @Test
+    void logic11(){
+<span class="nc" id="L315">        customer = new searchCustomer();</span>
+<span class="nc" id="L316">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L317">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L318">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L319">        searchCustomer.txtnic.setText(null);</span>
+<span class="nc" id="L320">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L321">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L322">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L323">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L324">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L325">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L327">    }</span>
+    @Test
+    void logic12(){
+<span class="nc" id="L330">        customer = new searchCustomer();</span>
+<span class="nc" id="L331">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L332">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L333">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L334">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L335">        searchCustomer.txtpassport.setText(null);</span>
+<span class="nc" id="L336">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L337">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L338">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L339">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L340">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L342">    }</span>
+    @Test
+    void logic13(){
+<span class="nc" id="L345">        customer = new searchCustomer();</span>
+<span class="nc" id="L346">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L347">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L348">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L349">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L350">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L351">        searchCustomer.txtaddress.setText(null);</span>
+<span class="nc" id="L352">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L353">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L354">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L355">        Assertions.assertEquals(false, customer.checkValues());</span>
+<span class="nc" id="L356">    }</span>
+    @Test
+    void logic14(){
+<span class="nc" id="L359">        customer = new searchCustomer();</span>
+<span class="nc" id="L360">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L361">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L362">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L363">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L364">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L365">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L366">        searchCustomer.txtcontact.setText(null);</span>
+<span class="nc" id="L367">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L368">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L369">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L371">    }</span>
+    @Test
+    void logic15(){
+<span class="nc" id="L374">        customer = new searchCustomer();</span>
+<span class="nc" id="L375">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L376">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L377">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L378">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L379">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L380">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L381">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L382">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L383">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L384">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L386">    }</span>
+    @Test
+    void logic16(){
+<span class="nc" id="L389">        customer = new searchCustomer();</span>
+<span class="nc" id="L390">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L391">        searchCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L392">        searchCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L393">        searchCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L394">        searchCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L395">        searchCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L396">        searchCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L397">        searchCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L398">        searchCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L399">        Assertions.assertEquals(false, customer.checkValues());</span>
+
+<span class="nc" id="L401">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

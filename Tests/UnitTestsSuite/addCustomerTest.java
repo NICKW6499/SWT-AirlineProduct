@@ -6,10 +6,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class addCustomerTest {
     addCustomer customer = new addCustomer();
@@ -63,6 +62,7 @@ class addCustomerTest {
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());
         addCustomer.jButton1.doClick();
+        addCustomer.jButton2.doClick();
         Assertions.assertEquals("complete", customer.addUser());
     }
 
@@ -76,8 +76,8 @@ class addCustomerTest {
         addCustomer.txtpassport.setText("");
         addCustomer.txtaddress.setText("");
         addCustomer.txtcontact.setText("");
-        addCustomer.r1.setSelected(true);
-        addCustomer.r2.setSelected(false);
+        addCustomer.r1.setSelected(false);
+        addCustomer.r2.setSelected(true);
         DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
         JCalendar txtdob = new JCalendar();
         String date = da.format(txtdob.getDate());

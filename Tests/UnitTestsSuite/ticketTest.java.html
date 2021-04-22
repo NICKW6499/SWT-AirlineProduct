@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ticketTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">UnitTestsSuite</a> &gt; <span class="el_source">ticketTest.java</span></div><h1>ticketTest.java</h1><pre class="source lang-java linenums">package UnitTestsSuite;
+
+import airline.ticket;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+<span class="nc" id="L9">class ticketTest {</span>
+ ticket myTicket;
+    @Test
+    @BeforeEach
+    void setup(){
+<span class="nc" id="L14">        myTicket = new ticket();</span>
+<span class="nc" id="L15">        ticket.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L16">        ticket.txtclass.setSelectedItem(&quot;&quot;);</span>
+<span class="nc" id="L17">        ticket.txtprice.setText(&quot;&quot;);</span>
+<span class="nc" id="L18">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L19">    }</span>
+
+    @Test
+    @DisplayName(&quot;NullB1&quot;)
+    void jButton1ActionPerformed() {
+<span class="nc" id="L24">        ticket.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L25">        ticket.txtclass.setSelectedItem(null);</span>
+<span class="nc" id="L26">        ticket.txtprice.setText(null);</span>
+<span class="nc" id="L27">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L28">        ticket.jButton1.doClick();</span>
+<span class="nc" id="L29">        Assertions.assertEquals(&quot;Please fill in all fields&quot;, myTicket.addTicket());</span>
+
+<span class="nc" id="L31">    }</span>
+    @Test
+    @DisplayName(&quot;EmptyB1&quot;)
+    void jButton1ActionPerformed2() {
+<span class="nc" id="L35">        ticket.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L36">        ticket.txtclass.setSelectedItem(&quot;&quot;);</span>
+<span class="nc" id="L37">        ticket.txtprice.setText(&quot;&quot;);</span>
+<span class="nc" id="L38">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L39">        ticket.jButton1.doClick();</span>
+<span class="nc" id="L40">        Assertions.assertEquals(&quot;Please fill in all fields&quot;, myTicket.addTicket());</span>
+
+
+<span class="nc" id="L43">    }</span>
+    @Test
+    @DisplayName(&quot;PositiveB1&quot;)
+    void jButton1ActionPerformed3() {
+<span class="nc" id="L47">        ticket.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L48">        ticket.txtclass.setSelectedItem(&quot;first&quot;);</span>
+<span class="nc" id="L49">        ticket.txtprice.setText(&quot;20&quot;);</span>
+<span class="nc" id="L50">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L51">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L52">        ticket.jButton1.doClick();</span>
+<span class="nc" id="L53">        Assertions.assertEquals(&quot;complete&quot;, myTicket.addTicket());</span>
+
+
+<span class="nc" id="L56">    }</span>
+
+    @Test
+    @DisplayName(&quot;Button Test&quot;)
+    void jButton2ActionPerformed3() {
+<span class="nc" id="L61">        ticket.jButton2.doClick();</span>
+
+<span class="nc" id="L63">    }</span>
+    
+    @Test
+    @DisplayName(&quot;NullB3&quot;)
+    void jButton3ActionPerformed() {
+<span class="nc" id="L68">        ticket.txtsource.setSelectedItem(null);</span>
+<span class="nc" id="L69">        ticket.txtdepart.setSelectedItem(null);</span>
+<span class="nc" id="L70">        ticket.jButton3.doClick();</span>
+<span class="nc" id="L71">        Assertions.assertEquals(&quot;a field is empty&quot;, myTicket.loadFlights());</span>
+
+
+<span class="nc" id="L74">    }</span>
+
+    @Test
+    @DisplayName(&quot;PositiveB3&quot;)
+    void jButton3ActionPerformed3() {
+<span class="nc" id="L79">        ticket.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L80">        ticket.txtclass.setSelectedItem(&quot;first&quot;);</span>
+<span class="nc" id="L81">        ticket.txtprice.setText(&quot;20&quot;);</span>
+<span class="nc" id="L82">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L83">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L84">        ticket.jButton3.doClick();</span>
+<span class="nc" id="L85">        Assertions.assertEquals(&quot;complete&quot;, myTicket.loadFlights());</span>
+
+
+<span class="nc" id="L88">    }</span>
+
+    @Test
+    @DisplayName(&quot;NullB4&quot;)
+    void jButton4ActionPerformed() {
+<span class="nc" id="L93">        ticket.txtcustid.setText(null);</span>
+<span class="nc" id="L94">        ticket.txtclass.setSelectedItem(null);</span>
+<span class="nc" id="L95">        ticket.txtprice.setText(null);</span>
+<span class="nc" id="L96">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L97">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L98">        Assertions.assertEquals(&quot;A field is empty&quot;, myTicket.showInfo());</span>
+
+
+<span class="nc" id="L101">    }</span>
+    @Test
+    @DisplayName(&quot;EmptyB4&quot;)
+    void jButton4ActionPerformed2() {
+<span class="nc" id="L105">        ticket.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L106">        ticket.flightno.setText(&quot;&quot;);</span>
+<span class="nc" id="L107">        ticket.txtticketno.setText(&quot;&quot;);</span>
+<span class="nc" id="L108">        ticket.txtclass.setSelectedItem(&quot;&quot;);</span>
+<span class="nc" id="L109">        ticket.txtprice.setText(&quot;&quot;);</span>
+<span class="nc" id="L110">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L111">        ticket.txtticketno.setText(&quot;&quot;);</span>
+<span class="nc" id="L112">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L113">        Assertions.assertEquals(&quot;A field is empty&quot;, myTicket.showInfo());</span>
+
+
+<span class="nc" id="L116">    }</span>
+    @Test
+    @DisplayName(&quot;Positive&quot;)
+    void jButton4ActionPerformed3() {
+<span class="nc" id="L120">        ticket.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L121">        ticket.flightno.setText(&quot;124&quot;);</span>
+<span class="nc" id="L122">        ticket.txtticketno.setText(&quot;12&quot;);</span>
+<span class="nc" id="L123">        ticket.txtclass.setSelectedItem(&quot;first&quot;);</span>
+<span class="nc" id="L124">        ticket.txtprice.setText(&quot;20&quot;);</span>
+<span class="nc" id="L125">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L126">        ticket.txtticketno.setText(&quot;234&quot;);</span>
+<span class="nc" id="L127">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L128">        Assertions.assertEquals(&quot;complete&quot;, myTicket.showInfo());</span>
+
+
+<span class="nc" id="L131">    }</span>
+    @Test
+    @DisplayName(&quot;Incorrect customerID&quot;)
+    void jButton4ActionPerformed4() {
+<span class="nc" id="L135">        ticket.txtcustid.setText(&quot;CS009&quot;);</span>
+<span class="nc" id="L136">        ticket.txtclass.setSelectedItem(&quot;first&quot;);</span>
+<span class="nc" id="L137">        ticket.txtprice.setText(&quot;20&quot;);</span>
+<span class="nc" id="L138">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L139">        ticket.jButton4.doClick();</span>
+<span class="nc" id="L140">        Assertions.assertEquals(&quot;record not found&quot;, myTicket.showInfo());</span>
+
+
+<span class="nc" id="L143">    }</span>
+
+    @Test
+    @DisplayName(&quot;NullSeats&quot;)
+    void txtseatsStateChanged() {
+<span class="nc" id="L148">        ticket.txtseats.setValue(0);</span>
+<span class="nc" id="L149">        Assertions.assertEquals(&quot;empty&quot;,myTicket.changeSeats());</span>
+
+<span class="nc" id="L151">    }</span>
+    @Test
+    @DisplayName(&quot;EmptySeats&quot;)
+
+    void txtseatsStateChanged1() {
+<span class="nc" id="L156">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L157">        ticket.txtticketno.setText(&quot;&quot;);</span>
+<span class="nc" id="L158">        Assertions.assertEquals(&quot;empty&quot;,myTicket.changeSeats());</span>
+
+
+<span class="nc" id="L161">    }</span>
+    @Test
+    @DisplayName(&quot;PositiveSeats&quot;)
+
+    void txtseatsStateChanged2() {
+<span class="nc" id="L166">        ticket.txtseats.setValue(10);</span>
+<span class="nc" id="L167">        ticket.txtprice.setText(&quot;20&quot;);</span>
+<span class="nc" id="L168">        Assertions.assertEquals(&quot;complete&quot;,myTicket.changeSeats());</span>
+
+<span class="nc" id="L170">    }</span>
+
+    @Test
+    void logic(){
+<span class="nc" id="L174">        ticket.txtcustid.setText(&quot;&quot;);</span>
+<span class="nc" id="L175">        ticket.txtclass.setSelectedItem(&quot;a&quot;);</span>
+<span class="nc" id="L176">        ticket.txtprice.setText(&quot;a&quot;);</span>
+<span class="nc" id="L177">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L178">        Assertions.assertFalse(myTicket.checkValues());</span>
+<span class="nc" id="L179">    }</span>
+
+    @Test
+    void logic3(){
+<span class="nc" id="L183">        ticket.txtcustid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L184">        ticket.txtclass.setSelectedItem(&quot;a&quot;);</span>
+<span class="nc" id="L185">        ticket.txtprice.setText(&quot;&quot;);</span>
+<span class="nc" id="L186">        ticket.txtseats.setValue(1);</span>
+<span class="nc" id="L187">        Assertions.assertFalse(myTicket.checkValues());</span>
+<span class="nc" id="L188">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

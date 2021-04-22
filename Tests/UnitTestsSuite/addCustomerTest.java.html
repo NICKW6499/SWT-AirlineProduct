@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>addCustomerTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">UnitTestsSuite</a> &gt; <span class="el_source">addCustomerTest.java</span></div><h1>addCustomerTest.java</h1><pre class="source lang-java linenums">package UnitTestsSuite;
+
+import airline.addCustomer;
+import com.toedter.calendar.JCalendar;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+<span class="nc" id="L13">class addCustomerTest {</span>
+<span class="nc" id="L14">    addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L15">    String path = null;</span>
+<span class="nc" id="L16">    byte[] userimage = null;</span>
+
+    @BeforeEach
+    void setUp() {
+<span class="nc" id="L20">        addCustomer.txtid.setText(&quot;&quot;);</span>
+<span class="nc" id="L21">        addCustomer.txtfirstname.setText(&quot;&quot;);</span>
+<span class="nc" id="L22">        addCustomer.txtlastname.setText(&quot;&quot;);</span>
+<span class="nc" id="L23">        addCustomer.txtnic.setText(&quot;&quot;);</span>
+<span class="nc" id="L24">        addCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L25">        addCustomer.txtaddress.setText(&quot;&quot;);</span>
+<span class="nc" id="L26">        addCustomer.txtcontact.setText(&quot;&quot;);</span>
+<span class="nc" id="L27">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L28">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L29">    }</span>
+
+    @Test
+    void autoID() {
+<span class="nc" id="L33">        customer.autoID();</span>
+<span class="nc" id="L34">    }</span>
+
+    @Test
+    @DisplayName(&quot;&quot;)
+    void addImageTest() {
+<span class="nc" id="L39">        Assertions.assertEquals(&quot;complete&quot;, customer.addImage());</span>
+<span class="nc" id="L40">    }</span>
+
+    @Test
+    @DisplayName(&quot;No image uploaded&quot;)
+    void addImageTest2() {
+<span class="nc" id="L45">        Assertions.assertEquals(&quot;image is empty&quot;, customer.addImage());</span>
+<span class="nc" id="L46">    }</span>
+
+    @Test
+    @DisplayName(&quot;Correct Parameters Positive Testing&quot;)
+    public void CreateCustomerT1() {
+<span class="nc" id="L51">        addCustomer.txtaddress.setText(&quot;yeehaw&quot;);</span>
+<span class="nc" id="L52">        addCustomer.txtcontact.setText(&quot;76876876&quot;);</span>
+<span class="nc" id="L53">        addCustomer.txtfirstname.setText(&quot;Nick&quot;);</span>
+<span class="nc" id="L54">        addCustomer.txtid.setText(&quot;123&quot;);</span>
+<span class="nc" id="L55">        addCustomer.txtlastname.setText(&quot;Wright&quot;);</span>
+<span class="nc" id="L56">        addCustomer.txtnic.setText(&quot;231&quot;);</span>
+<span class="nc" id="L57">        addCustomer.txtpassport.setText(&quot;2323&quot;);</span>
+
+<span class="nc" id="L59">        addCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L60">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L61">        DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+<span class="nc" id="L62">        JCalendar txtdob = new JCalendar();</span>
+<span class="nc" id="L63">        String date = da.format(txtdob.getDate());</span>
+<span class="nc" id="L64">        addCustomer.jButton1.doClick();</span>
+<span class="nc" id="L65">        addCustomer.jButton2.doClick();</span>
+<span class="nc" id="L66">        Assertions.assertEquals(&quot;complete&quot;, customer.addUser());</span>
+<span class="nc" id="L67">    }</span>
+
+    @Test
+    @DisplayName(&quot;Empty String Testing&quot;)
+    void CreateCustomerT12() {
+<span class="nc" id="L72">        addCustomer.txtid.setText(&quot;&quot;);</span>
+<span class="nc" id="L73">        addCustomer.txtfirstname.setText(&quot;&quot;);</span>
+<span class="nc" id="L74">        addCustomer.txtlastname.setText(&quot;&quot;);</span>
+<span class="nc" id="L75">        addCustomer.txtnic.setText(&quot;&quot;);</span>
+<span class="nc" id="L76">        addCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L77">        addCustomer.txtaddress.setText(&quot;&quot;);</span>
+<span class="nc" id="L78">        addCustomer.txtcontact.setText(&quot;&quot;);</span>
+<span class="nc" id="L79">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L80">        addCustomer.r2.setSelected(true);</span>
+<span class="nc" id="L81">        DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+<span class="nc" id="L82">        JCalendar txtdob = new JCalendar();</span>
+<span class="nc" id="L83">        String date = da.format(txtdob.getDate());</span>
+<span class="nc" id="L84">        addCustomer.jButton1.doClick();</span>
+<span class="nc" id="L85">        Assertions.assertEquals(&quot;A field is empty&quot;, customer.addUser());</span>
+
+<span class="nc" id="L87">    }</span>
+
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    void CreateCustomerT13() {
+<span class="nc" id="L92">        addCustomer.txtid.setText(null);</span>
+<span class="nc" id="L93">        addCustomer.txtfirstname.setText(null);</span>
+<span class="nc" id="L94">        addCustomer.txtlastname.setText(null);</span>
+<span class="nc" id="L95">        addCustomer.txtnic.setText(null);</span>
+<span class="nc" id="L96">        addCustomer.txtpassport.setText(null);</span>
+<span class="nc" id="L97">        addCustomer.txtaddress.setText(null);</span>
+<span class="nc" id="L98">        addCustomer.txtcontact.setText(null);</span>
+<span class="nc" id="L99">        addCustomer.r1.setSelected(true);</span>
+<span class="nc" id="L100">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L101">        DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+<span class="nc" id="L102">        JCalendar txtdob = new JCalendar();</span>
+<span class="nc" id="L103">        String date = da.format(txtdob.getDate());</span>
+<span class="nc" id="L104">        addCustomer.jButton1.doClick();</span>
+<span class="nc" id="L105">        Assertions.assertEquals(&quot;A field is empty&quot;, customer.addUser());</span>
+<span class="nc" id="L106">    }</span>
+
+    @Test
+    void jButton3ActionPerformed() {
+<span class="nc" id="L110">        addCustomer.jButton3.doClick();</span>
+<span class="nc" id="L111">    }</span>
+
+    @Test
+    void logic2(){
+<span class="nc" id="L115">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L116">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L117">        addCustomer.txtfirstname.setText(&quot;&quot;);</span>
+<span class="nc" id="L118">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L119">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L120">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L121">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L122">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L123">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L124">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L125">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L126">    }</span>
+    @Test
+    void logic3(){
+<span class="nc" id="L129">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L130">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L131">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L132">        addCustomer.txtlastname.setText(&quot;&quot;);</span>
+<span class="nc" id="L133">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L134">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L135">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L136">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L137">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L138">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L139">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L140">    }</span>
+    @Test
+    void logic4(){
+<span class="nc" id="L143">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L144">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L145">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L146">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L147">        addCustomer.txtnic.setText(&quot;&quot;);</span>
+<span class="nc" id="L148">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L149">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L150">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L151">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L152">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L153">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L154">    }</span>
+    @Test
+    void logic5(){
+<span class="nc" id="L157">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L158">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L159">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L160">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L161">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L162">        addCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L163">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L164">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L165">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L166">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L167">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L168">    }</span>
+    @Test
+    void logic6(){
+<span class="nc" id="L171">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L172">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L173">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L174">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L175">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L176">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L177">        addCustomer.txtaddress.setText(&quot;&quot;);</span>
+<span class="nc" id="L178">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L179">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L180">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L181">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L182">    }</span>
+    @Test
+    void logic7(){
+<span class="nc" id="L185">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L186">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L187">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L188">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L189">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L190">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L191">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L192">        addCustomer.txtcontact.setText(&quot;&quot;);</span>
+<span class="nc" id="L193">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L194">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L195">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L196">    }</span>
+    @Test
+    void logic8(){
+<span class="nc" id="L199">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L200">        addCustomer.txtfirstname.setText(null);</span>
+<span class="nc" id="L201">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L202">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L203">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L204">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L205">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L206">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L207">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L208">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L209">    }</span>
+    @Test
+    void logic9(){
+<span class="nc" id="L212">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L213">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L214">        addCustomer.txtfirstname.setText(null);</span>
+<span class="nc" id="L215">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L216">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L217">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L218">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L219">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L220">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L221">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L222">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L223">    }</span>
+    @Test
+    void logic10(){
+<span class="nc" id="L226">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L227">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L228">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L229">        addCustomer.txtlastname.setText(null);</span>
+<span class="nc" id="L230">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L231">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L232">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L233">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L234">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L235">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L236">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L237">    }</span>
+    @Test
+    void logic11(){
+<span class="nc" id="L240">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L241">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L242">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L243">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L244">        addCustomer.txtnic.setText(null);</span>
+<span class="nc" id="L245">        addCustomer.txtpassport.setText(&quot;a&quot;);</span>
+<span class="nc" id="L246">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L247">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L248">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L249">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L250">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L251">    }</span>
+    @Test
+    void logic12(){
+<span class="nc" id="L254">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L255">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L256">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L257">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L258">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L259">        addCustomer.txtpassport.setText(null);</span>
+<span class="nc" id="L260">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L261">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L262">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L263">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L264">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L265">    }</span>
+    @Test
+    void logic13(){
+<span class="nc" id="L268">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L269">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L270">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L271">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L272">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L273">        addCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L274">        addCustomer.txtaddress.setText(null);</span>
+<span class="nc" id="L275">        addCustomer.txtcontact.setText(&quot;a&quot;);</span>
+<span class="nc" id="L276">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L277">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L278">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L279">    }</span>
+    @Test
+    void logic14(){
+<span class="nc" id="L282">        addCustomer customer = new addCustomer();</span>
+<span class="nc" id="L283">        addCustomer.txtid.setText(&quot;a&quot;);</span>
+<span class="nc" id="L284">        addCustomer.txtfirstname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L285">        addCustomer.txtlastname.setText(&quot;a&quot;);</span>
+<span class="nc" id="L286">        addCustomer.txtnic.setText(&quot;a&quot;);</span>
+<span class="nc" id="L287">        addCustomer.txtpassport.setText(&quot;&quot;);</span>
+<span class="nc" id="L288">        addCustomer.txtaddress.setText(&quot;a&quot;);</span>
+<span class="nc" id="L289">        addCustomer.txtcontact.setText(null);</span>
+<span class="nc" id="L290">        addCustomer.r1.setSelected(false);</span>
+<span class="nc" id="L291">        addCustomer.r2.setSelected(false);</span>
+<span class="nc" id="L292">        Assertions.assertEquals(false,customer.checkValues());</span>
+<span class="nc" id="L293">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

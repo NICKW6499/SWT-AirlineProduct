@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ticketTest {
  ticket myTicket;
     @Test
@@ -241,5 +239,6 @@ class ticketTest {
         ticket.txtseats.setValue(1);
         Assertions.assertFalse(myTicket.checkValues());
     }
+
 
 }

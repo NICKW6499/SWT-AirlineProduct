@@ -2,20 +2,14 @@ package airline;
 
 import com.toedter.calendar.JCalendar;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -554,8 +548,6 @@ public class ticket extends javax.swing.JInternalFrame {
                     }
 
 
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {
                     Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -576,13 +568,12 @@ public class ticket extends javax.swing.JInternalFrame {
 
     public String showInfo() {
         String message = "A field is empty";
-        if (!(txtcustid.getText().equals("") || txtcustid.getText() == null)) {
+        if (!(txtcustid.getText().equals(""))) {
 
             message = "complete";
             String id = txtcustid.getText();
 
             try {
-                Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
                 pst = con.prepareStatement("select * from customer where id = ?");
                 pst.setString(1, id);
@@ -607,8 +598,6 @@ public class ticket extends javax.swing.JInternalFrame {
                 }
 
 
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -639,7 +628,7 @@ public class ticket extends javax.swing.JInternalFrame {
 
     public String changeSeats() {
         String message = "empty";
-        if (!txtprice.getText().equals("") && txtprice != null && txtseats.getValue() != null && !txtseats.getValue().equals("")) {
+        if (!txtprice.getText().equals("")  && !txtseats.getValue().toString().equals("")) {
             message = "complete";
             int price = Integer.parseInt(txtprice.getText());
             int qty = Integer.parseInt(txtseats.getValue().toString());

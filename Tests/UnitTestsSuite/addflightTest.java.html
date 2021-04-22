@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>addflightTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">UnitTestsSuite</a> &gt; <span class="el_source">addflightTest.java</span></div><h1>addflightTest.java</h1><pre class="source lang-java linenums">package UnitTestsSuite;
+
+import airline.AddFlight;
+import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+<span class="nc" id="L15">public class addflightTest {</span>
+    AddFlight myFlight;
+
+@Test
+@BeforeEach
+public void setup(){
+    
+<span class="nc" id="L22">    myFlight = new AddFlight();</span>
+<span class="nc" id="L23">    AddFlight.txtflightid.setText(&quot;&quot;);</span>
+<span class="nc" id="L24">    AddFlight.txtflightname.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L26">    String source = &quot;Alabama&quot;;</span>
+<span class="nc" id="L27">    String depart = &quot;US&quot;;</span>
+
+<span class="nc" id="L29">    DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+
+<span class="nc" id="L31">    AddFlight.txtdtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L32">    AddFlight.txtarrtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L33">    AddFlight.txtflightcharge.setText(&quot;&quot;);</span>
+<span class="nc" id="L34">}</span>
+
+    @Test
+    void autoID() {
+<span class="nc" id="L38">        myFlight.autoID();</span>
+<span class="nc" id="L39">    }</span>
+    @Test
+    @DisplayName(&quot;Positive Testing&quot;)
+    public void jButton1Test(){
+<span class="nc" id="L43">       AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L44">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L46">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L47">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L49">        Date date = new Date();</span>
+
+<span class="nc" id="L51">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L52">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L53">        AddFlight.txtarrtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L54">        AddFlight.txtflightcharge.setText(&quot;300&quot;);</span>
+        
+<span class="nc" id="L56">        Assertions.assertEquals(&quot;complete&quot;,myFlight.addFlightButton());</span>
+<span class="nc" id="L57">    }</span>
+    @Test
+    @DisplayName(&quot;Test for flight correct flight charge&quot;)
+    public void jButton1TestNeg0(){
+<span class="nc" id="L61">        AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L62">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L64">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L65">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L67">        Date date = new Date();</span>
+
+<span class="nc" id="L69">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L70">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L71">        AddFlight.txtarrtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L72">        AddFlight.txtflightcharge.setText(&quot;-1&quot;);</span>
+
+<span class="nc" id="L74">        Assertions.assertEquals(&quot;Price must be greater than zero&quot;,myFlight.addFlightButton());</span>
+<span class="nc" id="L75">    }</span>
+
+    @Test
+    @DisplayName(&quot;Empty String testing&quot;)
+    public void jButton1TestNeg(){
+<span class="nc" id="L80">        AddFlight.txtflightid.setText(&quot;&quot;);</span>
+<span class="nc" id="L81">        AddFlight.txtflightname.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L83">        String source = &quot;Alabama&quot;;</span>
+<span class="nc" id="L84">        String depart = &quot;US&quot;;</span>
+
+<span class="nc" id="L86">        DateFormat da = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);</span>
+
+<span class="nc" id="L88">        AddFlight.txtdate.setDate(null);</span>
+<span class="nc" id="L89">        AddFlight.txtdtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L90">        AddFlight.txtarrtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L91">        AddFlight.txtflightcharge.setText(&quot;&quot;);</span>
+<span class="nc" id="L92">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L94">    }</span>
+
+    @Test
+    public void jbutton2Test(){
+<span class="nc" id="L98">        AddFlight.jButton2.doClick();</span>
+<span class="nc" id="L99">    }</span>
+
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    public void jButton1TestNeg3(){
+<span class="nc" id="L104">        AddFlight.txtflightid.setText(&quot;&quot;);</span>
+<span class="nc" id="L105">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L107">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L108">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L110">        Date date = new Date();</span>
+
+<span class="nc" id="L112">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L113">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L114">        AddFlight.txtarrtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L115">        AddFlight.txtflightcharge.setText(&quot;300&quot;);</span>
+<span class="nc" id="L116">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L118">    }</span>
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    public void jButton1TestNeg4(){
+<span class="nc" id="L122">        AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L123">        AddFlight.txtflightname.setText(&quot;&quot;);</span>
+
+<span class="nc" id="L125">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L126">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L128">        Date date = new Date();</span>
+
+<span class="nc" id="L130">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L131">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L132">        AddFlight.txtarrtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L133">        AddFlight.txtflightcharge.setText(&quot;300&quot;);</span>
+<span class="nc" id="L134">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L136">    }</span>
+    
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    public void jButton1TestNeg7(){
+<span class="nc" id="L141">        AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L142">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L144">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L145">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L147">        Date date = new Date();</span>
+
+<span class="nc" id="L149">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L150">        AddFlight.txtdtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L151">        AddFlight.txtarrtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L152">        AddFlight.txtflightcharge.setText(&quot;300&quot;);</span>
+<span class="nc" id="L153">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L155">    }</span>
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    public void jButton1TestNeg8(){
+<span class="nc" id="L159">        AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L160">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L162">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L163">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L165">        Date date = new Date();</span>
+
+<span class="nc" id="L167">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L168">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L169">        AddFlight.txtarrtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L170">        AddFlight.txtflightcharge.setText(&quot;300&quot;);</span>
+<span class="nc" id="L171">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L173">    }</span>
+    @Test
+    @DisplayName(&quot;Null Testing&quot;)
+    public void jButton1TestNeg9(){
+<span class="nc" id="L177">        AddFlight.txtflightid.setText(&quot;abc&quot;);</span>
+<span class="nc" id="L178">        AddFlight.txtflightname.setText(&quot;abc&quot;);</span>
+
+<span class="nc" id="L180">        AddFlight.txtsource.setSelectedItem(&quot;US&quot;);</span>
+<span class="nc" id="L181">        AddFlight.txtdepart.setSelectedItem(&quot;US&quot;);</span>
+
+<span class="nc" id="L183">        Date date = new Date();</span>
+
+<span class="nc" id="L185">        AddFlight.txtdate.setDate(date);</span>
+<span class="nc" id="L186">        AddFlight.txtdtime.setText(&quot;now&quot;);</span>
+<span class="nc" id="L187">        AddFlight.txtarrtime.setText(&quot;&quot;);</span>
+<span class="nc" id="L188">        AddFlight.txtflightcharge.setText(&quot;&quot;);</span>
+<span class="nc" id="L189">        Assertions.assertEquals(&quot;failed&quot;,myFlight.addFlightButton());</span>
+
+<span class="nc" id="L191">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

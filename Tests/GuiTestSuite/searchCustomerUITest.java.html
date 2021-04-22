@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>searchCustomerUITest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">GuiTestSuite</a> &gt; <span class="el_source">searchCustomerUITest.java</span></div><h1>searchCustomerUITest.java</h1><pre class="source lang-java linenums">package GuiTestSuite;
+
+import airline.Main;
+import airline.searchCustomer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+<span class="nc" id="L9">public class searchCustomerUITest {</span>
+    Main main;
+    searchCustomer customer;
+
+@BeforeEach
+    void setup(){
+<span class="nc" id="L15">    main = new Main();</span>
+<span class="nc" id="L16">    customer = new searchCustomer();</span>
+<span class="nc" id="L17">    searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L18">}</span>
+@Test
+    void firstNamePopulates(){
+<span class="nc" id="L21">    searchCustomer.jButton4.doClick();</span>
+<span class="nc" id="L22">    Assertions.assertEquals(&quot;nick&quot;, searchCustomer.txtfirstname.getText());</span>
+<span class="nc" id="L23">}</span>
+    @Test
+    void lastNamePopulates(){
+<span class="nc" id="L26">        searchCustomer.jButton4.doClick();</span>
+<span class="nc" id="L27">        Assertions.assertEquals(&quot;wright&quot;, searchCustomer.txtlastname.getText());</span>
+<span class="nc" id="L28">    }</span>
+    @Test
+    void nickNumbPopulates(){
+<span class="nc" id="L31">        searchCustomer.jButton4.doClick();</span>
+<span class="nc" id="L32">        Assertions.assertEquals(&quot;123&quot;, searchCustomer.txtnic.getText());</span>
+<span class="nc" id="L33">    }</span>
+    @Test
+    void genderPopulates(){
+<span class="nc" id="L36">        searchCustomer.jButton4.doClick();</span>
+<span class="nc" id="L37">        Assertions.assertEquals(&quot;Male&quot;, searchCustomer.r1.getText());</span>
+<span class="nc" id="L38">    }</span>
+    @Test
+    void contactPopulates(){
+<span class="nc" id="L41">        searchCustomer.jButton4.doClick();</span>
+<span class="nc" id="L42">        Assertions.assertEquals(&quot;123532&quot;, searchCustomer.txtcontact.getText());</span>
+<span class="nc" id="L43">    }</span>
+    @Test
+    void menuItem1Test(){
+<span class="nc" id="L46">    Main.jMenu1.doClick();</span>
+<span class="nc" id="L47">    Main.jMenuItem1.doClick();</span>
+<span class="nc" id="L48">    main.dispose();</span>
+<span class="nc" id="L49">    }</span>
+    @Test
+    void menuItem2Test(){
+<span class="nc" id="L52">        Main.jMenu1.doClick();</span>
+<span class="nc" id="L53">        Main.jMenuItem2.doClick();</span>
+<span class="nc" id="L54">        main.dispose();</span>
+<span class="nc" id="L55">    }</span>
+    @Test
+    void menuItem3Test(){
+<span class="nc" id="L58">        Main.jMenu2.doClick();</span>
+<span class="nc" id="L59">        Main.jMenuItem3.doClick();</span>
+<span class="nc" id="L60">        main.dispose();</span>
+<span class="nc" id="L61">    }</span>
+    @Test
+    void menuItem4Test(){
+<span class="nc" id="L64">        Main.jMenu2.doClick();</span>
+<span class="nc" id="L65">        Main.jMenuItem4.doClick();</span>
+<span class="nc" id="L66">        main.dispose();</span>
+<span class="nc" id="L67">    }</span>
+    @Test
+    void menuItem5Test(){
+<span class="nc" id="L70">        Main.jMenu3.doClick();</span>
+<span class="nc" id="L71">        Main.jMenuItem5.doClick();</span>
+<span class="nc" id="L72">        main.dispose();</span>
+<span class="nc" id="L73">    }</span>
+    @Test
+    void menuItem6Test(){
+<span class="nc" id="L76">        Main.jMenu4.doClick();</span>
+<span class="nc" id="L77">        Main.jMenuItem6.doClick();</span>
+<span class="nc" id="L78">        main.dispose();</span>
+<span class="nc" id="L79">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

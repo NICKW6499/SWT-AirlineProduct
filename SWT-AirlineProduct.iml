@@ -140,5 +140,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="emma:maven-emma-plugin:0.5" level="project" />
   </component>
 </module>
