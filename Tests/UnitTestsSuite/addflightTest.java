@@ -13,8 +13,23 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class addflightTest {
+
     AddFlight myFlight;
 
+    /**
+     * Test Case ID: Integration Testing #7
+     * Requirement ID/Decription: F7 - The flight booking program shall display flights based on
+     * source country and departure country.
+     * Purpose: To test that flights are added properly with both a source location and departure location
+     * to the database.
+     * Test setup: Set up a new myFlight object, set up an empty flight id and name, set a default
+     * source and departure String, a default format for the date, and empty Strings for depature time,
+     * arrival time, and flight charge.
+     * Test strategy: Input validation testing
+     * Input: Valid text inputs and GUI interactions to test that flights are added correctly.
+     * Expected Output: Output matches the expected flight information based on flight information already
+     * existant in the database.
+     **/
 @Test
 @BeforeEach
 public void setup(){
