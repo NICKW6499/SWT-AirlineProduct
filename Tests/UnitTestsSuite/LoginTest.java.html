@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoginTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">UnitTestsSuite</a> &gt; <span class="el_source">LoginTest.java</span></div><h1>LoginTest.java</h1><pre class="source lang-java linenums">package UnitTestsSuite;
+
+import airline.Login;
+import airline.User;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.junit.runner.RunWith;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ * Class UnitTestsSuite.LoginTest
+ * User class was created to hold user information for the sake of comparing inputs for testing.
+ * &lt;p&gt;
+ * Equivalence partitioning is used to test instances of valid login inputs, null values, and empty inputs.
+ * &lt;p&gt;
+ * Block 1: Valid login attempt.
+ * Block 2: Null login values.
+ * Block 3: Invalid login values.
+ **/
+<span class="nc" id="L23">class LoginTest {</span>
+    Login myLogin;
+    User testUser;
+
+    // setup to initialize new login object
+    @BeforeEach
+    public void setup() {
+<span class="nc" id="L30">        myLogin = new Login();</span>
+<span class="nc" id="L31">    }</span>
+
+    /**
+     * Test Case ID: Test Criteria #1 - Positive Testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: Test method compares valid info in the database to user input and grants access if input is valid.
+     * Test setup: A new User object is created with username value &quot;john&quot; and password value &quot;123&quot;.
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 1, valid login attempt.
+     * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
+     * Expected Output: Returns &quot;validated&quot; after assertion compares testUser with what is registered in
+     * the database.
+     **/
+    @Test
+    @DisplayName(&quot;Positive testing with correct credentials and data type&quot;)
+    public void testLoginButtonPositive() {
+<span class="nc" id="L48">        testUser = new User(&quot;hh&quot;, &quot;hh&quot;);</span>
+<span class="nc" id="L49">        Login.jButton1.doClick();</span>
+<span class="nc" id="L50">        myLogin.loginButton(testUser.getUsername(), testUser.getPassword());</span>
+<span class="nc" id="L51">        Assertions.assertEquals(&quot;validated&quot;, myLogin.loginButton(testUser.getUsername(),</span>
+<span class="nc" id="L52">                testUser.getPassword()));</span>
+<span class="nc" id="L53">    }</span>
+
+    /**
+     * Test Case ID: Test Criteria #2 - Negative Testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: To test that the program handles a NullPointerException properly given null inputs during
+     * a login attempt.
+     * Test setup: A new User object is created with username and password value set as null.
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 2, null login values.
+     * Input: Null username and password values.
+     * Expected Output: The NullPointerException should be caught and output the NullPointerException
+     * message &quot;null&quot;.
+     **/
+    @Test
+    @DisplayName(&quot;Negative testing with null parameters&quot;)
+    public void testLoginButtonNegative() {
+<span class="nc" id="L71">        testUser = new User(null, null);</span>
+<span class="nc" id="L72">        Assertions.assertEquals(&quot;UserName or Password Blank&quot;, myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));</span>
+
+<span class="nc" id="L74">    }</span>
+    @Test
+    @DisplayName(&quot;Negative testing with null parameters&quot;)
+    public void testLoginButtonNegative2() {
+<span class="nc" id="L78">        testUser = new User(null, &quot;nick&quot;);</span>
+<span class="nc" id="L79">        Assertions.assertEquals(&quot;UserName or Password Blank&quot;, myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));</span>
+
+<span class="nc" id="L81">    }</span>
+
+    @Test
+    @DisplayName(&quot;Negative testing with null parameters&quot;)
+    public void testLoginButtonNegative3() {
+<span class="nc" id="L86">        testUser = new User(&quot;nick&quot;, null);</span>
+<span class="nc" id="L87">        Assertions.assertEquals(&quot;UserName or Password Blank&quot;, myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));</span>
+
+<span class="nc" id="L89">    }</span>
+    @Test
+    @DisplayName(&quot;Negative testing with null parameters&quot;)
+    public void testLoginButtonNegative4() {
+<span class="nc" id="L93">        testUser = new User(&quot;nick&quot;, &quot;&quot;);</span>
+<span class="nc" id="L94">        Assertions.assertEquals(&quot;UserName or Password Blank&quot;, myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));</span>
+
+<span class="nc" id="L96">    }</span>
+    @Test
+    @DisplayName(&quot;Negative testing with null parameters&quot;)
+    public void testLoginButtonNegative5() {
+<span class="nc" id="L100">        testUser = new User(&quot;&quot;, &quot;nick&quot;);</span>
+<span class="nc" id="L101">        Assertions.assertEquals(&quot;UserName or Password Blank&quot;, myLogin.loginButton(testUser.getUsername(), testUser.getPassword()));</span>
+
+<span class="nc" id="L103">    }</span>
+
+    /**
+     * Test Case ID: Testing Criteria #3 - Input validation testing
+     * Requirement ID/Decription: F1 - The flight booking program shall allow a user to log on using a valid
+     * username and password combination.
+     * Purpose: To test a login attempt with unregistered username and password values.
+     * Test setup: A new User object is created with username value &quot;fake&quot; and password value &quot;notReal&quot;.
+     * Test strategy: Equivalence Class Testing
+     * -- This test covers the input space of Block 3, invalid login values.
+     * Input: Call Login method with testUser.getUsername() and testUser.getPassword()
+     * Expected Output: Output string displayed on the GUI “UserName or Password do not Match”.
+     **/
+    @Test
+    @DisplayName(&quot;Input validation with correct data type but wrong values&quot;)
+    public void testLoginButtonInputVal() {
+<span class="nc" id="L119">        testUser = new User(&quot;fake&quot;, &quot;notReal&quot;);</span>
+
+<span class="nc" id="L121">        Assertions.assertEquals(&quot;UserName or Password do not Match&quot;, myLogin.loginButton(testUser.getUsername(),</span>
+<span class="nc" id="L122">                testUser.getPassword()));</span>
+<span class="nc" id="L123">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

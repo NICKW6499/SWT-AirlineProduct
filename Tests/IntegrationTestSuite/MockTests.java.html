@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MockTests.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">SWT_AirlineProduct$UnitTestsSuite_in_SWT_AirlineProduct.exec</a> &gt; <a href="index.source.html" class="el_package">IntegrationTestSuite</a> &gt; <span class="el_source">MockTests.java</span></div><h1>MockTests.java</h1><pre class="source lang-java linenums">package IntegrationTestSuite;
+
+import airline.*;
+import org.junit.Before;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+/**
+ * Class IntegrationTestSuite.MockTests
+ *
+ **/
+
+<span class="nc" id="L21">public class MockTests {</span>
+<span class="nc" id="L22">    @Mock</span>
+<span class="nc" id="L23">    DB dbMock = mock(DB.class);</span>
+<span class="nc" id="L24">    @InjectMocks</span>
+<span class="nc" id="L25">    searchCustomer mockSearch = mock(searchCustomer.class);</span>
+<span class="nc" id="L26">    @InjectMocks</span>
+<span class="nc" id="L27">    AddFlight mockFlight = mock(AddFlight.class);</span>
+<span class="nc" id="L28">    @InjectMocks</span>
+<span class="nc" id="L29">    ticket mockticket = mock(ticket.class);</span>
+<span class="nc" id="L30">    @InjectMocks</span>
+<span class="nc" id="L31">    ticketreport ticketMock = mock(ticketreport.class);</span>
+    @Mock
+    Login loginMock;
+    @Mock
+    User userTest;
+    Login myLogin;
+    User testUser;
+
+    @Before
+    public void setup(){
+<span class="nc" id="L41">        MockitoAnnotations.initMocks(this);</span>
+<span class="nc" id="L42">    }</span>
+
+    @Test
+    @DisplayName(&quot;Mock&quot;)
+    public void mockTest(){
+        //User to be tested
+<span class="nc" id="L48">        myLogin = new Login();</span>
+<span class="nc" id="L49">        userTest = new User(&quot;hh&quot;,&quot;hh&quot;);</span>
+<span class="nc" id="L50">        loginMock = mock(Login.class);</span>
+<span class="nc" id="L51">        when(loginMock.loginButton(&quot;hh&quot;,&quot;hh&quot;)).thenReturn(&quot;validated&quot;);</span>
+<span class="nc" id="L52">        assertEquals(&quot;validated&quot;, loginMock.loginButton(userTest.getUsername(),</span>
+<span class="nc" id="L53">                userTest.getPassword()));</span>
+
+<span class="nc" id="L55">    }</span>
+
+    @Test
+    public void addFlightMock(){
+<span class="nc" id="L59">        when(mockFlight.addFlightButton()).thenThrow(ClassNotFoundException.class);</span>
+<span class="nc" id="L60">        assertThrows(ClassNotFoundException.class, () -&gt;{mockFlight.addFlightButton();});</span>
+<span class="nc" id="L61">    }</span>
+
+    @Test
+    public void addFlightEmpty(){
+<span class="nc" id="L65">        AddFlight flight = new AddFlight();</span>
+<span class="nc" id="L66">        mockFlight = mock(AddFlight.class);</span>
+<span class="nc" id="L67">        when(mockFlight.addFlightButton()).thenReturn(&quot;failed&quot;);</span>
+<span class="nc" id="L68">        assertEquals(flight.addFlightButton(),mockFlight.addFlightButton());</span>
+<span class="nc" id="L69">    }</span>
+    @Test
+    public void searchCustomerMock(){
+<span class="nc" id="L72">        searchCustomer search = new searchCustomer();</span>
+<span class="nc" id="L73">        mockSearch = mock(searchCustomer.class);</span>
+<span class="nc" id="L74">        searchCustomer.txtcustid.setText(&quot;CS001&quot;);</span>
+<span class="nc" id="L75">        when(mockSearch.searchCustomer()).thenReturn(&quot;complete&quot;);</span>
+<span class="nc" id="L76">        assertEquals(search.searchCustomer(),mockSearch.searchCustomer());</span>
+
+<span class="nc" id="L78">    }</span>
+    @Test
+    public void ticketMock(){
+<span class="nc" id="L81">        ticket ticket = new ticket();</span>
+<span class="nc" id="L82">        mockticket = new ticket();</span>
+<span class="nc" id="L83">        assertEquals(ticket.loadFlights(),mockticket.loadFlights());</span>
+
+<span class="nc" id="L85">    }</span>
+    @Test
+    public void customerSearchEmptyMock(){
+<span class="nc" id="L88">        searchCustomer customer  = new searchCustomer();</span>
+<span class="nc" id="L89">        mockSearch = mock(searchCustomer.class);</span>
+
+<span class="nc" id="L91">        when(mockSearch.searchCustomer()).thenReturn(&quot;A field is empty&quot;);</span>
+<span class="nc" id="L92">        assertEquals(customer.searchCustomer(), mockSearch.searchCustomer());</span>
+
+<span class="nc" id="L94">    }</span>
+    @Test
+    public void ticketReportMock(){
+<span class="nc" id="L97">        ticketreport report = new ticketreport();</span>
+<span class="nc" id="L98">        ticketMock = mock(ticketreport.class);</span>
+<span class="nc" id="L99">        when(ticketMock.LoadData()).thenReturn(&quot;complete&quot;);</span>
+<span class="nc" id="L100">        assertEquals(report.LoadData(),ticketMock.LoadData());</span>
+
+<span class="nc" id="L102">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

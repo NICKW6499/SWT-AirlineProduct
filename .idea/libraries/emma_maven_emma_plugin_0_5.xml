@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="emma:maven-emma-plugin:0.5" type="repository">
+    <properties maven-id="emma:maven-emma-plugin:0.5" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/maven-emma-plugin-0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ant-1.6.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/emma-2.0.5312.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/emma_ant-2.0.5312.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

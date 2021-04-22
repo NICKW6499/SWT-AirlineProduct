@@ -2,27 +2,20 @@ package airline;
 
 import com.toedter.calendar.JCalendar;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /*
@@ -440,7 +433,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
 
             try {
-                Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
                 pst = con.prepareStatement("insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
 
@@ -460,8 +452,6 @@ public class addCustomer extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Registration Created.........");
 
 
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
             }
