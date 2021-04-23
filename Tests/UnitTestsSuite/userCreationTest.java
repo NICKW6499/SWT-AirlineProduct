@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * class UnitTestsSuite.UserCreationTest
+ * This class test for different input in creating user
+ */
 class userCreationTest {
 User user;
 userCreation creator;
@@ -23,13 +27,22 @@ userCreation creator;
         userCreation.txtpassword.setText("");
         
     }
-    
+
+    /**
+     * Empty string test
+     * No input was added for user
+     */
     @Test
     @DisplayName("Empty String Test")
     void jButton1ActionPerformedEmpty() {
         userCreation.jButton1.doClick();
         Assertions.assertEquals("A field is blank", creator.createUserButton());
     }
+
+    /**
+     * Null String Test
+     * No input was added for firstname
+     */
     @Test
     @DisplayName("Null String Test")
     void jButton1ActionPerformedNull1() {
@@ -42,6 +55,11 @@ userCreation creator;
         Assertions.assertEquals("A field is blank", creator.createUserButton());
 
     }
+
+    /**
+     * Null String Test
+     * No input was added for lastname
+     */
     @Test
     @DisplayName("Null String Test")
     void jButton1ActionPerformedNull2() {
@@ -54,6 +72,11 @@ userCreation creator;
         Assertions.assertEquals("A field is blank", creator.createUserButton());
 
     }
+
+    /**
+     * Null String Test
+     * No input was added for username
+     */
     @Test
     @DisplayName("Null String Test")
     void jButton1ActionPerformedNull3() {
@@ -66,6 +89,11 @@ userCreation creator;
         Assertions.assertEquals("A field is blank", creator.createUserButton());
 
     }
+
+    /**
+     * Null String Test
+     * No input was added for password
+     */
     @Test
     @DisplayName("Null String Test")
     void jButton1ActionPerformedNull4() {
@@ -78,6 +106,11 @@ userCreation creator;
         Assertions.assertEquals("A field is blank", creator.createUserButton());
 
     }
+
+    /**
+     * Null String Test
+     * No input was added for user id
+     */
     @Test
     @DisplayName("Null String Test")
     void jButton1ActionPerformedNull() {
@@ -90,6 +123,12 @@ userCreation creator;
         Assertions.assertEquals("A field is blank", creator.createUserButton());
 
     }
+
+    /**
+     * Positive Testing
+     * The correct input was added for each field
+     * Test Complete
+     */
     @Test
     @DisplayName("Positive Testing")
     void jButton1ActionPerformed() {
@@ -101,6 +140,9 @@ userCreation creator;
         Assertions.assertEquals("complete", creator.createUserButton());
     }
 
+    /**
+     * Button click test
+     */
     @Test
     void jButton2ActionPerformed() {
         userCreation.jButton2.doClick();
