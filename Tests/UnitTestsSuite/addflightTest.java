@@ -48,6 +48,20 @@ public void setup(){
     AddFlight.txtflightcharge.setText("");
 }
 
+    /**
+     * Test Case ID: Unit test AF#2
+     * Requirement ID/Decription: The program shall display correct prices for flights when booking a ticket.
+     * Purpose: To ensure that the user is correctly charged for this flight.
+     * Test setup: A new instance of flight is set up with default fields.
+     * Test strategy: Positive and negative testing.
+     * Input: DisplayName("Positive Testing"): "300"
+     *        DisplayName("Test for flight correct flight charge"): "-1"
+     *        DisplayName("Empty String testing"): ""
+     * Expected Output: DisplayName("Positive Testing"):"complete"
+     *                  DisplayName("Test for flight correct flight charge"): "Price must be
+     *                  greater than zero."
+     *                  DisplayName("Empty String testing"): "failed"
+     **/
     @Test
     void autoID() {
         myFlight.autoID();
@@ -70,6 +84,8 @@ public void setup(){
         
         Assertions.assertEquals("complete",myFlight.addFlightButton());
     }
+
+
     @Test
     @DisplayName("Test for flight correct flight charge")
     public void jButton1TestNeg0(){
@@ -89,6 +105,7 @@ public void setup(){
         Assertions.assertEquals("Price must be greater than zero",myFlight.addFlightButton());
     }
 
+
     @Test
     @DisplayName("Empty String testing")
     public void jButton1TestNeg(){
@@ -107,14 +124,28 @@ public void setup(){
         Assertions.assertEquals("failed",myFlight.addFlightButton());
 
     }
+    /********************************************************************/
 
     @Test
     public void jbutton2Test(){
         AddFlight.jButton2.doClick();
     }
 
+    /**
+     * Test Case ID: Unit test AF#3
+     * Purpose: To test null/empty values entered to the addFlight class fields. This is to prevent
+     * a flight being added to the database with empty fields.
+     * Test setup: A new instance of flight is set up with default fields.
+     * Test strategy: Negative testing
+     * Input: DisplayName("Null Testing flight id"): AddFlight.txtflightid.setText("");
+     *        DisplayName("Null Testing flight name"): AddFlight.txtflightname.setText("");
+     *        DisplayName("Null Testing depature time"): AddFlight.txtdtime.setText("");
+     *        DisplayName("Null Testing arrival time"): AddFlight.txtarrtime.setText("");
+     *        DisplayName("Null Testing flight charge"): AddFlight.txtflightcharge.setText("");
+     * Expected Output: All tests expected to output String "failed"
+     **/
     @Test
-    @DisplayName("Null Testing")
+    @DisplayName("Null Testing flight id")
     public void jButton1TestNeg3(){
         AddFlight.txtflightid.setText("");
         AddFlight.txtflightname.setText("abc");
@@ -132,7 +163,7 @@ public void setup(){
 
     }
     @Test
-    @DisplayName("Null Testing")
+    @DisplayName("Null Testing flight name")
     public void jButton1TestNeg4(){
         AddFlight.txtflightid.setText("abc");
         AddFlight.txtflightname.setText("");
@@ -151,7 +182,7 @@ public void setup(){
     }
     
     @Test
-    @DisplayName("Null Testing")
+    @DisplayName("Null Testing depature time")
     public void jButton1TestNeg7(){
         AddFlight.txtflightid.setText("abc");
         AddFlight.txtflightname.setText("abc");
@@ -169,7 +200,7 @@ public void setup(){
 
     }
     @Test
-    @DisplayName("Null Testing")
+    @DisplayName("Null Testing arrival time")
     public void jButton1TestNeg8(){
         AddFlight.txtflightid.setText("abc");
         AddFlight.txtflightname.setText("abc");
@@ -187,7 +218,7 @@ public void setup(){
 
     }
     @Test
-    @DisplayName("Null Testing")
+    @DisplayName("Null Testing flight charge")
     public void jButton1TestNeg9(){
         AddFlight.txtflightid.setText("abc");
         AddFlight.txtflightname.setText("abc");
@@ -204,4 +235,6 @@ public void setup(){
         Assertions.assertEquals("failed",myFlight.addFlightButton());
 
     }
+
+    /******************************************************************************/
 }
