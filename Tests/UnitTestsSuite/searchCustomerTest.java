@@ -32,7 +32,16 @@ class searchCustomerTest {
     }
 
 
-
+    /**
+     * Test Case ID: Unit test SC#1
+     * Purpose: Test for correct handling of image uploads.
+     * Test setup: An instance of searchCustomer is set up with default values.
+     * Test strategy: Input validation testing
+     * Input: DisplayName("photo"): JPG or JPEG image file
+     *        DisplayName("not jpg or jpeg or other image formats"): Any non-image file
+     * Expected Output: DisplayName("photo"): "complete"
+     *                  DisplayName("not jpg or jpeg or other image formats"): "An error occurred"
+     **/
     @Test
     @DisplayName("photo")
     void jButton1ActionPerformed() {
@@ -46,6 +55,14 @@ class searchCustomerTest {
         Assertions.assertEquals("An error occurred",customer.updatePhoto());
     }
 
+    /**
+     * Test Case ID: Unit test SC#2
+     * Purpose: Tests for null values when attempting to update searchCustomer.
+     * Test setup: An instance of searchCustomer is set up with default values.
+     * Test strategy: Negative testing
+     * Input: null values for all fields
+     * Expected Output: "A field is empty"
+     **/
     @Test
     @DisplayName("updateNull")
     void jButton2ActionPerformed() {
@@ -69,6 +86,15 @@ class searchCustomerTest {
 
 
     }
+
+    /**
+     * Test Case ID: Unit test SC#3
+     * Purpose: Tests for correct values when attempting to update searchCustomer.
+     * Test setup: An instance of searchCustomer is set up with default values.
+     * Test strategy: Positive testing
+     * Input: Valid inputs for all fields
+     * Expected Output: "complete"
+     **/
     @Test
     @DisplayName("positive")
     void jButton2ActionPerformed3() {
@@ -108,6 +134,7 @@ class searchCustomerTest {
 
 
     }
+    /**********************************************************************/
 
     @Test
     @DisplayName("")
@@ -115,6 +142,20 @@ class searchCustomerTest {
         searchCustomer.jButton3.doClick();
     }
 
+    /**
+     * Test Case ID: Unit test SC#4
+     * Purpose: Tests for ID search
+     * Test setup: An instance of searchCustomer is set up with default values.
+     * Test strategy: Positive and negative testing
+     * Input: DisplayName("Empty String for id"): ""
+     *        DisplayName("null String for id"): null
+     *        DisplayName("Positive match for id"): "CS001"
+     *        DisplayName("negative match for id"): "CS009"
+     * Expected Output: DisplayName("Empty String for id"): "A field is empty"
+     *                  DisplayName("null String for id"): "A field is empty"
+     *                  DisplayName("Positive match for id"): "complete"
+     *                  DisplayName("negative match for id"): "field not found"
+     **/
     @Test
     @DisplayName("Empty String for id")
     void jButton4ActionPerformed() {
@@ -159,7 +200,16 @@ class searchCustomerTest {
         Assertions.assertEquals(mockCustomer.searchCustomer(),"record not found");
 
     }
-    
+    /***********************************************************************/
+
+    /**
+     * Test Case ID: Unit test SC#5
+     * Purpose: Tests for individual empty fields
+     * Test setup: An instance of searchCustomer is set up with default values.
+     * Test strategy: Input validation testing
+     * Input: All fields except one are entered with valid inputs.
+     * Expected Output: false
+     **/
     @Test
     void logic(){
         customer = new searchCustomer();
