@@ -23,10 +23,10 @@ public class ticketreport extends javax.swing.JInternalFrame {
     /**
      * Creates new form ticketreport
      */
-<span class="nc" id="L26">    public ticketreport() {</span>
-<span class="nc" id="L27">        initComponents();</span>
-<span class="nc" id="L28">        LoadData();</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L26">    public ticketreport() {</span>
+<span class="fc" id="L27">        initComponents();</span>
+<span class="fc" id="L28">        LoadData();</span>
+<span class="fc" id="L29">    }</span>
 
     Connection con;
     PreparedStatement pst;
@@ -40,11 +40,11 @@ public class ticketreport extends javax.swing.JInternalFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L43">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L44">        jTable1 = new javax.swing.JTable();</span>
-<span class="nc" id="L45">        jButton1 = new javax.swing.JButton();</span>
+<span class="fc" id="L43">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L44">        jTable1 = new javax.swing.JTable();</span>
+<span class="fc" id="L45">        jButton1 = new javax.swing.JButton();</span>
 
-<span class="nc" id="L47">        jTable1.setModel(new javax.swing.table.DefaultTableModel(</span>
+<span class="fc" id="L47">        jTable1.setModel(new javax.swing.table.DefaultTableModel(</span>
                 new Object[][]{
 
                 },
@@ -52,41 +52,41 @@ public class ticketreport extends javax.swing.JInternalFrame {
                         &quot;TicketNo&quot;, &quot;Flight No&quot;, &quot;Customer ID&quot;, &quot;Class&quot;, &quot;Price&quot;, &quot;Seats&quot;, &quot;Date&quot;
                 }
         ));
-<span class="nc" id="L55">        jScrollPane1.setViewportView(jTable1);</span>
+<span class="fc" id="L55">        jScrollPane1.setViewportView(jTable1);</span>
 
-<span class="nc" id="L57">        jButton1.setText(&quot;Cancel&quot;);</span>
-<span class="nc" id="L58">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L57">        jButton1.setText(&quot;Cancel&quot;);</span>
+<span class="fc" id="L58">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L60">                jButton1ActionPerformed(evt);</span>
 <span class="nc" id="L61">            }</span>
         });
 
-<span class="nc" id="L64">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L65">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L66">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L67">                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L68">                        .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L69">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L70">                                        .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L71">                                                .addContainerGap()</span>
-<span class="nc" id="L72">                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L73">                                        .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L74">                                                .addGap(226, 226, 226)</span>
-<span class="nc" id="L75">                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L76">                                .addContainerGap(35, Short.MAX_VALUE))</span>
+<span class="fc" id="L64">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="fc" id="L65">        getContentPane().setLayout(layout);</span>
+<span class="fc" id="L66">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L67">                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L68">                        .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L69">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L70">                                        .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L71">                                                .addContainerGap()</span>
+<span class="fc" id="L72">                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L73">                                        .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L74">                                                .addGap(226, 226, 226)</span>
+<span class="fc" id="L75">                                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="fc" id="L76">                                .addContainerGap(35, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L78">        layout.setVerticalGroup(</span>
-<span class="nc" id="L79">                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L80">                        .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L81">                                .addGap(29, 29, 29)</span>
-<span class="nc" id="L82">                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L83">                                .addGap(35, 35, 35)</span>
-<span class="nc" id="L84">                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L85">                                .addContainerGap(37, Short.MAX_VALUE))</span>
+<span class="fc" id="L78">        layout.setVerticalGroup(</span>
+<span class="fc" id="L79">                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L80">                        .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L81">                                .addGap(29, 29, 29)</span>
+<span class="fc" id="L82">                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L83">                                .addGap(35, 35, 35)</span>
+<span class="fc" id="L84">                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L85">                                .addContainerGap(37, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L88">        pack();</span>
-<span class="nc" id="L89">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="fc" id="L88">        pack();</span>
+<span class="fc" id="L89">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -95,9 +95,9 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
 
     public String LoadData() {
-<span class="nc" id="L98">        String message = &quot;failed&quot;;</span>
+<span class="fc" id="L98">        String message = &quot;failed&quot;;</span>
         try {
-<span class="nc" id="L100">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+<span class="fc" id="L100">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
 <span class="nc" id="L101">            con = DriverManager.getConnection(&quot;jdbc:mysql://localhost/AirlineDB&quot;, &quot;root&quot;, &quot;&quot;);</span>
 <span class="nc" id="L102">            pst = con.prepareStatement(&quot;SELECT * from ticket&quot;);</span>
 <span class="nc" id="L103">            ResultSet rs = pst.executeQuery();</span>
@@ -130,11 +130,11 @@ public class ticketreport extends javax.swing.JInternalFrame {
 
 <span class="nc" id="L131">        } catch (ClassNotFoundException ex) {</span>
 <span class="nc" id="L132">            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L133">        } catch (SQLException ex) {</span>
-<span class="nc" id="L134">            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="fc" id="L133">        } catch (SQLException ex) {</span>
+<span class="fc" id="L134">            Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);</span>
 <span class="nc" id="L135">        }</span>
 
-<span class="nc" id="L137">        return message;</span>
+<span class="fc" id="L137">        return message;</span>
 
     }
 

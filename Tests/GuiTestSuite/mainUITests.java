@@ -1,11 +1,11 @@
 package GuiTestSuite;
 
-import airline.*;
+import airline.Login;
+import airline.Main;
 import org.junit.jupiter.api.Test;
 
 
 public class mainUITests {
-
     @Test
     void main() {
         Main main = new Main();
