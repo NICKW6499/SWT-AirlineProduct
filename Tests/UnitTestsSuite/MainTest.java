@@ -6,8 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Class UnitTestsSuite.MainTest
+ * This class was created to test that the Main.java class is working properly
+ * and that the login.java class was called
+ */
 class MainTest {
-
     @Test
     void main() {
         Main main = new Main();
