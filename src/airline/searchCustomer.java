@@ -3,29 +3,22 @@ package airline;
 
 import com.toedter.calendar.JCalendar;
 
-import java.awt.Image;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Blob;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /*
@@ -346,7 +339,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtpassportActionPerformed
 
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    updatePhoto();
+        updatePhoto();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -355,10 +348,12 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    public String updateUser(){
+    //method to update a user's information with info from the GUI
+    public String updateUser() {
         // TODO add your handling code here:
         String message = "A field is empty";
-        if(checkValues()) {
+        //if statement handles checking input values tomake sure they aren't empty
+        if (checkValues()) {
             message = "complete";
             String id = txtcustid.getText();
             String firstname = txtfirstname.getText();
@@ -372,6 +367,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
             String date = da.format(txtdob.getDate());
             String Gender;
 
+            //r1 selected means male, else means female
             if (r1.isSelected()) {
                 Gender = "Male";
             } else {
@@ -380,6 +376,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
             String contact = txtcontact.getText();
 
+            //insert updated information into the database where the id is equal to the current customer id
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
@@ -411,6 +408,7 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         return message;
     }
 
+    //close page
     public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         this.hide();
@@ -421,11 +419,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    public String searchCustomer(){
+    //method called when search customer button is called, populates labels and text fields with
+    //customer information
+    public String searchCustomer() {
         // TODO add your handling code here:
         String message = "A field is empty";
         String customer = txtcustid.getText();
-        if(!customer.equals("") && customer != null) {
+        if (!customer.equals("") && customer != null) {
             message = "complete";
             String id = txtcustid.getText();
             try {
@@ -435,10 +435,13 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                 pst.setString(1, id);
                 ResultSet rs = pst.executeQuery();
 
+                //if false, then no customer with that id exists
                 if (rs.next() == false) {
                     message = "record not found";
                     JOptionPane.showMessageDialog(this, "Record not Found");
-                } else {
+                }
+                //code to populate fields
+                else {
                     String fname = rs.getString("firstname");
                     String lname = rs.getString("lastname");
                     String nic = rs.getString("nic");
@@ -468,7 +471,6 @@ public class searchCustomer extends javax.swing.JInternalFrame {
                     }
                     String contact = rs.getString("contact");
 
-
                     txtfirstname.setText(fname.trim());
                     txtlastname.setText(lname.trim());
                     txtnic.setText(nic.trim());
@@ -490,8 +492,10 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         return message;
     }
 
-    public String updatePhoto(){
+    //method updates a photo from the search customer page
+    public String updatePhoto() {
 
+        //JFileChooser opens a file selection window and throws exceptions if incorrect types are passed
         try {
             JFileChooser picchooser = new JFileChooser();
             picchooser.showOpenDialog(null);
@@ -519,23 +523,23 @@ public class searchCustomer extends javax.swing.JInternalFrame {
         } catch (IOException ex) {
             Logger.getLogger(addCustomer.class.getName()).log(Level.SEVERE, null, ex);
             return "An error occurred";
-        }
-        catch(NullPointerException ex){
+        } catch (NullPointerException ex) {
             return "An error occurred";
         }
         return "complete";
 
     }
 
-    public boolean checkValues(){
-        if(  txtaddress.getText().isEmpty()
+    //check value method ensures no empty values are passed into the system
+    public boolean checkValues() {
+        if (txtaddress.getText().isEmpty()
                 || txtcontact.getText().isEmpty()
                 || txtfirstname.getText().isEmpty()
                 || txtcustid.getText().isEmpty()
                 || txtlastname.getText().isEmpty()
                 || txtnic.getText().isEmpty()
                 || txtpassport.getText().isEmpty()
-                || txtphoto.getText().isEmpty()){
+                || txtphoto.getText().isEmpty()) {
             return false;
         }
         return true;

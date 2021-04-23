@@ -139,6 +139,7 @@ public class Login extends javax.swing.JFrame {
         if (username == null || password == null) {
             error = "UserName or Password Blank";
         }
+        //string is empty check
         else if (username.isEmpty() || password.isEmpty()) {
             error = "UserName or Password Blank";
             JOptionPane.showMessageDialog(this, error);
@@ -153,13 +154,14 @@ public class Login extends javax.swing.JFrame {
                 ResultSet rs;
                 rs = pst.executeQuery();
 
-
+                //successful login condition
                 if (rs.next()) {
                     Main m = new Main();
                     this.hide();
                     m.setVisible(true);
                     error = "validated";
 
+                    //no user with that combination of user/password
                 } else {
                     String userPwWrong = "UserName or Password do not Match";
                     JOptionPane.showMessageDialog(this, userPwWrong);

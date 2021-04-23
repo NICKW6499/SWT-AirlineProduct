@@ -1,17 +1,12 @@
 package airline;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.swing.*;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -224,6 +219,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
 
      public void autoID()
     {
+        //connection to database
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB","root","");
@@ -248,7 +244,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
         }
 
     }
-
+    //method to check text field values and option selection values
     public boolean checkBoxes(){
         if((txtflightid.getText().isEmpty())
                 ||(txtflightname.getText().isEmpty())
@@ -261,6 +257,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
         else return true;
     }
 
+    //method to add a flight to the database if checkValues() returns true
     public String addFlightButton(){
         String message = "A field is empty";
         if(checkBoxes()) {
@@ -269,16 +266,16 @@ public class AddFlight extends javax.swing.JInternalFrame {
                 String id = txtflightid.getText();
                 String flightname = txtflightname.getText();
 
+                //flight information
                 String source = Objects.requireNonNull(txtsource.getSelectedItem()).toString().trim();
                 String depart = Objects.requireNonNull(txtdepart.getSelectedItem()).toString().trim();
-
                 DateFormat da = new SimpleDateFormat("yyyy-MM-dd");
                 String date = da.format(txtdate.getDate());
-
                 String departtime = txtdtime.getText();
                 String arrtime = txtarrtime.getText();
                 String flightcharge = txtflightcharge.getText();
 
+                //insert flight into database
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
@@ -313,6 +310,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
         }
     }
 
+    //add flight button calls addflight()
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         addFlightButton();

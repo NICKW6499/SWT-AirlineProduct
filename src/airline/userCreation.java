@@ -16,8 +16,6 @@ import static java.sql.DriverManager.getConnection;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 public class userCreation extends javax.swing.JInternalFrame {
 
     /**
@@ -167,7 +165,7 @@ public class userCreation extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //create user button
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       createUserButton();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -177,7 +175,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
+    //gets current info in the database to create the next id for the next customer created
     public void autoID() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -205,6 +203,8 @@ public class userCreation extends javax.swing.JInternalFrame {
 
 
     }
+    //this method is called when the create user button is clicked
+    //checkValues returns true if all fields are complete and a user is created based on info provided
     public String createUserButton(){
         String message = "A field is blank";
         if (checkValues()) {
@@ -239,7 +239,7 @@ public class userCreation extends javax.swing.JInternalFrame {
         }
         return message;
     }
-
+    //check values to make sure they arent empty
     public boolean checkValues() {
         if (txtuserid.getText().isEmpty() || txtfirstname.getText().isEmpty() || txtlastname.getText().isEmpty()
                 || txtusername.getText().isEmpty() || txtpassword.getText().isEmpty() ) {

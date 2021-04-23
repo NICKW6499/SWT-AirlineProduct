@@ -362,12 +362,14 @@ public class addCustomer extends javax.swing.JInternalFrame {
        addImage();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Method to add an image
     public String addImage(){
         // TODO add your handling code here:
         String message = "A field is empty";
 
             message = "complete";
             try {
+                //This opens a file chooser and returns the selected value
                 JFileChooser picchooser = new JFileChooser();
                 picchooser.showOpenDialog(null);
                 File pic = picchooser.getSelectedFile();
@@ -401,15 +403,16 @@ public class addCustomer extends javax.swing.JInternalFrame {
 
     }
 
-
+    //button for adding a user
     public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         addUser();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    //method called when add user button is clicked
     public String addUser(){
         // TODO add your handling code here:
         String message = "A field is empty";
+        //checks values of fields, and if they are not empty, creates a user with the values
         if (checkValues()) {
             message = "complete";
             String id = txtid.getText();
@@ -431,7 +434,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
                 Gender = "FeMale";
             }
 
-
+            //code to connect and upload user to database
             try {
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
                 pst = con.prepareStatement("insert into customer(id,firstname,lastname,nic,passport,address,dob,gender,contact,photo)values(?,?,?,?,?,?,?,?,?,?)");
@@ -459,7 +462,7 @@ public class addCustomer extends javax.swing.JInternalFrame {
         return message;
     }
 
-
+    //method to check text field values
     public boolean checkValues(){
         if(  txtaddress.getText().isEmpty()
                 || txtcontact.getText().isEmpty()

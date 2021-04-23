@@ -438,12 +438,14 @@ public class ticket extends javax.swing.JInternalFrame {
 
     }
 
+    //add ticket button calls add ticket
     public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         addTicket();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //add ticket method calls checkValues() and inserts new ticket info if values are not empty
     public String addTicket() {
         String message = "Please fill in all fields";
         if (checkValues()) {
@@ -460,7 +462,7 @@ public class ticket extends javax.swing.JInternalFrame {
             JCalendar txtdate = new JCalendar();
             String date = da.format(txtdate.getDate());
 
-
+            //database connection code with sql insert
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost/AirlineDB", "root", "");
@@ -487,20 +489,21 @@ public class ticket extends javax.swing.JInternalFrame {
         }
         return message;
     }
-
+    //button to hide the current page
     public void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
         this.hide();
 
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    //load flights button calls loadFlights()
     public void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         loadFlights();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    //load flights method ensures fields are not empty and inserts new flights into database for use
     public String loadFlights() {
         String message = "A field is empty";
         try {
@@ -559,13 +562,13 @@ public class ticket extends javax.swing.JInternalFrame {
         return message;
     }
 
-
+    //showinfo method is called by this button being pressed
     public void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         showInfo();
 
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    //showinfo method shows customer ticket information based on provided customer id
     public String showInfo() {
         String message = "A field is empty";
         if (!(txtcustid.getText().equals(""))) {
@@ -579,24 +582,22 @@ public class ticket extends javax.swing.JInternalFrame {
                 pst.setString(1, id);
                 ResultSet rs = pst.executeQuery();
 
+                //no tickets for that customer id exist
                 if (rs.next() == false) {
                     message = "record not found";
                     JOptionPane.showMessageDialog(this, "Record not Found");
-                } else {
+                }
+                //display customer ticket info
+                else {
                     String fname = rs.getString("firstname");
                     String lname = rs.getString("lastname");
 
                     String passport = rs.getString("passport");
-
-
                     txtfirstname.setText(fname.trim());
                     txtlastname.setText(lname.trim());
-
                     txtpassport.setText(passport.trim());
 
-
                 }
-
 
             } catch (SQLException ex) {
                 Logger.getLogger(ticket.class.getName()).log(Level.SEVERE, null, ex);
@@ -605,6 +606,7 @@ public class ticket extends javax.swing.JInternalFrame {
         return message;
     }
 
+    //code to populate the tableview on the ticket page
     public void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
 
@@ -619,13 +621,13 @@ public class ticket extends javax.swing.JInternalFrame {
         txtprice.setText(Df.getValueAt(selectIndex, 7).toString());
 
     }//GEN-LAST:event_jTable1MouseClicked
-
+    //calls change seats method for if the amount of seats is changed
     public void txtseatsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtseatsStateChanged
         // TODO add your handling code here:
         changeSeats();
 
     }//GEN-LAST:event_txtseatsStateChanged
-
+    //alters the number of seats for a customer
     public String changeSeats() {
         String message = "empty";
         if (!txtprice.getText().equals("")  && !txtseats.getValue().toString().equals("")) {
